@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LensLink AI - Your Intelligent Camera Matchmaker</title>
+    
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* --- Hero & AI Chatbot Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #8b949e;
+            margin-bottom: 40px;
+        }
+
+        .chat-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-display {
+            height: 250px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-right: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .chat-display::-webkit-scrollbar { width: 6px; }
+        .chat-display::-webkit-scrollbar-track { background: #161b22; }
+        .chat-display::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+        .message { padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; line-height: 1.4; }
+        .ai-message { background-color: #21262d; align-self: flex-start; }
+        .user-message { background-color: #0d442b; color: #c9d1d9; align-self: flex-end; }
+        .typing-indicator { align-self: flex-start; color: #8b949e; font-style: italic; }
+
+        .chat-input-area { display: flex; }
+        #userInput { flex-grow: 1; padding: 10px; border: 1px solid #30363d; border-radius: 5px 0 0 5px; background-color: #0d1117; color: #e0e0e0; font-size: 1em; }
+        #sendBtn { padding: 10px 20px; border: 1px solid #30363d; border-left: none; border-radius: 0 5px 5px 0; background-color: #238636; color: white; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease; }
+        #sendBtn:hover { background-color: #2ea043; }
+
+        /* --- Manual Compare Section --- */
+        .manual-compare-section {
+            padding: 40px 0;
+            background-color: #0d1117;
+        }
+        .manual-compare-form {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            gap: 15px;
+            align-items: center;
+        }
+        .manual-compare-form input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            color: #e0e0e0;
+        }
+        .vs-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #8b949e;
+        }
+        #manualCompareBtn {
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: 600;
+            background-color: #1f6feb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #manualCompareBtn:hover {
+            background-color: #388bfd;
+        }
+        .error-message {
+            display: none;
+            color: #f85149;
+            text-align: center;
+            margin-top: 15px;
+            grid-column: 1 / -1; /* Span all columns */
+        }
+
+        /* --- Comparison Section --- */
+        .comparison-section {
+            padding: 60px 0;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .camera-card { 
+            background-color: #161b22; 
+            border: 1px solid #30363d; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            transition: box-shadow 0.3s ease;
+        }
+        .camera-card:hover {
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.1);
+        }
+        .camera-card img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            display: block; 
+            background-color: #21262d;
+        }
+        .card-content { padding: 20px; }
+        .card-content h3 { font-size: 1.5em; color: #58a6ff; margin-bottom: 10px; }
+        .card-content .ai-insight { 
+            background-color: #21262d; 
+            padding: 10px; 
+            border-radius: 5px; 
+            margin-bottom: 15px; 
+            font-style: italic; 
+            border-left: 3px solid #f1e05a; 
+            min-height: 60px;
+        }
+        .card-content ul { list-style: none; padding-left: 0; }
+        .card-content ul li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .card-content ul li::before { content: '✓'; color: #238636; position: absolute; left: 0; font-weight: bold; }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 30px; margin-top: 40px; border-top: 1px solid #30363d; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <div class="logo">LensLink AI</div>
+        <nav>
+            <a href="#">Smart Selector</a>
+            <a href="#comparisonSection">Compare</a>
+            <a href="#">Reviews</a>
+            <a href="#">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Connect with Your Perfect Camera.</h1>
+                <p>Tell me what you need, or compare two models directly below.</p>
+                <div class="chat-container">
+                    <div class="chat-display" id="chatDisplay">
+                        <div class="message ai-message">
+                            Hello! I'm Ahri. What are you passionate about photographing?
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="userInput" placeholder="e.g., 'I need a camera for travel vlogging'">
+                        <button id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="manual-compare-section container">
+            <h2>Manual Comparison</h2>
+            <p class="section-subtitle">Already know what you're looking for? Type the models below.</p>
+            <div class="manual-compare-form">
+                <input type="text" id="camera1Input" placeholder="e.g., Sony a7 IV">
+                <span class="vs-text">vs.</span>
+                <input type="text" id="camera2Input" placeholder="e.g., Canon EOS R6">
+                <button id="manualCompareBtn">Compare</button>
+                <p id="manualError" class="error-message"></p>
+            </div>
+        </section>
+
+        <section class="comparison-section container" id="comparisonSection">
+            <h2>Comparison Result</h2>
+            <div class="comparison-grid">
+                <div class="camera-card" id="camera1Card">
+                    <img src="" alt="Camera 1" id="camera1Img">
+                    <div class="card-content">
+                        <h3 id="camera1Name">Camera 1</h3>
+                        <p class="ai-insight" id="camera1Insight"></p>
+                        <ul id="camera1Specs">
+                            </ul>
+                    </div>
+                </div>
+                <div class="camera-card" id="camera2Card">
+                    <img src="" alt="Camera 2" id="camera2Img">
+                    <div class="card-content">
+                        <h3 id="camera2Name">Camera 2</h3>
+                        <p class="ai-insight" id="camera2Insight"></p>
+                        <ul id="camera2Specs">
+                             </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved. A concept by a user and their AI assistant.</p>
+    </footer>
+
+    <script>
+        // --- Mock Camera Database ---
+        const cameraDatabase = {
+            "sony_a7_iv": {
+                name: "Sony Alpha a7 IV",
+                img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c29ueSUyMGFsdHwwfHx8fDE2NjU2NzgzOA&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "Best for hybrid shooters who need excellent video and photo quality. Its new sensor and processor provide amazing autofocus.",
+                specs: ["33MP Full-Frame Sensor", "4K 60p Video Recording", "Best-in-class Real-time AF", "Fully Articulating Screen"]
+            },
+            "canon_eos_r6": {
+                name: "Canon EOS R6",
+                img: "https://images.unsplash.com/photo-1510127034890-ba27e83497b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2Fub24lMjBjYW1lcmF8fHx8fDE2NjU2NzgzNA&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "A low-light powerhouse with incredible autofocus. Perfect for event and sports photographers who need speed and reliability.",
+                specs: ["20MP Full-Frame Sensor", "Up to 20fps Shooting", "Exceptional Low-Light Performance", "In-Body Image Stabilization"]
+            },
+            "fujifilm_x_s10": {
+                name: "Fujifilm X-S10",
+                img: "https://images.unsplash.com/photo-1616422285623-13ff0162193c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZnVqaWZpbG0lMjBjYW1lcmF8fHx8fDE2NjU2NzgzMQ&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "Amazing value for vlogging and travel. You get Fuji's beautiful color science and IBIS in a compact, affordable body.",
+                specs: ["26.1MP APS-C Sensor", "In-Body Image Stabilization (IBIS)", "4K 30p Video", "Vari-angle LCD Screen"]
+            },
+            "sony_zv_e10": {
+                name: "Sony ZV-E10",
+                img: "https://images.unsplash.com/photo-1634269382220-3b8c3f4c6b3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c29ueSUyMHp2ZTEwfHx8fHwxNjY1Njc4Mw&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "Built specifically for vloggers. Its product showcase mode and easy background blur are fantastic, but it lacks IBIS.",
+                specs: ["24.2MP APS-C Sensor", "Vlog-centric Features", "4K 30p Video", "Fully Articulating Screen"]
+            },
+            "nikon_z6_ii": {
+                name: "Nikon Z6 II",
+                img: "https://images.unsplash.com/photo-1596578051121-0a69b765d776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bmlrb24lMjBjYW1lcmF8fHx8fDE2NjU2NzgyOA&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "A rugged and reliable workhorse. Excellent ergonomics and video features, with dual card slots for peace of mind.",
+                specs: ["24.5MP Full-Frame Sensor", "Dual EXPEED 6 Processors", "4K 60p Video (cropped)", "Dual Card Slots (CFx/SD)"]
+            },
+            "canon_eos_r10": {
+                name: "Canon EOS R10",
+                img: "https://images.unsplash.com/photo-1519638831568-d9897f54ed69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2Fub24lMjByMTB8fHx8fDE2NjU2NzgyNQ&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "A fantastic and affordable entry into the RF mount system. It packs fast autofocus from higher-end models into a small body.",
+                specs: ["24.2MP APS-C Sensor", "Up to 23fps Shooting", "Advanced Subject-tracking AF", "4K 60p Video (cropped)"]
+            },
+            "nikon_z50": {
+                name: "Nikon Z50",
+                img: "https://images.unsplash.com/photo-1581026859576-02de02c61330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8bmlrb24lMjB6NTB8fHx8fDE2NjU2NzgyMw&ixlib=rb-4.0.3&q=80&w=1080",
+                insight: "Great for beginners. It feels solid in the hand and produces excellent images, but has a smaller lens selection than rivals.",
+                specs: ["20.9MP APS-C Sensor", "11fps Shooting", "Tilting screen (for vlogging)", "Excellent Ergonomics"]
+            }
+        };
+
+        // --- Get Element References ---
+        const chatDisplay = document.getElementById('chatDisplay');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const camera1Input = document.getElementById('camera1Input');
+        const camera2Input = document.getElementById('camera2Input');
+        const manualCompareBtn = document.getElementById('manualCompareBtn');
+        const manualError = document.getElementById('manualError');
+
+        // Card 1 Elements
+        const camera1Name = document.getElementById('camera1Name');
+        const camera1Img = document.getElementById('camera1Img');
+        const camera1Insight = document.getElementById('camera1Insight');
+        const camera1Specs = document.getElementById('camera1Specs');
+        
+        // Card 2 Elements
+        const camera2Name = document.getElementById('camera2Name');
+        const camera2Img = document.getElementById('camera2Img');
+        const camera2Insight = document.getElementById('camera2Insight');
+        const camera2Specs = document.getElementById('camera2Specs');
+
+        // --- Core Functions ---
+
+        /**
+         * Finds a camera key in the database from its display name (case-insensitive)
+         * @param {string} name - The display name (e.g., "Sony a7 IV")
+         * @returns {string|null} - The database key (e.g., "sony_a7_iv") or null
+         */
+        function findCameraKey(name) {
+            const lowerName = name.toLowerCase();
+            for (const [key, data] of Object.entries(cameraDatabase)) {
+                if (data.name.toLowerCase() === lowerName) {
+                    return key;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Dynamically updates a single camera card
+         * @param {string} cardPrefix - "camera1" or "camera2"
+         * @param {object} data - The camera data object from the database
+         */
+        function updateCard(cardPrefix, data) {
+            const nameEl = document.getElementById(`${cardPrefix}Name`);
+            const imgEl = document.getElementById(`${cardPrefix}Img`);
+            const insightEl = document.getElementById(`${cardPrefix}Insight`);
+            const specsEl = document.getElementById(`${cardPrefix}Specs`);
+
+            nameEl.textContent = data.name;
+            imgEl.src = data.img;
+            imgEl.alt = data.name;
+            insightEl.textContent = data.insight;
+
+            // Clear old specs and add new ones
+            specsEl.innerHTML = "";
+            data.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.textContent = spec;
+                specsEl.appendChild(li);
+            });
+        }
+
+        /**
+         * Updates both comparison cards based on database keys
+         * @param {string} cam1Key - The database key for camera 1
+         * @param {string} cam2Key - The database key for camera 2
+         */
+        function updateComparisonCards(cam1Key, cam2Key) {
+            const cam1Data = cameraDatabase[cam1Key];
+            const cam2Data = cameraDatabase[cam2Key];
+
+            if (cam1Data && cam2Data) {
+                updateCard('camera1', cam1Data);
+                updateCard('camera2', cam2Data);
+                
+                // Scroll to the comparison section
+                document.getElementById('comparisonSection').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /**
+         * Adds a message to the chat display
+         * @param {string} text - The message content
+         * @param {string} sender - "user" or "ai"
+         */
+        function addMessage(text, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', `${sender}-message`);
+            messageElement.textContent = text;
+            chatDisplay.appendChild(messageElement);
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+
+        /**
+         * Handles the main chatbot logic
+         */
+        function handleChat() {
+            const userText = userInput.value.trim();
+            if (userText === "") return;
+
+            addMessage(userText, 'user');
+            userInput.value = "";
+
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('message', 'typing-indicator');
+            typingIndicator.textContent = "Ahri is typing...";
+            chatDisplay.appendChild(typingIndicator);
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+
+            // Simulate AI thinking
+            setTimeout(() => {
+                chatDisplay.removeChild(typingIndicator);
+                
+                let responseText = "";
+                let comparisonKeys = ["sony_a7_iv", "canon_eos_r6"]; // Default
+                const lowerUserText = userText.toLowerCase();
+
+                if (lowerUserText.includes('travel') || lowerUserText.includes('vlog')) {
+                    responseText = "For travel and vlogging, lightweight cameras are key. I've updated the comparison below to show the Fujifilm X-S10 vs. the Sony ZV-E10. Check it out!";
+                    comparisonKeys = ["fujifilm_x_s10", "sony_zv_e10"];
+                } else if (lowerUserText.includes('sport') || lowerUserText.includes('action')) {
+                    responseText = "For sports, you need speed! I've set up a comparison between the Canon EOS R6 and the Nikon Z6 II below. Both have incredible autofocus and burst shooting capabilities.";
+                    comparisonKeys = ["canon_eos_r6", "nikon_z6_ii"];
+                } else if (lowerUserText.includes('beginner') || lowerUserText.includes('new')) {
+                    responseText = "For beginners, user-friendly cameras are a great start. I've updated the cards below to compare the Canon EOS R10 and the Nikon Z50 for you.";
+                    comparisonKeys = ["canon_eos_r10", "nikon_z50"];
+                } else {
+                    responseText = "That's an interesting request! Based on that, I would recommend comparing the Sony a7 IV and the Canon EOS R6. You can see my analysis of them below, or enter your own models in the manual comparison section.";
+                    // comparisonKeys remains default
+                }
+                
+                addMessage(responseText, 'ai');
+                
+                // Update the comparison cards
+                updateComparisonCards(comparisonKeys[0], comparisonKeys[1]);
+                
+                // Also update the manual input fields to match
+                camera1Input.value = cameraDatabase[comparisonKeys[0]].name;
+                camera2Input.value = cameraDatabase[comparisonKeys[1]].name;
+
+            }, 1500);
+        }
+
+        /**
+         * Handles the manual compare button click
+         */
+        function handleManualCompare() {
+            manualError.style.display = 'none'; // Hide error on new attempt
+            const cam1Value = camera1Input.value.trim();
+            const cam2Value = camera2Input.value.trim();
+            
+            if (cam1Value === "" || cam2Value === "") {
+                manualError.textContent = "Please enter a name for both cameras to compare.";
+                manualError.style.display = 'block';
+                return;
+            }
+
+            const cam1Key = findCameraKey(cam1Value);
+            const cam2Key = findCameraKey(cam2Value);
+
+            if (!cam1Key || !cam2Key) {
+                manualError.textContent = "One or both camera names were not found. Please check spelling and try again.";
+                manualError.style.display = 'block';
+                return;
+            }
+
+            updateComparisonCards(cam1Key, cam2Key);
+        }
+
+        // --- Event Listeners ---
+        sendBtn.addEventListener('click', handleChat);
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                handleChat();
+            }
+        });
+
+        manualCompareBtn.addEventListener('click', handleManualCompare);
+
+        // --- Initial Page Load ---
+        // Load the default comparison when the page is ready
+        window.addEventListener('DOMContentLoaded', () => {
+            updateComparisonCards('sony_a7_iv', 'canon_eos_r6');
+            // Set the inputs to match the default, fully populating the UI
+            camera1Input.value = cameraDatabase['sony_a7_iv'].name;
+            camera2Input.value = cameraDatabase['canon_eos_r6'].name;
+        });
+    </script>
+
+</body>
+</html>
