@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LensLink AI</title>
+    
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a, nav span {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* --- Main Content --- */
+        main {
+            flex: 1;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #3d1f1f;
+            color: #f85149;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid #f85149;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #1f3d28;
+            color: #3fb950;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid #3fb950;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* --- User Table --- */
+        .table-container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #21262d;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        tbody tr:hover {
+            background-color: #0d1117;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .role-admin {
+            background-color: #1f3d5e;
+            color: #79c0ff;
+        }
+
+        .role-user {
+            background-color: #1f3d28;
+            color: #3fb950;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            margin-right: 8px;
+        }
+
+        .btn-edit {
+            background-color: #1f6feb;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background-color: #388bfd;
+        }
+
+        .btn-delete {
+            background-color: #da3633;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #f85149;
+        }
+
+        .btn:disabled {
+            background-color: #30363d;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .no-users {
+            text-align: center;
+            padding: 40px;
+            color: #8b949e;
+        }
+
+        /* --- Modal --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: #58a6ff;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 400;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .btn-secondary {
+            padding: 10px 20px;
+            background-color: #30363d;
+            color: #c9d1d9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background-color: #3d444d;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <a href="/" class="logo">LensLink AI</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+            <span id="userGreeting"></span>
+            <a href="/profile.html">Profile</a>
+            <a href="#" id="logoutLink">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Admin Dashboard</h1>
+        <p class="subtitle">Manage user accounts and permissions</p>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <div class="table-container">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <tr>
+                        <td colspan="5" class="no-users">Loading users...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Edit User Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit User</h2>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editUserId">
+                
+                <div class="form-group">
+                    <label for="editUsername">Username</label>
+                    <input type="text" id="editUsername" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editRole">Role</label>
+                    <select id="editRole" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editPassword">New Password (leave blank to keep current)</label>
+                    <input type="password" id="editPassword" autocomplete="new-password">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelEditBtn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveEditBtn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <script src="/public/js/auth.js"></script>
+    <script>
+        let currentUser = null;
+        const editModal = document.getElementById('editModal');
+        const editForm = document.getElementById('editForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        // Initialize page
+        async function init() {
+            // Check if user is admin
+            currentUser = await requireAdmin();
+            if (!currentUser) return;
+
+            // Update greeting
+            document.getElementById('userGreeting').textContent = `Hello, ${currentUser.username}`;
+
+            // Load users
+            await loadUsers();
+
+            // Setup event listeners
+            document.getElementById('logoutLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                logout();
+            });
+
+            document.getElementById('cancelEditBtn').addEventListener('click', () => {
+                closeEditModal();
+            });
+
+            editForm.addEventListener('submit', handleEditSubmit);
+
+            // Close modal when clicking outside
+            editModal.addEventListener('click', (e) => {
+                if (e.target === editModal) {
+                    closeEditModal();
+                }
+            });
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            successMessage.classList.remove('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 5000);
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.classList.add('show');
+            errorMessage.classList.remove('show');
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        }
+
+        async function loadUsers() {
+            try {
+                const response = await fetch('/api/admin/users');
+                if (!response.ok) {
+                    throw new Error('Failed to load users');
+                }
+
+                const users = await response.json();
+                displayUsers(users);
+            } catch (error) {
+                showError('Failed to load users. Please refresh the page.');
+                console.error(error);
+            }
+        }
+
+        function displayUsers(users) {
+            const tbody = document.getElementById('usersTableBody');
+            
+            if (users.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="no-users">No users found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = users.map(user => {
+                const createdDate = new Date(user.created_at).toLocaleDateString();
+                const roleClass = user.role === 'admin' ? 'role-admin' : 'role-user';
+                
+                return `
+                    <tr>
+                        <td>${escapeHtml(user.username)}</td>
+                        <td>${escapeHtml(user.email)}</td>
+                        <td><span class="role-badge ${roleClass}">${user.role}</span></td>
+                        <td>${createdDate}</td>
+                        <td>
+                            <button class="btn btn-edit" onclick="openEditModal('${user.id}')">Edit</button>
+                            <button class="btn btn-delete" onclick="deleteUser('${user.id}', '${escapeHtml(user.username)}')">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function openEditModal(userId) {
+            try {
+                const response = await fetch('/api/admin/users');
+                const users = await response.json();
+                const user = users.find(u => u.id === userId);
+
+                if (!user) {
+                    showError('User not found');
+                    return;
+                }
+
+                document.getElementById('editUserId').value = user.id;
+                document.getElementById('editUsername').value = user.username;
+                document.getElementById('editEmail').value = user.email;
+                document.getElementById('editRole').value = user.role;
+                document.getElementById('editPassword').value = '';
+
+                editModal.classList.add('show');
+            } catch (error) {
+                showError('Failed to load user data');
+                console.error(error);
+            }
+        }
+
+        function closeEditModal() {
+            editModal.classList.remove('show');
+            editForm.reset();
+        }
+
+        async function handleEditSubmit(e) {
+            e.preventDefault();
+
+            const userId = document.getElementById('editUserId').value;
+            const email = document.getElementById('editEmail').value;
+            const role = document.getElementById('editRole').value;
+            const password = document.getElementById('editPassword').value;
+
+            const updateData = { email, role };
+            if (password) {
+                updateData.password = password;
+            }
+
+            document.getElementById('saveEditBtn').disabled = true;
+
+            try {
+                const response = await fetch(`/api/admin/users/${userId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                });
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Failed to update user');
+                }
+
+                showSuccess('User updated successfully');
+                closeEditModal();
+                await loadUsers();
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                document.getElementById('saveEditBtn').disabled = false;
+            }
+        }
+
+        async function deleteUser(userId, username) {
+            if (!confirm(`Are you sure you want to delete user "${username}"? This action cannot be undone.`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/admin/users/${userId}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Failed to delete user');
+                }
+
+                showSuccess(`User "${username}" deleted successfully`);
+                await loadUsers();
+            } catch (error) {
+                showError(error.message);
+                console.error(error);
+            }
+        }
+
+        // Initialize on page load
+        init();
+    </script>
+
+</body>
+</html>
+

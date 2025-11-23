@@ -1,0 +1,35 @@
+[
+  {
+    "id": "admin-001",
+    "username": "Karnkrit Us",
+    "email": "karnkritapi@gmail.com",
+    "password": "Zei5g2m9gYnxegU",
+    "role": "admin",
+    "created_at": "2025-10-25T12:00:00Z",
+    "favorites": [],
+    "reviews": [],
+    "priceAlerts": []
+  },
+  {
+    "id": "364a03d252504c00",
+    "username": "Karnkrit Us",
+    "email": "karnkritapi@gmail.com",
+    "password": "Zei5g2m9gYnxegU",
+    "role": "admin",
+    "created_at": "2025-10-25T09:48:36.319Z",
+    "favorites": [],
+    "reviews": [],
+    "priceAlerts": []
+  },
+  {
+    "id": "f1395846be52f4b9",
+    "username": "Jib",
+    "email": "krittikaattha@gmail.com",
+    "password": "engus131",
+    "role": "user",
+    "created_at": "2025-11-09T14:06:30.374Z",
+    "favorites": [],
+    "reviews": [],
+    "priceAlerts": []
+  }
+]

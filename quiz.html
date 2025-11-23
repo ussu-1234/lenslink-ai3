@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Recommendation Quiz - LensLink AI</title>
+    <meta name="description" content="Take our interactive quiz to find the perfect camera for your needs, budget, and photography style.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+
+        .quiz-container {
+            background: #161b22;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #21262d;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #58a6ff, #79c0ff);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .question-section {
+            display: none;
+        }
+
+        .question-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            color: #58a6ff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .question-title {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option-card {
+            background: #21262d;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option-card:hover {
+            border-color: #58a6ff;
+            background: #1c2128;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+        }
+
+        .option-card.selected {
+            border-color: #58a6ff;
+            background: #1c2128;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+        }
+
+        .option-card h3 {
+            color: #58a6ff;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .option-card p {
+            color: #8b949e;
+            font-size: 0.95em;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: #238636;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2ea043;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+        }
+
+        .btn-secondary {
+            background: #21262d;
+            color: #e0e0e0;
+            border: 2px solid #30363d;
+        }
+
+        .btn-secondary:hover {
+            border-color: #58a6ff;
+            background: #1c2128;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .results-header h2 {
+            font-size: 2.2em;
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        .recommendation-card {
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2);
+        }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recommendation-header img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #30363d;
+        }
+
+        .recommendation-info h3 {
+            font-size: 1.8em;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-info .price {
+            font-size: 1.5em;
+            color: #3fb950;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .match-score {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .recommendation-details {
+            margin-top: 20px;
+        }
+
+        .recommendation-details h4 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        .recommendation-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .recommendation-details li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #c9d1d9;
+        }
+
+        .recommendation-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3fb950;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-buttons .btn {
+            flex: 1;
+        }
+
+        nav {
+            background: #0d1117;
+            padding: 15px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #79c0ff;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 20px;
+            }
+
+            .question-title {
+                font-size: 1.4em;
+            }
+
+            .recommendation-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .quiz-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/">← Back to Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>🎯 Camera Recommendation Quiz</h1>
+            <p>Answer a few questions to find your perfect camera match</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="quiz-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <!-- Questions will be rendered here -->
+            <div id="questionsContainer"></div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2>🎉 Your Perfect Camera Match!</h2>
+                    <p>Based on your answers, here are our recommendations:</p>
+                </div>
+                <div id="recommendationsContainer"></div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='/cameras.html'">Browse All Cameras</button>
+                    <button class="btn btn-secondary" onclick="restartQuiz()">Take Quiz Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/auth.js"></script>
+    <script>
+        const questions = [
+            {
+                id: 'experience',
+                title: 'What\'s your photography experience level?',
+                options: [
+                    { value: 'beginner', label: 'Beginner', description: 'Just starting out with photography' },
+                    { value: 'intermediate', label: 'Intermediate', description: 'Some experience, know the basics' },
+                    { value: 'advanced', label: 'Advanced', description: 'Experienced photographer' },
+                    { value: 'professional', label: 'Professional', description: 'Making a living from photography' }
+                ]
+            },
+            {
+                id: 'budget',
+                title: 'What\'s your budget range?',
+                options: [
+                    { value: 'budget', label: 'Under $500', description: 'Affordable entry-level options' },
+                    { value: 'mid', label: '$500 - $1,500', description: 'Mid-range cameras with great features' },
+                    { value: 'high', label: '$1,500 - $3,000', description: 'Professional-grade equipment' },
+                    { value: 'premium', label: '$3,000+', description: 'Top-of-the-line professional cameras' }
+                ]
+            },
+            {
+                id: 'primary_use',
+                title: 'What will you primarily use the camera for?',
+                options: [
+                    { value: 'travel', label: 'Travel & Landscape', description: 'Lightweight, portable, great for landscapes' },
+                    { value: 'portrait', label: 'Portrait Photography', description: 'Excellent image quality, good low-light' },
+                    { value: 'sports', label: 'Sports & Action', description: 'Fast autofocus, high burst rates' },
+                    { value: 'video', label: 'Video & Vlogging', description: '4K video, flip screen, good stabilization' },
+                    { value: 'general', label: 'General Purpose', description: 'Versatile all-around camera' }
+                ]
+            },
+            {
+                id: 'sensor_preference',
+                title: 'Do you have a sensor size preference?',
+                options: [
+                    { value: 'aps-c', label: 'APS-C', description: 'Smaller, lighter, more affordable lenses' },
+                    { value: 'full-frame', label: 'Full Frame', description: 'Better low-light, more professional' },
+                    { value: 'micro-four-thirds', label: 'Micro Four Thirds', description: 'Compact, great for travel' },
+                    { value: 'no-preference', label: 'No Preference', description: 'I\'m open to any size' }
+                ]
+            },
+            {
+                id: 'brand_preference',
+                title: 'Do you have a brand preference?',
+                options: [
+                    { value: 'canon', label: 'Canon', description: 'Excellent color science, great ecosystem' },
+                    { value: 'sony', label: 'Sony', description: 'Industry-leading autofocus, compact bodies' },
+                    { value: 'nikon', label: 'Nikon', description: 'Great ergonomics, excellent optics' },
+                    { value: 'fujifilm', label: 'Fujifilm', description: 'Film simulations, retro design' },
+                    { value: 'no-preference', label: 'No Preference', description: 'I\'m open to any brand' }
+                ]
+            },
+            {
+                id: 'weight_priority',
+                title: 'How important is portability?',
+                options: [
+                    { value: 'critical', label: 'Very Important', description: 'Must be lightweight and compact' },
+                    { value: 'important', label: 'Somewhat Important', description: 'Prefer lighter, but can compromise' },
+                    { value: 'not-important', label: 'Not Important', description: 'Size doesn\'t matter to me' }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+
+        async function initQuiz() {
+            renderQuestions();
+            showQuestion(0);
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = questions.map((q, index) => `
+                <div class="question-section" data-question="${index}">
+                    <div class="question-number">Question ${index + 1} of ${questions.length}</div>
+                    <h2 class="question-title">${q.title}</h2>
+                    <div class="options-grid">
+                        ${q.options.map(option => `
+                            <div class="option-card" onclick="selectOption(${index}, '${option.value}')" data-value="${option.value}">
+                                <h3>${option.label}</h3>
+                                <p>${option.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-actions">
+                        <button class="btn btn-secondary" onclick="previousQuestion()" ${index === 0 ? 'disabled' : ''}>
+                            ← Previous
+                        </button>
+                        <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn${index}" disabled>
+                            ${index === questions.length - 1 ? 'Get Recommendations →' : 'Next →'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showQuestion(index) {
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            const questionSection = document.querySelector(`[data-question="${index}"]`);
+            if (questionSection) {
+                questionSection.classList.add('active');
+            }
+            updateProgress();
+        }
+
+        function selectOption(questionIndex, value) {
+            answers[questions[questionIndex].id] = value;
+            
+            // Update UI
+            const questionSection = document.querySelector(`[data-question="${questionIndex}"]`);
+            questionSection.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            questionSection.querySelector(`[data-value="${value}"]`).classList.add('selected');
+            
+            // Enable next button
+            document.getElementById(`nextBtn${questionIndex}`).disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        async function showResults() {
+            // Hide questions
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show results
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('active');
+
+            // Fetch all cameras
+            const cameras = await fetch('/api/cameras').then(r => r.json());
+            
+            // Score cameras based on answers
+            const scoredCameras = scoreCameras(cameras, answers);
+            
+            // Get top 3 recommendations
+            const topRecommendations = scoredCameras.slice(0, 3);
+            
+            // Render recommendations
+            renderRecommendations(topRecommendations);
+        }
+
+        function scoreCameras(cameras, answers) {
+            return cameras.map(camera => {
+                let score = 0;
+                const maxScore = 100;
+
+                // Experience level matching
+                if (answers.experience === 'beginner' && camera.use_case?.some(uc => uc.toLowerCase().includes('beginner'))) score += 20;
+                if (answers.experience === 'professional' && camera.use_case?.some(uc => uc.toLowerCase().includes('professional'))) score += 20;
+
+                // Budget matching
+                if (answers.budget === 'budget' && camera.price < 500) score += 20;
+                if (answers.budget === 'mid' && camera.price >= 500 && camera.price <= 1500) score += 20;
+                if (answers.budget === 'high' && camera.price >= 1500 && camera.price <= 3000) score += 20;
+                if (answers.budget === 'premium' && camera.price > 3000) score += 20;
+
+                // Primary use matching
+                if (camera.use_case?.some(uc => uc.toLowerCase().includes(answers.primary_use))) score += 20;
+
+                // Brand preference
+                if (answers.brand_preference !== 'no-preference') {
+                    if (camera.brand?.toLowerCase() === answers.brand_preference) score += 10;
+                } else {
+                    score += 10; // Bonus for no preference
+                }
+
+                // Weight/portability
+                if (answers.weight_priority === 'critical' && camera.specs?.weight && parseFloat(camera.specs.weight) < 600) score += 10;
+
+                // Rating bonus
+                if (camera.rating) {
+                    score += (camera.rating / 5) * 10;
+                }
+
+                return { camera, score };
+            })
+            .sort((a, b) => b.score - a.score)
+            .map(item => ({
+                ...item,
+                matchPercentage: Math.round((item.score / maxScore) * 100)
+            }));
+        }
+
+        function renderRecommendations(recommendations) {
+            const container = document.getElementById('recommendationsContainer');
+            container.innerHTML = recommendations.map(rec => `
+                <div class="recommendation-card">
+                    <div class="recommendation-header">
+                        <img src="${rec.camera.image || '/images/placeholder.jpg'}" alt="${rec.camera.name}">
+                        <div class="recommendation-info">
+                            <h3>${rec.camera.name}</h3>
+                            <div class="price">$${rec.camera.price?.toLocaleString() || 'N/A'}</div>
+                            <span class="match-score">${rec.matchPercentage}% Match</span>
+                        </div>
+                    </div>
+                    <div class="recommendation-details">
+                        <p style="color: #c9d1d9; margin-bottom: 15px;">${rec.camera.description || 'Excellent camera choice based on your preferences.'}</p>
+                        <h4>Key Features:</h4>
+                        <ul>
+                            ${(rec.camera.specs ? Object.entries(rec.camera.specs).slice(0, 5).map(([key, value]) => 
+                                `<li>${key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: ${value}</li>`
+                            ) : []).join('')}
+                        </ul>
+                    </div>
+                    <div class="action-buttons" style="margin-top: 20px;">
+                        <button class="btn btn-primary" onclick="window.location.href='/camera-detail.html?id=${rec.camera.id}'">
+                            View Details →
+                        </button>
+                        <button class="btn btn-secondary" onclick="addToCompare('${rec.camera.id}')">
+                            Add to Compare
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = {};
+            document.getElementById('resultsSection').classList.remove('active');
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.style.display = '';
+            });
+            renderQuestions();
+            showQuestion(0);
+        }
+
+        function addToCompare(cameraId) {
+            let compareList = JSON.parse(sessionStorage.getItem('compareList') || '[]');
+            if (!compareList.includes(cameraId)) {
+                compareList.push(cameraId);
+                sessionStorage.setItem('compareList', JSON.stringify(compareList));
+                alert('Added to compare! You can compare up to 5 cameras.');
+            }
+        }
+
+        // Initialize quiz on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initQuiz();
+            if (typeof updateNavigation === 'function') {
+                updateNavigation();
+            }
+        });
+    </script>
+</body>
+</html>
+

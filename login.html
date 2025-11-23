@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LensLink AI</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+            margin-left: 20px;
+        }
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #c9d1d9;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .lang-toggle:hover {
+            border-color: #58a6ff;
+            color: #58a6ff;
+        }
+        .lang-icon {
+            font-size: 1.1em;
+        }
+        .current-lang {
+            min-width: 60px;
+            text-align: left;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            min-width: 120px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .lang-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lang-option {
+            padding: 10px 16px;
+            cursor: pointer;
+            color: #c9d1d9;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #30363d;
+        }
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+        .lang-option:hover {
+            background-color: #21262d;
+            color: #58a6ff;
+        }
+        .lang-option.active {
+            background-color: #1f6feb;
+            color: white;
+        }
+        .lang-option.active:hover {
+            background-color: #2c7ce8;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-container {
+            max-width: 420px;
+            width: 100%;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #58a6ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 30px;
+            font-size: 1em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 400;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        input.error {
+            border-color: #f85149;
+        }
+
+        .field-error {
+            color: #f85149;
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .field-error.show {
+            display: block;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .btn-primary:disabled {
+            background-color: #30363d;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #3d1f1f;
+            color: #f85149;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid #f85149;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #1f3d28;
+            color: #3fb950;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid #3fb950;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .link-section {
+            text-align: center;
+            margin-top: 20px;
+            color: #8b949e;
+        }
+
+        .link-section a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .link-section a:hover {
+            color: #79c0ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <a href="/" class="logo">LensLink AI</a>
+        <nav>
+            <a href="/" data-i18n="home">Home</a>
+            <a href="/cameras.html" data-i18n="browseCameras">Browse Cameras</a>
+            <a href="/register.html" data-i18n="register">Register</a>
+            <div class="language-switcher" id="languageSwitcher">
+                <div class="lang-toggle">
+                    <span class="lang-icon">🌐</span>
+                    <span class="current-lang">English</span>
+                    <span style="font-size: 0.8em;">▼</span>
+                </div>
+                <div class="lang-dropdown"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h1 data-i18n="login">Welcome Back</h1>
+            <p class="subtitle">Sign in to access your personalized camera hub</p>
+
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                    <div class="field-error" id="emailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                    <div class="field-error" id="passwordError"></div>
+                </div>
+
+                <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
+            </form>
+
+            <div class="link-section">
+                New to LensLink AI? <a href="/register.html">Create an account</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+    <script src="/public/js/auth.js"></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            successMessage.classList.remove('show');
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.classList.add('show');
+            errorMessage.classList.remove('show');
+        }
+
+        function hideMessages() {
+            errorMessage.classList.remove('show');
+            successMessage.classList.remove('show');
+        }
+
+        function showFieldError(fieldId, message) {
+            const errorEl = document.getElementById(`${fieldId}Error`);
+            const inputEl = document.getElementById(fieldId);
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+            inputEl.classList.add('error');
+        }
+
+        function hideFieldError(fieldId) {
+            const errorEl = document.getElementById(`${fieldId}Error`);
+            const inputEl = document.getElementById(fieldId);
+            errorEl.classList.remove('show');
+            inputEl.classList.remove('error');
+        }
+
+        function hideAllFieldErrors() {
+            ['email', 'password'].forEach(hideFieldError);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validateForm() {
+            hideAllFieldErrors();
+            let isValid = true;
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (!validateEmail(email)) {
+                showFieldError('email', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            if (!password) {
+                showFieldError('password', 'Password is required');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            hideMessages();
+
+            if (!validateForm()) {
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Signing In...';
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess('Login successful! Redirecting...');
+                    updateNavigation();
+
+                    setTimeout(() => {
+                        window.location.href = '/profile.html';
+                    }, 1500);
+                } else {
+                    showError(data.error || 'Login failed. Please check your credentials.');
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Sign In';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Connection error. Please check if the server is running.');
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Sign In';
+            }
+        });
+
+        document.getElementById('email').addEventListener('blur', function() {
+            if (this.value.trim().length > 0 && !validateEmail(this.value.trim())) {
+                showFieldError('email', 'Please enter a valid email address');
+            } else {
+                hideFieldError('email');
+            }
+        });
+
+        document.getElementById('password').addEventListener('blur', function() {
+            if (this.value.length > 0) {
+                hideFieldError('password');
+            }
+        });
+
+        updateNavigation();
+    </script>
+
+</body>
+</html>
