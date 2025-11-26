@@ -738,6 +738,7 @@
             }
 
             try {
+<<<<<<< HEAD
                 // Add cache-busting to fetch request
                 const response = await fetch(`/api/cameras/${cameraId}?t=${Date.now()}`, {
                     cache: 'no-store',
@@ -745,6 +746,9 @@
                         'Cache-Control': 'no-cache'
                     }
                 });
+=======
+                const response = await fetch(`/api/cameras/${cameraId}`);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 if (!response.ok) {
                     throw new Error('Camera not found');
                 }
@@ -796,7 +800,11 @@
                 <!-- Hero Section -->
                 <div class="hero-section">
                     <div class="camera-image">
+<<<<<<< HEAD
                         <img src="${camera.image}" alt="${camera.name}" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+=======
+                        <img src="${camera.image}" alt="${camera.name}">
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     </div>
                     <div class="camera-info">
                         <h1>${camera.name}</h1>
@@ -925,6 +933,7 @@
         // Load alternative cameras
         async function loadAlternatives(alternativeIds) {
             try {
+<<<<<<< HEAD
                 // Add cache-busting to fetch request
                 const response = await fetch(`/api/cameras?t=${Date.now()}`, {
                     cache: 'no-store',
@@ -932,6 +941,9 @@
                         'Cache-Control': 'no-cache'
                     }
                 });
+=======
+                const response = await fetch('/api/cameras');
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 const allCameras = await response.json();
                 
                 const alternatives = allCameras.filter(c => alternativeIds.includes(c.id));
@@ -939,7 +951,11 @@
                 const grid = document.getElementById('alternativesGrid');
                 grid.innerHTML = alternatives.map(alt => `
                     <div class="alternative-card" onclick="viewCamera('${alt.id}')">
+<<<<<<< HEAD
                         <img src="${alt.image}" alt="${alt.name}" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+=======
+                        <img src="${alt.image}" alt="${alt.name}">
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                         <div class="alternative-content">
                             <h4>${alt.name}</h4>
                             <p class="alternative-price">${alt.price ? `$${alt.price.toLocaleString()}` : 'Price N/A'}</p>
@@ -1371,10 +1387,13 @@
             loadCameraDetails();
         });
     </script>
+<<<<<<< HEAD
     
     <!-- Language Support -->
     <script src="/public/js/translations.js"></script>
     <script src="/public/js/language.js"></script>
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
 
 </body>
 </html>

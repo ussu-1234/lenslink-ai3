@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
 ║               🚀 LENSLINK AI - START HERE                     ║
@@ -77,3 +78,84 @@ This includes downloading and installing Node.js!
 
 
 
+=======
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║               🚀 LENSLINK AI - START HERE                     ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+IMPORTANT: Node.js is NOT installed on your computer yet!
+
+You need to install Node.js before you can run this application.
+
+═══════════════════════════════════════════════════════════════
+
+📋 QUICK START GUIDE
+
+Step 1: Install Node.js
+------------------------
+1. Open your browser
+2. Go to: https://nodejs.org/
+3. Download the LTS version (green button)
+4. Run the installer
+5. Restart your computer (important!)
+
+Step 2: Install Dependencies
+-----------------------------
+Open PowerShell in this folder and run:
+
+    npm install
+
+Step 3: Start the Server
+-------------------------
+Run this command:
+
+    npm start
+
+Step 4: Open Your Browser
+--------------------------
+Go to: http://localhost:3000
+
+═══════════════════════════════════════════════════════════════
+
+📁 DETAILED INSTRUCTIONS
+
+For complete step-by-step instructions with screenshots and
+troubleshooting, please read:
+
+    📄 INSTALL_NODEJS_WINDOWS.md
+
+═══════════════════════════════════════════════════════════════
+
+🔐 DEFAULT LOGIN CREDENTIALS
+
+After starting the server, you can login with:
+
+    Username: admin
+    Password: admin123
+
+═══════════════════════════════════════════════════════════════
+
+❓ NEED HELP?
+
+Check these files:
+- INSTALL_NODEJS_WINDOWS.md  (Installation guide)
+- QUICKSTART.md              (Quick reference)
+- README.md                  (Full documentation)
+- SETUP_INSTRUCTIONS.txt     (Detailed setup)
+
+═══════════════════════════════════════════════════════════════
+
+⏱️ ESTIMATED TIME: 10 minutes
+
+This includes downloading and installing Node.js!
+
+═══════════════════════════════════════════════════════════════
+
+
+
+
+
+
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77

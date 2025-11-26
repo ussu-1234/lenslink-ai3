@@ -363,17 +363,25 @@
         .hero {
             position: relative;
             overflow: hidden;
+<<<<<<< HEAD
             padding: 140px 0 100px;
             background: 
                 radial-gradient(ellipse 80% 50% at 50% 0%, rgba(88, 166, 255, 0.12), transparent 70%),
                 radial-gradient(ellipse 60% 40% at 20% 30%, rgba(63, 185, 80, 0.08), transparent 50%),
                 radial-gradient(ellipse 50% 30% at 80% 70%, rgba(139, 92, 246, 0.08), transparent 50%),
                 linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+=======
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at top, rgba(88, 166, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at 20% 20%, rgba(63, 185, 80, 0.1), transparent 40%),
+                        var(--bg-primary);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
         .hero::before,
         .hero::after {
             content: '';
             position: absolute;
+<<<<<<< HEAD
             width: 600px;
             height: 600px;
             background: radial-gradient(circle, rgba(88, 166, 255, 0.2), transparent 70%);
@@ -396,6 +404,21 @@
         @keyframes pulse {
             0%, 100% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.1); }
+=======
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(88, 166, 255, 0.18), transparent 60%);
+            filter: blur(10px);
+            z-index: 0;
+        }
+        .hero::before {
+            top: -120px;
+            left: -80px;
+        }
+        .hero::after {
+            bottom: -160px;
+            right: -40px;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .hero-grid {
@@ -415,6 +438,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+<<<<<<< HEAD
             padding: 10px 20px;
             border-radius: 999px;
             background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(139, 92, 246, 0.15));
@@ -437,6 +461,15 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+=======
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .hero h1 {
@@ -467,6 +500,7 @@
         .cta-primary,
         .cta-ghost {
             border: none;
+<<<<<<< HEAD
             border-radius: 12px;
             padding: 16px 32px;
             font-weight: 600;
@@ -516,6 +550,33 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.4);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+=======
+            border-radius: 999px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            font-family: inherit;
+        }
+
+        .cta-primary {
+            background: linear-gradient(120deg, var(--accent-primary), var(--accent-hover));
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(9, 105, 218, 0.35);
+        }
+
+        .cta-ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--text-primary);
+        }
+
+        .cta-primary:hover,
+        .cta-ghost:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(9, 105, 218, 0.4);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .hero-stats {
@@ -525,6 +586,7 @@
         }
 
         .stat-card {
+<<<<<<< HEAD
             background: rgba(22, 27, 34, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -555,6 +617,13 @@
         
         .stat-card:hover::before {
             opacity: 1;
+=======
+            background: rgba(22, 27, 34, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px;
+            backdrop-filter: blur(10px);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .stat-card strong {
@@ -578,6 +647,7 @@
 
         .hero-card {
             width: min(420px, 90vw);
+<<<<<<< HEAD
             background: rgba(13, 17, 23, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 28px;
@@ -615,6 +685,14 @@
                 0 0 0 1px rgba(88, 166, 255, 0.2) inset,
                 0 0 40px rgba(88, 166, 255, 0.1);
             border-color: rgba(88, 166, 255, 0.3);
+=======
+            background: rgba(13, 17, 23, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(14px);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .hero-card-header {
@@ -644,6 +722,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+<<<<<<< HEAD
             padding: 16px;
             border-radius: 18px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -656,6 +735,12 @@
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(88, 166, 255, 0.3);
             transform: translateX(4px);
+=======
+            padding: 14px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .hero-compare-item img {
@@ -687,6 +772,7 @@
 
         .floating-chip {
             position: absolute;
+<<<<<<< HEAD
             padding: 12px 20px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.1);
@@ -704,6 +790,16 @@
             transform: translateY(-4px) scale(1.05);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2);
+=======
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(6px);
+            animation: float 5s ease-in-out infinite;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .chip-top {
@@ -1366,6 +1462,7 @@
 
         /* --- Guided Workflow Section --- */
         .workflow {
+<<<<<<< HEAD
             padding: 100px 20px;
             background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
         }
@@ -1373,10 +1470,20 @@
         .workflow-header {
             max-width: 800px;
             margin: 0 auto 60px;
+=======
+            padding: 70px 20px;
+            background: var(--bg-primary);
+        }
+
+        .workflow-header {
+            max-width: 760px;
+            margin: 0 auto 40px;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             text-align: center;
         }
 
         .workflow-header h2 {
+<<<<<<< HEAD
             font-size: clamp(2rem, 4vw, 3em);
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
@@ -1384,23 +1491,37 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+=======
+            font-size: 2.3em;
+            margin-bottom: 12px;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .workflow-header p {
             color: var(--text-secondary);
+<<<<<<< HEAD
             line-height: 1.8;
             font-size: 1.15em;
+=======
+            line-height: 1.7;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .workflow-grid {
             display: grid;
+<<<<<<< HEAD
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
+=======
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-card {
             position: relative;
             overflow: hidden;
+<<<<<<< HEAD
             padding: 36px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1424,11 +1545,22 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+=======
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(150deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-card::after {
             content: '';
             position: absolute;
+<<<<<<< HEAD
             width: 200px;
             height: 200px;
             top: -100px;
@@ -1452,12 +1584,22 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 60px rgba(88, 166, 255, 0.2), 0 0 0 1px rgba(88, 166, 255, 0.2) inset;
             border-color: rgba(88, 166, 255, 0.3);
+=======
+            width: 110px;
+            height: 110px;
+            top: -45px;
+            right: -45px;
+            background: rgba(88, 166, 255, 0.12);
+            border-radius: 50%;
+            filter: blur(0);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+<<<<<<< HEAD
             padding: 8px 16px;
             border-radius: 999px;
             font-size: 0.85em;
@@ -1468,21 +1610,40 @@
             color: var(--accent-primary);
             width: fit-content;
             box-shadow: 0 2px 8px rgba(88, 166, 255, 0.1);
+=======
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            width: fit-content;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-card h3 {
             margin: 0;
+<<<<<<< HEAD
             font-size: 1.6em;
             color: var(--text-primary);
             font-weight: 700;
+=======
+            font-size: 1.35em;
+            color: var(--text-primary);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-card p {
             color: var(--text-secondary);
+<<<<<<< HEAD
             line-height: 1.8;
             margin: 0;
             flex: 1;
             font-size: 1.05em;
+=======
+            line-height: 1.6;
+            margin: 0;
+            flex: 1;
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         .layer-actions {
@@ -1580,6 +1741,7 @@
         }
 
         .btn-primary {
+<<<<<<< HEAD
             background: linear-gradient(135deg, var(--success) 0%, var(--success-hover) 100%);
             color: white;
             border: 2px solid var(--success);
@@ -1632,6 +1794,41 @@
 
         .btn-secondary:active {
             transform: translateY(-1px);
+=======
+            background-color: var(--success);
+            color: white;
+            border: 2px solid var(--success);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--success-hover);
+            border-color: var(--success-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         }
 
         /* --- Section Spacing --- */
@@ -1668,6 +1865,10 @@
             <nav id="mainNav">
                 <a href="/" data-i18n="home">Home</a>
                 <a href="/cameras.html" data-i18n="browseCameras">Browse Cameras</a>
+<<<<<<< HEAD
+=======
+                <a href="/quiz.html">Quiz</a>
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 <a href="#quickStart">Quick Start</a>
                 <a href="#comparisonSection" data-i18n="compareTitle">Compare</a>
                 <a href="/register.html" data-i18n="register">Register</a>
@@ -1756,6 +1957,7 @@
 
         <section class="workflow container" id="workflow">
             <div class="workflow-header">
+<<<<<<< HEAD
                 <h2 data-i18n="workflowTitle">Three Layers, One Flow</h2>
                 <p data-i18n="workflowSubtitle">Move from inspiration to confident decisions with a guided stack of tools designed for creators, shoppers, and researchers alike.</p>
             </div>
@@ -1785,6 +1987,37 @@
                     <div class="layer-actions">
                         <a href="#comparisonSection" class="btn btn-secondary" data-i18n="comparisonLab">Comparison Lab</a>
                         <a href="#historySection" class="btn btn-primary" data-i18n="recentComparisons">Recent Comparisons</a>
+=======
+                <h2>Three Layers, One Flow</h2>
+                <p>Move from inspiration to confident decisions with a guided stack of tools designed for creators, shoppers, and researchers alike.</p>
+            </div>
+            <div class="workflow-grid">
+                <div class="layer-card">
+                    <div class="layer-tag">Step 1 · Discover</div>
+                    <h3>Browse presets or start with AI</h3>
+                    <p>Use curated routes for beginners, pros, and budgets, or jump straight into the AI search to tell us exactly what you need.</p>
+                    <div class="layer-actions">
+                        <a href="#quickStart" class="btn btn-secondary">Quick Start</a>
+                        <a href="#aiSearch" class="btn btn-primary">AI Search</a>
+                    </div>
+                </div>
+                <div class="layer-card">
+                    <div class="layer-tag">Step 2 · Refine</div>
+                    <h3>Filter and shortlist</h3>
+                    <p>Use the browse page filters, favorites, and saved history to narrow down the cameras that truly match your shoot.</p>
+                    <div class="layer-actions">
+                        <a href="/cameras.html" class="btn btn-secondary">Browse Grid</a>
+                        <a href="/favorites.html" class="btn btn-primary">See Favorites</a>
+                    </div>
+                </div>
+                <div class="layer-card">
+                    <div class="layer-tag">Step 3 · Compare</div>
+                    <h3>Analyze and export</h3>
+                    <p>Drop two cameras into the manual compare, switch to matrix view, or export the results to CSV/JSON for sharing.</p>
+                    <div class="layer-actions">
+                        <a href="#comparisonSection" class="btn btn-secondary">Comparison Lab</a>
+                        <a href="#historySection" class="btn btn-primary">Recent Comparisons</a>
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     </div>
                 </div>
             </div>
@@ -1811,6 +2044,7 @@
 
         <!-- Quick Start Section -->
         <section class="quick-start container" id="quickStart">
+<<<<<<< HEAD
             <h2 data-i18n="quickStartTitle">Quick Start</h2>
             <p class="section-subtitle" data-i18n="quickStartSubtitle">Get started quickly with our most popular options</p>
             <div class="quick-start-grid">
@@ -1833,6 +2067,30 @@
                     <h3 data-i18n="quickStartBrowseAllTitle">🔍 Browse All</h3>
                     <p data-i18n="quickStartBrowseAllDesc">Explore our complete collection of cameras. Filter, search, and find your perfect match.</p>
                     <a href="/cameras.html" class="btn" data-i18n="viewAllCameras">View All Cameras</a>
+=======
+            <h2>Quick Start</h2>
+            <p class="section-subtitle">Get started quickly with our most popular options</p>
+            <div class="quick-start-grid">
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=beginner'">
+                    <h3>🎯 For Beginners</h3>
+                    <p>Perfect cameras for those just starting their photography journey. Easy to use and budget-friendly.</p>
+                    <a href="/cameras.html?filter=beginner" class="btn">Browse Beginner Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=professional'">
+                    <h3>⚡ For Professionals</h3>
+                    <p>High-performance cameras for professional photographers. Advanced features and superior quality.</p>
+                    <a href="/cameras.html?filter=professional" class="btn">Browse Professional Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=budget'">
+                    <h3>💰 Budget Options</h3>
+                    <p>Great cameras that won't break the bank. Quality photography without the high price tag.</p>
+                    <a href="/cameras.html?filter=budget" class="btn">Browse Budget Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html'">
+                    <h3>🔍 Browse All</h3>
+                    <p>Explore our complete collection of cameras. Filter, search, and find your perfect match.</p>
+                    <a href="/cameras.html" class="btn">View All Cameras</a>
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 </div>
             </div>
         </section>
@@ -1871,7 +2129,11 @@
             <!-- Card/Grid View -->
             <div class="comparison-grid" id="gridView">
                 <div class="camera-card" id="camera1Card">
+<<<<<<< HEAD
                     <img src="" alt="Camera 1" id="camera1Img" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+=======
+                    <img src="" alt="Camera 1" id="camera1Img">
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     <div class="card-content">
                         <h3 id="camera1Name">Camera 1</h3>
                         <p class="ai-insight" id="camera1Insight"></p>
@@ -1880,7 +2142,11 @@
                     </div>
                 </div>
                 <div class="camera-card" id="camera2Card">
+<<<<<<< HEAD
                     <img src="" alt="Camera 2" id="camera2Img" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+=======
+                    <img src="" alt="Camera 2" id="camera2Img">
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     <div class="card-content">
                         <h3 id="camera2Name">Camera 2</h3>
                         <p class="ai-insight" id="camera2Insight"></p>
@@ -1895,7 +2161,11 @@
                 <table id="comparisonMatrix">
                     <thead>
                         <tr>
+<<<<<<< HEAD
                             <th data-i18n="feature">Feature</th>
+=======
+                            <th>Feature</th>
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                             <th id="tableCamera1Name">Camera 1</th>
                             <th id="tableCamera2Name">Camera 2</th>
                         </tr>
@@ -1921,11 +2191,19 @@
     </main>
     
     <div class="quick-dock" id="quickDock" aria-label="Quick navigation dock">
+<<<<<<< HEAD
         <button data-target="workflow" data-i18n="discover">Discover</button>
         <button data-target="aiSearch" data-i18n="aiSearch">AI Search</button>
         <button data-target="manualCompare" data-i18n="manualCompare">Manual Compare</button>
         <button data-target="comparisonSection" data-i18n="compareTitle">Compare</button>
         <button data-target="historySection" data-i18n="history">History</button>
+=======
+        <button data-target="workflow">Discover</button>
+        <button data-target="aiSearch">AI Search</button>
+        <button data-target="manualCompare">Manual Compare</button>
+        <button data-target="comparisonSection">Compare</button>
+        <button data-target="historySection">History</button>
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
     </div>
     
     <footer class="container">
@@ -2019,6 +2297,7 @@
                 }
             });
         });
+<<<<<<< HEAD
         
         // --- Scroll to top/hero section when page loads if coming from another page ---
         if (document.referrer && !document.referrer.includes(window.location.hostname)) {
@@ -2071,6 +2350,12 @@
     <script>
         // --- Camera Database (will be populated from API) ---
         let cameraDatabase = {
+=======
+    </script>
+    <script>
+        // --- Mock Camera Database ---
+        const cameraDatabase = {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             "sony_a7_iv": {
                 name: "Sony Alpha a7 IV",
                 img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c29ueSUyMGFsdHwwfHx8fDE2NjU2NzgzOA&ixlib=rb-4.0.3&q=80&w=1080",
@@ -2142,6 +2427,7 @@
          * @param {string} cardPrefix - "camera1" or "camera2"
          * @param {object} data - The camera data object from the database
          */
+<<<<<<< HEAD
         /**
          * Get translated camera insight
          */
@@ -2170,6 +2456,8 @@
             return t !== cameraSpecKey ? t : spec;
         }
 
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
         function updateCard(cardPrefix, data) {
             const nameEl = document.getElementById(`${cardPrefix}Name`);
             const imgEl = document.getElementById(`${cardPrefix}Img`);
@@ -2182,12 +2470,17 @@
                 return;
             }
 
+<<<<<<< HEAD
             if (!data || !data.name || (!data.img && !data.image) || !data.insight || !data.specs) {
+=======
+            if (!data || !data.name || !data.img || !data.insight || !data.specs) {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 console.error(`Invalid camera data for ${cardPrefix}:`, data);
                 return;
             }
 
             nameEl.textContent = data.name;
+<<<<<<< HEAD
             // Support both 'img' and 'image' properties
             imgEl.src = data.img || data.image || '';
             imgEl.alt = data.name;
@@ -2210,6 +2503,20 @@
                     li.textContent = getTranslatedSpec(spec, cameraKey);
                     specsEl.appendChild(li);
                 });
+=======
+            imgEl.src = data.img;
+            imgEl.alt = data.name;
+            insightEl.textContent = data.insight;
+
+            // Clear old specs and add new ones
+            specsEl.innerHTML = "";
+            if (Array.isArray(data.specs)) {
+            data.specs.forEach(spec => {
+                const li = document.createElement('li');
+                li.textContent = spec;
+                specsEl.appendChild(li);
+            });
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             }
         }
 
@@ -2220,29 +2527,39 @@
          */
         let currentComparison = { cam1: null, cam2: null };
 
+<<<<<<< HEAD
         async function updateComparisonCards(cam1Key, cam2Key) {
             // If cameras not found, try loading from API
             if (!cameraDatabase[cam1Key] || !cameraDatabase[cam2Key]) {
                 await loadCamerasFromAPI();
             }
             
+=======
+        function updateComparisonCards(cam1Key, cam2Key) {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             const cam1Data = cameraDatabase[cam1Key];
             const cam2Data = cameraDatabase[cam2Key];
 
             if (!cam1Data) {
                 console.error(`Camera not found in database: ${cam1Key}`);
+<<<<<<< HEAD
                 if (manualError) {
                     manualError.textContent = `Camera "${cam1Key}" not found. Please check the camera name.`;
                     manualError.style.display = 'block';
                 }
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 return;
             }
             if (!cam2Data) {
                 console.error(`Camera not found in database: ${cam2Key}`);
+<<<<<<< HEAD
                 if (manualError) {
                     manualError.textContent = `Camera "${cam2Key}" not found. Please check the camera name.`;
                     manualError.style.display = 'block';
                 }
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 return;
             }
 
@@ -2396,6 +2713,7 @@
             if (cam1.specs || cam2.specs || Array.isArray(cam1.specs)) {
                 // If specs is an array, skip detailed specs
                 if (!Array.isArray(cam1.specs) && !Array.isArray(cam2.specs)) {
+<<<<<<< HEAD
                     const t = window.LanguageSwitcher?.t || ((key) => key);
                     comparisons.push(
                         { label: t('specSensorType', 'Sensor Type'), key: 'sensor_type' },
@@ -2405,6 +2723,16 @@
                         { label: t('specScreenType', 'Screen Type'), key: 'screen' },
                         { label: t('specBatteryLife', 'Battery Life'), key: 'battery_life' },
                         { label: t('specWeight', 'Weight'), key: 'weight' }
+=======
+                    comparisons.push(
+                        { label: 'Sensor Type', key: 'sensor_type' },
+                        { label: 'Megapixels', key: 'megapixels', compare: 'higher' },
+                        { label: 'Video Max', key: 'video_max' },
+                        { label: 'Autofocus', key: 'autofocus' },
+                        { label: 'Screen Type', key: 'screen' },
+                        { label: 'Battery Life', key: 'battery_life' },
+                        { label: 'Weight', key: 'weight' }
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     );
                 }
             }
@@ -2594,7 +2922,11 @@
         /**
          * Handles the manual compare button click
          */
+<<<<<<< HEAD
         async function handleManualCompare() {
+=======
+        function handleManualCompare() {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             if (!manualError || !camera1Input || !camera2Input) {
                 console.error('Manual compare elements not found');
                 return;
@@ -2619,7 +2951,11 @@
                 return;
             }
 
+<<<<<<< HEAD
             await updateComparisonCards(cam1Key, cam2Key);
+=======
+            updateComparisonCards(cam1Key, cam2Key);
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             // Save to comparison history
             addComparisonHistoryFromNames(camera1Input.value.trim(), camera2Input.value.trim());
         }
@@ -2927,6 +3263,7 @@
                 const viewedIds = JSON.parse(localStorage.getItem('recentlyViewed') || '[]');
                 if (viewedIds.length === 0) return;
                 
+<<<<<<< HEAD
                 // Add cache-busting to fetch request
                 const response = await fetch(`/api/cameras?t=${Date.now()}`, {
                     cache: 'no-store',
@@ -2934,6 +3271,9 @@
                         'Cache-Control': 'no-cache'
                     }
                 });
+=======
+                const response = await fetch('/api/cameras');
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 if (!response.ok) return;
                 
                 const cameras = await response.json();
@@ -2974,6 +3314,7 @@
             }
         }
 
+<<<<<<< HEAD
         /**
          * Load cameras from API and populate cameraDatabase
          */
@@ -3028,6 +3369,11 @@
         window.addEventListener('DOMContentLoaded', async () => {
             // Load cameras from API first
             await loadCamerasFromAPI();
+=======
+        // --- Initial Page Load ---
+        // Load the default comparison when the page is ready
+        window.addEventListener('DOMContentLoaded', async () => {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             // Initialize element references after DOM is ready
             camera1Input = document.getElementById('camera1Input');
             camera2Input = document.getElementById('camera2Input');
@@ -3052,7 +3398,11 @@
 
         // Load the default comparison when the page is ready
             if (cameraDatabase && cameraDatabase['sony_a7_iv'] && cameraDatabase['canon_eos_r6']) {
+<<<<<<< HEAD
             await updateComparisonCards('sony_a7_iv', 'canon_eos_r6');
+=======
+            updateComparisonCards('sony_a7_iv', 'canon_eos_r6');
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             // Set the inputs to match the default, fully populating the UI
                 if (camera1Input) camera1Input.value = cameraDatabase['sony_a7_iv'].name;
                 if (camera2Input) camera2Input.value = cameraDatabase['canon_eos_r6'].name;
@@ -3072,6 +3422,7 @@
             // Load recently viewed cameras
             displayRecentlyViewed();
             
+<<<<<<< HEAD
             // Listen for language changes and re-render comparison
             window.addEventListener('languageChanged', () => {
                 // Re-render comparison cards with translated content
@@ -3098,6 +3449,8 @@
                 }
             });
             
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
             // Check URL parameters for shared comparison
             const urlParams = new URLSearchParams(window.location.search);
             const compare1 = urlParams.get('compare');

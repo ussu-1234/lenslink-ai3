@@ -1160,6 +1160,7 @@ apiRouter.get('/search', async (req, res) => {
  * GET /api/cameras
  * Get all cameras
  */
+<<<<<<< HEAD
 apiRouter.get('/cameras', async (req, res) => {
     // Reload cameras.json to get latest images
     try {
@@ -1171,6 +1172,9 @@ apiRouter.get('/cameras', async (req, res) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
+=======
+apiRouter.get('/cameras', (req, res) => {
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
     res.json(cameraList);
 });
 

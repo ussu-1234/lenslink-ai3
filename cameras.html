@@ -604,9 +604,12 @@
         <p>&copy; 2025 LensLink AI. All rights reserved.</p>
     </footer>
 
+<<<<<<< HEAD
     <!-- Language Support -->
     <script src="/public/js/translations.js"></script>
     <script src="/public/js/language.js"></script>
+=======
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
     <script src="/public/js/auth.js"></script>
     <script src="/public/js/favorites.js"></script>
     <script>
@@ -626,6 +629,7 @@
             `;
             
             try {
+<<<<<<< HEAD
                 // Add cache-busting to fetch request
                 const response = await fetch(`/api/cameras?t=${Date.now()}`, {
                     cache: 'no-store',
@@ -633,6 +637,9 @@
                         'Cache-Control': 'no-cache'
                     }
                 });
+=======
+                const response = await fetch('/api/cameras');
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                 if (!response.ok) throw new Error('Failed to load cameras');
                 
                 allCameras = await response.json();
@@ -775,7 +782,11 @@
                 card.onclick = () => viewCamera(camera.id);
                 
                 card.innerHTML = `
+<<<<<<< HEAD
                     <img src="${camera.image}" alt="${camera.name}" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+=======
+                    <img src="${camera.image}" alt="${camera.name}">
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
                     <div class="card-content">
                         <div class="card-header">
                             <div class="card-title">

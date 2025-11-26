@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ===============================================
 LensLink AI - Quick Setup Instructions
 ===============================================
@@ -106,3 +107,113 @@ Need help? Check README.md for detailed documentation.
 
 
 
+=======
+===============================================
+LensLink AI - Quick Setup Instructions
+===============================================
+
+STEP 1: Install Node.js
+------------------------
+If you don't have Node.js installed:
+1. Visit https://nodejs.org/
+2. Download and install the LTS version
+3. Restart your terminal/PowerShell after installation
+
+STEP 2: Install Dependencies
+-----------------------------
+Open PowerShell in this directory and run:
+    npm install
+
+This will install:
+- express (web server framework)
+- express-session (for user sessions)
+
+STEP 3: Start the Server
+-------------------------
+Run this command:
+    npm start
+
+or:
+    node server.js
+
+You should see:
+    "Successfully loaded and indexed 7 cameras."
+    "Successfully loaded 1 users."
+    "Server is running successfully on http://localhost:3000"
+
+STEP 4: Access the Application
+-------------------------------
+Open your web browser and go to:
+    http://localhost:3000
+
+STEP 5: Login as Admin
+-----------------------
+To access the admin dashboard:
+1. Click "Login" in the navigation
+2. Use these credentials:
+   - Username: admin
+   - Password: admin123
+3. You'll be redirected to the Admin Dashboard
+
+FEATURES TO TEST
+----------------
+✓ Browse camera comparisons on the home page
+✓ Chat with the AI assistant
+✓ Register a new user account
+✓ Login with your account
+✓ Access admin dashboard (admin only)
+✓ Edit user details
+✓ Delete users
+✓ Change user roles
+
+TROUBLESHOOTING
+---------------
+Problem: "node is not recognized"
+Solution: Install Node.js (see Step 1)
+
+Problem: "Cannot find module 'express'"
+Solution: Run 'npm install' in the project directory
+
+Problem: Server won't start
+Solution: 
+- Make sure port 3000 is not already in use
+- Check that users.json and cameras.json exist
+- Verify JSON files are valid (no syntax errors)
+
+Problem: Can't login
+Solution:
+- Make sure the server is running
+- Check server console for error messages
+- Try the default admin credentials: admin / admin123
+
+SECURITY WARNING
+----------------
+This is a PROTOTYPE application for learning purposes.
+- Passwords are stored in plain text
+- Sessions reset when server restarts
+- NOT suitable for production use
+
+For production, implement:
+- Password hashing (bcrypt)
+- Persistent session storage
+- Environment variables for secrets
+- HTTPS/SSL
+- Database (PostgreSQL, MongoDB)
+
+NEXT STEPS
+----------
+- Customize camera data in cameras.json
+- Modify styling in the HTML files
+- Add new features in server.js
+- Enhance the AI chatbot logic
+
+Need help? Check README.md for detailed documentation.
+
+===============================================
+
+
+
+
+
+
+>>>>>>> 855b85887c1b5502b7ae3c8a5a50561dfbe34d77
