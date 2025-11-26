@@ -1,0 +1,52 @@
+# Node modules (will be installed in container)
+node_modules
+npm-debug.log
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+
+# Batch files (Windows specific)
+*.bat
+
+# Environment files (will be passed via docker-compose)
+.env
+.env.local
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+test
+tests
+*.test.js
+*.spec.js
+
+# Build files
+dist
+build
+
+# Logs
+logs
+*.log
+
+# Temporary files
+tmp
+temp
+*.tmp
+
+# Deployment scripts (optional, keep if you want them in container)
+# deploy.sh

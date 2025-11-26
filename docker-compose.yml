@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  lenslink-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lenslink-ai
+    restart: unless-stopped
+    # Expose port internally (Nginx Proxy Manager will handle external access)
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"  # Only accessible from localhost
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - SEARXNG_URL=${SEARXNG_URL:-https://xng.quest.ac}
+      - SESSION_SECRET=${SESSION_SECRET:-lenslink-ai-secret-key-change-in-production}
+      - HTTPS=false  # NPM handles SSL, app uses HTTP internally
+    volumes:
+      # Persist data files
+      - ./data:/app/data
+      # Mount JSON files for persistence
+      - ./cameras.json:/app/cameras.json
+      - ./users.json:/app/users.json
+      - ./reviews.json:/app/reviews.json
+      - ./price-history.json:/app/price-history.json
+    networks:
+      - lenslink-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    labels:
+      # Labels for Nginx Proxy Manager integration
+      - "com.nginx-proxy-manager.enabled=true"
+      - "com.nginx-proxy-manager.name=lenslink-ai"
+
+networks:
+  lenslink-network:
+    driver: bridge
+    # Make network accessible to NPM if NPM is on the same host
+    name: lenslink-network

@@ -33,11 +33,11 @@ app.use(express.static(__dirname));
 app.use(express.json());
 // Session middleware for authentication
 app.use(session({
-    secret: 'lenslink-ai-secret-key-change-in-production',
+    secret: process.env.SESSION_SECRET || 'lenslink-ai-secret-key-change-in-production',
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false, // Set to true in production with HTTPS
+        secure: process.env.NODE_ENV === 'production' && process.env.HTTPS === 'true', // Set to true in production with HTTPS
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
@@ -1241,8 +1241,8 @@ const startServer = async () => {
         await loadPriceHistory();
         
         // Start the server and make it listen for requests on the specified port.
-        app.listen(PORT, () => {
-            console.log(`Server is running successfully on http://localhost:${PORT}`);
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`Server is running successfully on http://0.0.0.0:${PORT}`);
             console.log('LensLink AI back-end is active!');
         });
     } catch (error) {
