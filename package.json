@@ -1,0 +1,28 @@
+{
+  "name": "lenslink-ai",
+  "version": "1.0.0",
+  "description": "LensLink AI - Intelligent Camera Comparison Platform with User Authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "camera",
+    "comparison",
+    "ai",
+    "photography"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}
+
+
+
+
+
+

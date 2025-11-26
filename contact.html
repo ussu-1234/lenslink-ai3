@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LensLink AI</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: #58a6ff;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #8b949e;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #161b22;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+
+        .contact-form h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #58a6ff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2ea043;
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            display: none;
+            padding: 15px;
+            background-color: rgba(35, 134, 54, 0.2);
+            border: 1px solid #238636;
+            border-radius: 5px;
+            color: #3fb950;
+            margin-top: 20px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        .info-card p {
+            color: #8b949e;
+            line-height: 1.8;
+        }
+
+        .info-card a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: #79c0ff;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #161b22;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+
+        .faq-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #58a6ff;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #21262d;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+
+        .faq-item h4 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .faq-item p {
+            color: #c9d1d9;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .contact-form, .faq-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a href="/" class="logo" style="text-decoration: none;">LensLink AI</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+            <a href="/about.html">About</a>
+            <a href="/guides.html">Guides</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>📬 Get in Touch</h1>
+            <p>Have questions, feedback, or need help? We're here to assist you on your photography journey.</p>
+        </section>
+
+        <!-- Contact Grid -->
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="camera">Camera Recommendation</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+
+                    <div class="success-message" id="successMessage">
+                        ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>For general inquiries and support:</p>
+                    <p><a href="mailto:support@lenslink.ai">support@lenslink.ai</a></p>
+                    <p style="margin-top: 10px;">For partnerships:</p>
+                    <p><a href="mailto:partnerships@lenslink.ai">partnerships@lenslink.ai</a></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <h3>Response Time</h3>
+                    <p>We typically respond within:</p>
+                    <p><strong>24 hours</strong> for support inquiries</p>
+                    <p><strong>48 hours</strong> for partnership requests</p>
+                    <p><strong>Same day</strong> for urgent technical issues</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🌐</div>
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for updates, tips, and camera reviews:</p>
+                    <p style="margin-top: 10px;">
+                        <a href="#">Twitter</a> • 
+                        <a href="#">Instagram</a> • 
+                        <a href="#">YouTube</a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">💬</div>
+                    <h3>Chat with Ahri</h3>
+                    <p>For instant camera recommendations, try our AI chatbot on the <a href="/">home page</a>. Ahri is available 24/7 to help you find the perfect camera!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h4>How do I find the right camera for my needs?</h4>
+                <p>Start by chatting with Ahri, our AI assistant, on the home page. Tell Ahri your budget, experience level, and what you want to shoot. You can also browse our <a href="/cameras.html" style="color: #58a6ff;">camera database</a> with filters or read our <a href="/guides.html" style="color: #58a6ff;">buying guides</a>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Are the camera recommendations sponsored?</h4>
+                <p>No. Our recommendations are based on specifications, expert reviews, user ratings, and real-world performance. While we may include affiliate links for purchases, they do not influence our recommendations.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I request a camera to be added to the database?</h4>
+                <p>Absolutely! Email us at <a href="mailto:support@lenslink.ai" style="color: #58a6ff;">support@lenslink.ai</a> with the camera model you'd like to see added. We regularly update our database with new releases and popular requests.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you offer camera rentals or sales?</h4>
+                <p>We're a comparison and recommendation platform, not a retailer. However, we provide links to trusted retailers where you can purchase cameras at competitive prices.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>How can I report incorrect information?</h4>
+                <p>We strive for accuracy! If you spot an error in our camera specs or descriptions, please email us at <a href="mailto:support@lenslink.ai" style="color: #58a6ff;">support@lenslink.ai</a> with details, and we'll correct it promptly.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I contribute reviews or articles?</h4>
+                <p>We welcome contributions from photographers and camera enthusiasts! Contact us at <a href="mailto:partnerships@lenslink.ai" style="color: #58a6ff;">partnerships@lenslink.ai</a> with your proposal.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <script src="/public/js/auth.js"></script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Simulate form submission (in production, this would send to a server)
+            console.log('Form submitted:', Object.fromEntries(formData));
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+        });
+    </script>
+    
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+</body>
+</html>
+
+
+
+
+
+

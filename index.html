@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LensLink AI - Your Intelligent Camera Matchmaker</title>
+    <meta name="description" content="Compare cameras, get AI-powered recommendations, and find your perfect camera match with LensLink AI. Expert reviews, specs comparison, and personalized camera suggestions.">
+    <meta name="keywords" content="camera comparison, camera reviews, camera recommendations, photography, camera buying guide, DSLR, mirrorless">
+    <meta name="author" content="LensLink AI">
+    <meta property="og:title" content="LensLink AI - Your Intelligent Camera Matchmaker">
+    <meta property="og:description" content="Compare cameras, get AI-powered recommendations, and find your perfect camera match.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lenslink.ai">
+    <link rel="canonical" href="https://lenslink.ai">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LensLink AI",
+        "description": "AI-powered camera comparison and recommendation platform",
+        "url": "https://lenslink.ai",
+        "applicationCategory": "PhotographyApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
     
     <style>
         /* --- Basic Setup & Fonts --- */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -19,11 +44,51 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+            /* Dark Theme (Default) */
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-hover: #1c2128;
+            --border-color: #30363d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #8b949e;
+            --text-tertiary: #c9d1d9;
+            --accent-primary: #58a6ff;
+            --accent-hover: #79c0ff;
+            --success: #3fb950;
+            --success-hover: #56d364;
+            --danger: #f85149;
+            --warning: #d29922;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            /* Light Theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-tertiary: #ffffff;
+            --bg-hover: #f0f3f6;
+            --border-color: #d0d7de;
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --text-tertiary: #57606a;
+            --accent-primary: #0969da;
+            --accent-hover: #0860ca;
+            --success: #1a7f37;
+            --success-hover: #2ea043;
+            --danger: #cf222e;
+            --warning: #9a6700;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0d1117;
-            color: #e0e0e0;
-            line-height: 1.6;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px;
         }
 
         .container {
@@ -40,135 +105,701 @@
 
         .section-subtitle {
             text-align: center;
-            color: #8b949e;
+            color: var(--text-secondary);
             margin-bottom: 40px;
-            font-size: 1.1em;
+            font-size: 1.15em;
+            font-weight: 400;
         }
 
         /* --- Header & Navigation --- */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-primary);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        header.scrolled {
+            background-color: var(--bg-primary);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #30363d;
+            padding: 15px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 20px;
         }
 
         .logo {
-            font-size: 1.8em;
+            font-size: 1.9em;
             font-weight: 700;
-            color: #58a6ff;
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            padding: 5px 0;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: var(--accent-hover);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: nowrap;
+            flex-shrink: 0;
         }
 
         nav a {
-            color: #c9d1d9;
+            color: var(--text-tertiary);
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: 300;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         nav a:hover {
-            color: #58a6ff;
+            color: var(--accent-primary);
+            background-color: var(--bg-tertiary);
+            transform: translateY(-1px);
+        }
+
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            font-weight: 500;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            border-color: var(--accent-primary);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #c9d1d9;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-primary);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px var(--shadow);
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 12px 15px;
+                margin: 5px 0;
+                border: 1px solid var(--border-color);
+            }
+
+            .language-switcher {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .lang-toggle {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+            margin-left: 0;
+            flex-shrink: 0;
+        }
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 10px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-tertiary);
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .lang-toggle:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        .lang-icon {
+            font-size: 1.1em;
+        }
+        .current-lang {
+            min-width: 60px;
+            text-align: left;
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            min-width: 120px;
+            box-shadow: 0 4px 12px var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .lang-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lang-option {
+            padding: 10px 16px;
+            cursor: pointer;
+            color: var(--text-tertiary);
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+        .lang-option:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-primary);
+        }
+        .lang-option.active {
+            background-color: var(--accent-primary);
+            color: white;
+        }
+        .lang-option.active:hover {
+            background-color: var(--accent-hover);
         }
 
         /* --- Hero & AI Chatbot Section --- */
         .hero {
-            text-align: center;
-            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            padding: 140px 0 100px;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(88, 166, 255, 0.12), transparent 70%),
+                radial-gradient(ellipse 60% 40% at 20% 30%, rgba(63, 185, 80, 0.08), transparent 50%),
+                radial-gradient(ellipse 50% 30% at 80% 70%, rgba(139, 92, 246, 0.08), transparent 50%),
+                linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(88, 166, 255, 0.2), transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        .hero::before {
+            top: -200px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+        .hero::after {
+            bottom: -200px;
+            right: -150px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+            animation-delay: 2s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(139, 92, 246, 0.15));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 0.9em;
+            box-shadow: 0 4px 20px rgba(88, 166, 255, 0.1);
+            animation: slideInDown 0.6s ease-out;
+        }
+        
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 1.2em;
-            color: #8b949e;
+            color: var(--text-secondary);
             margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.7;
         }
 
-        .chat-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 35px;
         }
 
-        .chat-display {
-            height: 250px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-            padding-right: 10px;
+        .cta-primary,
+        .cta-ghost {
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-weight: 600;
+            font-size: 1.05em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 50%, #7c3aed 100%);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.4), 0 0 0 0 rgba(88, 166, 255, 0.5);
+        }
+        
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-ghost {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(88, 166, 255, 0.5), 0 0 0 4px rgba(88, 166, 255, 0.1);
+        }
+        
+        .cta-ghost:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(22, 27, 34, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(88, 166, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.15);
+        }
+        
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 1.6em;
+            color: var(--text-primary);
+        }
+
+        .stat-card span {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .hero-visual {
+            position: relative;
             display: flex;
             flex-direction: column;
-            text-align: left;
+            align-items: center;
+            gap: 24px;
         }
 
-        .chat-display::-webkit-scrollbar { width: 6px; }
-        .chat-display::-webkit-scrollbar-track { background: #161b22; }
-        .chat-display::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+        .hero-card {
+            width: min(420px, 90vw);
+            background: rgba(13, 17, 23, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            backdrop-filter: blur(20px) saturate(180%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(88, 166, 255, 0.1), transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(88, 166, 255, 0.2) inset,
+                0 0 40px rgba(88, 166, 255, 0.1);
+            border-color: rgba(88, 166, 255, 0.3);
+        }
 
-        .message { padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; max-width: 80%; line-height: 1.4; }
-        .ai-message { background-color: #21262d; align-self: flex-start; }
-        .user-message { background-color: #0d442b; color: #c9d1d9; align-self: flex-end; }
-        .typing-indicator { align-self: flex-start; color: #8b949e; font-style: italic; }
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
 
-        .chat-input-area { display: flex; }
-        #userInput { flex-grow: 1; padding: 10px; border: 1px solid #30363d; border-radius: 5px 0 0 5px; background-color: #0d1117; color: #e0e0e0; font-size: 1em; }
-        #sendBtn { padding: 10px 20px; border: 1px solid #30363d; border-left: none; border-radius: 0 5px 5px 0; background-color: #238636; color: white; cursor: pointer; font-size: 1em; transition: background-color 0.3s ease; }
-        #sendBtn:hover { background-color: #2ea043; }
+        .hero-card-header span {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .hero-rating {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .hero-compare {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .hero-compare-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .hero-compare-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(88, 166, 255, 0.3);
+            transform: translateX(4px);
+        }
+
+        .hero-compare-item img {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
+        .hero-compare-item h4 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1em;
+        }
+
+        .hero-compare-item p {
+            margin: 4px 0 0;
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+
+        .hero-card-footer {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            color: var(--text-tertiary);
+            font-size: 0.95em;
+        }
+
+        .floating-chip {
+            position: absolute;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            color: var(--text-primary);
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            animation: float 5s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-chip:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2);
+        }
+
+        .chip-top {
+            top: -10px;
+            right: 10px;
+        }
+
+        .chip-bottom {
+            bottom: -20px;
+            left: 0;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
 
         /* --- Manual Compare Section --- */
         .manual-compare-section {
-            padding: 40px 0;
-            background-color: #0d1117;
+            padding: 60px 20px;
+            background-color: var(--bg-primary);
         }
         .manual-compare-form {
             max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr auto;
+            display: flex;
+            flex-wrap: wrap;
             gap: 15px;
             align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .manual-compare-form {
+                flex-direction: column;
         }
         .manual-compare-form input {
             width: 100%;
-            padding: 12px;
-            font-size: 1em;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 5px;
-            color: #e0e0e0;
         }
         .vs-text {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #8b949e;
+                padding: 10px 0;
+            }
+        }
+        .manual-compare-form input {
+            flex: 1;
+            min-width: 240px;
+            padding: 16px 22px;
+            font-size: 1.05em;
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .manual-compare-form input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+        .vs-text {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--accent-primary);
+            padding: 0 15px;
         }
         #manualCompareBtn {
-            padding: 12px 30px;
-            font-size: 1em;
+            padding: 16px 32px;
+            font-size: 1.05em;
             font-weight: 600;
-            background-color: #1f6feb;
+            background-color: var(--success);
             color: white;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid var(--success);
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            min-width: 140px;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
         #manualCompareBtn:hover {
-            background-color: #388bfd;
+            background-color: var(--success-hover);
+            border-color: var(--success-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
         }
         .error-message {
             display: none;
-            color: #f85149;
+            color: var(--danger);
             text-align: center;
             margin-top: 15px;
+            padding: 12px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--danger);
+            border-radius: 8px;
             grid-column: 1 / -1; /* Span all columns */
         }
 
@@ -181,91 +812,1066 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
+        
+        /* View Toggle Buttons */
+        .view-toggle-btn, .export-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+        
+        .view-toggle-btn:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+        }
+        
+        .view-toggle-btn.active {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: #fff;
+        }
+        
+        .view-toggle-btn.active:hover {
+            background-color: var(--success-hover);
+            border-color: var(--success-hover);
+        }
+        
+        .export-btn {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #fff;
+        }
+        
+        .export-btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+        }
+        
+        .share-btn {
+            background-color: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            font-family: inherit;
+        }
+        
+        .share-btn:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .share-menu {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .share-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            min-width: 200px;
+            box-shadow: 0 4px 20px var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 10px;
+        }
+        
+        .share-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-tertiary);
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            margin-bottom: 5px;
+        }
+        
+        .share-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .share-option:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--accent-primary);
+        }
+        
+        .share-option span {
+            font-size: 1.2em;
+        }
+        
+        .recently-viewed-section {
+            padding: 40px 20px;
+            background-color: var(--bg-secondary);
+            margin-top: 40px;
+        }
+        
+        .recently-viewed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .camera-card-mini {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .camera-card-mini:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .camera-card-mini img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .camera-card-mini a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .camera-card-mini a:hover {
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .view-toggle-btn, .export-btn {
+                padding: 10px 16px;
+                font-size: 0.85em;
+            }
+            
+            .comparison-section > div:first-child {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .comparison-section > div:first-child > div {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        #comparisonMatrix {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-primary);
+        }
+        
+        #comparisonMatrix th {
+            background-color: var(--bg-tertiary);
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        #comparisonMatrix td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        #comparisonMatrix tbody tr:hover {
+            background-color: var(--bg-hover);
+        }
+        
+        #comparisonMatrix tbody tr td:first-child {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .better-value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .worse-value {
+            color: var(--danger);
+        }
         .camera-card { 
-            background-color: #161b22; 
-            border: 1px solid #30363d; 
+            background-color: var(--bg-secondary); 
+            border: 1px solid var(--border-color); 
             border-radius: 10px; 
             overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow); 
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .camera-card:hover {
-            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.1);
+            box-shadow: 0 6px 20px var(--shadow);
+            transform: translateY(-2px);
         }
         .camera-card img { 
             width: 100%; 
             height: 220px; 
             object-fit: cover; 
             display: block; 
-            background-color: #21262d;
+            background-color: var(--bg-tertiary);
         }
         .card-content { padding: 20px; }
-        .card-content h3 { font-size: 1.5em; color: #58a6ff; margin-bottom: 10px; }
+        .card-content h3 { font-size: 1.5em; color: var(--accent-primary); margin-bottom: 10px; }
         .card-content .ai-insight { 
-            background-color: #21262d; 
+            background-color: var(--bg-tertiary); 
             padding: 10px; 
             border-radius: 5px; 
             margin-bottom: 15px; 
             font-style: italic; 
-            border-left: 3px solid #f1e05a; 
+            border-left: 3px solid var(--warning); 
             min-height: 60px;
+            color: var(--text-primary);
         }
         .card-content ul { list-style: none; padding-left: 0; }
-        .card-content ul li { margin-bottom: 8px; padding-left: 20px; position: relative; }
-        .card-content ul li::before { content: '✓'; color: #238636; position: absolute; left: 0; font-weight: bold; }
+        .card-content ul li { margin-bottom: 8px; padding-left: 20px; position: relative; color: var(--text-primary); }
+        .card-content ul li::before { content: '✓'; color: var(--success); position: absolute; left: 0; font-weight: bold; }
+
+        /* --- AI Search Section --- */
+        .ai-search {
+            padding: 60px 0;
+        }
+        .ai-search h2 {
+            font-size: 2.3em;
+            margin-bottom: 10px;
+        }
+        .ai-search p.description {
+            color: #8b949e;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+        .ai-search form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .ai-search input[type="text"] {
+            flex: 1 1 400px;
+            padding: 14px 16px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        .ai-search input[type="text"]:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+        .ai-search button {
+            padding: 14px 26px;
+            border: none;
+            border-radius: 8px;
+            background-color: #238636;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .ai-search button:hover {
+            background-color: #2ea043;
+            transform: translateY(-1px);
+        }
+        .ai-search-status {
+            color: #8b949e;
+            font-size: 0.95em;
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .ai-search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .ai-summary, .ai-results {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            min-height: 200px;
+        }
+        .ai-summary h3, .ai-results h3 {
+            margin-bottom: 15px;
+            color: #58a6ff;
+        }
+        .ai-summary p {
+            color: #c9d1d9;
+            line-height: 1.7;
+        }
+        .ai-results ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 18px;
+        }
+        .ai-results li {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 18px;
+        }
+        .ai-results li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .ai-results a {
+            color: #58a6ff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .ai-results a:hover {
+            text-decoration: underline;
+        }
+        .ai-results p {
+            color: #8b949e;
+            margin-top: 8px;
+        }
+        .ai-examples {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .ai-examples button {
+            background-color: transparent;
+            border: 1px solid #30363d;
+            color: #8b949e;
+            border-radius: 999px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .ai-examples button:hover {
+            border-color: #58a6ff;
+            color: #58a6ff;
+        }
+
+        /* Comparison History */
+        .history-section {
+            padding: 40px 0 60px;
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .history-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .history-item {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .history-item h4 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #58a6ff;
+        }
+        .history-item p {
+            margin: 0;
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+        .history-item button {
+            align-self: flex-start;
+            padding: 8px 16px;
+            background-color: #238636;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .history-item button:hover {
+            background-color: #2ea043;
+        }
+        .history-empty {
+            text-align: center;
+            padding: 30px;
+            background-color: #161b22;
+            border: 1px dashed #30363d;
+            border-radius: 10px;
+            color: #8b949e;
+        }
+        .clear-history-btn {
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            background-color: transparent;
+            color: #c9d1d9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .clear-history-btn:hover {
+            background-color: rgba(248, 81, 73, 0.1);
+            border-color: #f85149;
+            color: #f85149;
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #58a6ff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background-color: #79c0ff;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.5);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* --- Quick Start Section --- */
+        .quick-start {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* --- Quick Dock --- */
+        .quick-dock {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%);
+            background: rgba(22, 27, 34, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            padding: 10px 18px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            display: flex;
+            gap: 6px;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .quick-dock button {
+            border: none;
+            background: transparent;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .quick-dock button.active,
+        .quick-dock button:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .quick-dock {
+                width: calc(100% - 32px);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .quick-dock button {
+                flex: 1 1 40%;
+                text-align: center;
+            }
+        }
+
+        /* --- Guided Workflow Section --- */
+        .workflow {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+        }
+
+        .workflow-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .workflow-header h2 {
+            font-size: clamp(2rem, 4vw, 3em);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .workflow-header p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.15em;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .layer-card {
+            position: relative;
+            overflow: hidden;
+            padding: 36px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .layer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-hover), #7c3aed);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .layer-card::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+            background: radial-gradient(circle, rgba(88, 166, 255, 0.15), transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .layer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .layer-card:hover::after {
+            opacity: 1;
+        }
+
+        .layer-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(88, 166, 255, 0.2), 0 0 0 1px rgba(88, 166, 255, 0.2) inset;
+            border-color: rgba(88, 166, 255, 0.3);
+        }
+
+        .layer-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(139, 92, 246, 0.15));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            color: var(--accent-primary);
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(88, 166, 255, 0.1);
+        }
+
+        .layer-card h3 {
+            margin: 0;
+            font-size: 1.6em;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .layer-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .layer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .layer-actions a {
+            text-decoration: none;
+        }
+
+        .quick-start-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .quick-start-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(9, 105, 218, 0.18), rgba(9, 105, 218, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: left;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+
+        .quick-start-card::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            top: -50px;
+            right: -60px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+
+        .quick-start-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .quick-start-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .quick-start-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+
+        .quick-start-card .btn {
+            padding: 12px 24px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-family: inherit;
+        }
+
+        .quick-start-card .btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* --- Improved Buttons --- */
+        button, .btn {
+            min-height: 44px;
+            min-width: 44px;
+            padding: 12px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--success) 0%, var(--success-hover) 100%);
+            color: white;
+            border: 2px solid var(--success);
+            box-shadow: 0 4px 16px rgba(63, 185, 80, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--success-hover) 0%, #2ea043 100%);
+            border-color: var(--success-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(63, 185, 80, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            color: var(--accent-primary);
+            border: 2px solid rgba(88, 166, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.2);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-1px);
+        }
+
+        /* --- Section Spacing --- */
+        section {
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        section:first-of-type {
+            padding-top: 40px;
+        }
 
         /* --- Footer --- */
-        footer { text-align: center; padding: 30px; margin-top: 40px; border-top: 1px solid #30363d; color: #8b949e; }
+        footer { 
+            text-align: center; 
+            padding: 40px 20px; 
+            margin-top: 60px; 
+            border-top: 1px solid var(--border-color); 
+            color: var(--text-secondary); 
+            background-color: var(--bg-primary);
+        }
     </style>
 </head>
 <body>
 
-    <header class="container">
-        <div class="logo">LensLink AI</div>
-        <nav>
-            <a href="#">Smart Selector</a>
-            <a href="#comparisonSection">Compare</a>
-            <a href="#">Reviews</a>
-            <a href="#">Blog</a>
+    <header id="mainHeader">
+        <div class="header-content">
+            <a href="/" class="logo">LensLink AI</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <a href="/" data-i18n="home">Home</a>
+                <a href="/cameras.html" data-i18n="browseCameras">Browse Cameras</a>
+                <a href="#quickStart">Quick Start</a>
+                <a href="#comparisonSection" data-i18n="compareTitle">Compare</a>
+                <a href="/register.html" data-i18n="register">Register</a>
+                <a href="/login.html" data-i18n="login">Login</a>
+                <button class="theme-toggle" id="themeToggle" onclick="window.toggleTheme()" aria-label="Toggle theme" title="Switch between dark and light mode">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark</span>
+                </button>
+                <div class="language-switcher" id="languageSwitcher">
+                    <div class="lang-toggle">
+                        <span class="lang-icon">🌐</span>
+                        <span class="current-lang">English</span>
+                        <span style="font-size: 0.8em;">▼</span>
+                    </div>
+                    <div class="lang-dropdown"></div>
+                </div>
         </nav>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <h1>Connect with Your Perfect Camera.</h1>
-                <p>Tell me what you need, or compare two models directly below.</p>
-                <div class="chat-container">
-                    <div class="chat-display" id="chatDisplay">
-                        <div class="message ai-message">
-                            Hello! I'm Ahri. What are you passionate about photographing?
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-badge">
+                        <span>✨</span> <span data-i18n="heroBadge">AI Camera Concierge</span>
+                        </div>
+                    <h1 data-i18n="heroTitle">Connect with Your Perfect Camera.</h1>
+                    <p data-i18n="heroSubtitle">
+                        Describe your shoot, compare any two models, and let LensLink AI surface the best gear, specs, and reviews in seconds.
+                    </p>
+                    <div class="hero-ctas">
+                        <button class="cta-primary" onclick="(() => { const el = document.getElementById('aiSearchInput'); if (el) el.focus(); })()" data-i18n="heroPrimaryCta">
+                            Start with AI
+                        </button>
+                        <button class="cta-ghost" onclick="window.location.href='/cameras.html'" data-i18n="heroSecondaryCta">
+                            Browse the catalog
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <strong>32K+</strong>
+                            <span data-i18n="heroStatComparisons">Comparisons this year</span>
+                    </div>
+                        <div class="stat-card">
+                            <strong>120K</strong>
+                            <span data-i18n="heroStatCreators">Creators supported</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong>98%</strong>
+                            <span data-i18n="heroStatMatch">AI match confidence</span>
                         </div>
                     </div>
-                    <div class="chat-input-area">
-                        <input type="text" id="userInput" placeholder="e.g., 'I need a camera for travel vlogging'">
-                        <button id="sendBtn">Send</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-card-header">
+                            <span data-i18n="heroCardLabel">Live AI match</span>
+                            <span class="hero-rating">98% fit</span>
+                        </div>
+                        <div class="hero-compare">
+                            <div class="hero-compare-item">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=200&q=80" alt="Sony a7 IV preview">
+                                <div>
+                                    <h4>Sony a7 IV</h4>
+                                    <p>Hybrid pro • $2,498</p>
+                                </div>
+                            </div>
+                            <div class="hero-compare-item">
+                                <img src="https://images.unsplash.com/photo-1510127034890-ba27e83497b6?auto=format&fit=crop&w=200&q=80" alt="Canon EOS R6 preview">
+                                <div>
+                                    <h4>Canon EOS R6</h4>
+                                    <p>Low-light beast • $2,499</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-card-footer" data-i18n="heroCardFooter">
+                            “Both match your travel + wedding brief. Sony edges ahead for 4K 60p and autofocus, Canon wins in pure low light.”
+                        </div>
+                    </div>
+                    <div class="floating-chip chip-top" data-i18n="heroChipTop">⚡ Instant spec breakdown</div>
+                    <div class="floating-chip chip-bottom" data-i18n="heroChipBottom">🤝 Trusted by 120K+ creators</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow container" id="workflow">
+            <div class="workflow-header">
+                <h2 data-i18n="workflowTitle">Three Layers, One Flow</h2>
+                <p data-i18n="workflowSubtitle">Move from inspiration to confident decisions with a guided stack of tools designed for creators, shoppers, and researchers alike.</p>
+            </div>
+            <div class="workflow-grid">
+                <div class="layer-card">
+                    <div class="layer-tag" data-i18n="workflowStep1">Step 1 · Discover</div>
+                    <h3 data-i18n="workflowStep1Title">Browse presets or start with AI</h3>
+                    <p data-i18n="workflowStep1Desc">Use curated routes for beginners, pros, and budgets, or jump straight into the AI search to tell us exactly what you need.</p>
+                    <div class="layer-actions">
+                        <a href="#quickStart" class="btn btn-secondary" data-i18n="quickStart">Quick Start</a>
+                        <a href="#aiSearch" class="btn btn-primary" data-i18n="aiSearch">AI Search</a>
+                    </div>
+                </div>
+                <div class="layer-card">
+                    <div class="layer-tag" data-i18n="workflowStep2">Step 2 · Refine</div>
+                    <h3 data-i18n="workflowStep2Title">Filter and shortlist</h3>
+                    <p data-i18n="workflowStep2Desc">Use the browse page filters, favorites, and saved history to narrow down the cameras that truly match your shoot.</p>
+                    <div class="layer-actions">
+                        <a href="/cameras.html" class="btn btn-secondary" data-i18n="browseGrid">Browse Grid</a>
+                        <a href="/favorites.html" class="btn btn-primary" data-i18n="seeFavorites">See Favorites</a>
+                    </div>
+                </div>
+                <div class="layer-card">
+                    <div class="layer-tag" data-i18n="workflowStep3">Step 3 · Compare</div>
+                    <h3 data-i18n="workflowStep3Title">Analyze and export</h3>
+                    <p data-i18n="workflowStep3Desc">Drop two cameras into the manual compare, switch to matrix view, or export the results to CSV/JSON for sharing.</p>
+                    <div class="layer-actions">
+                        <a href="#comparisonSection" class="btn btn-secondary" data-i18n="comparisonLab">Comparison Lab</a>
+                        <a href="#historySection" class="btn btn-primary" data-i18n="recentComparisons">Recent Comparisons</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="manual-compare-section container">
-            <h2>Manual Comparison</h2>
-            <p class="section-subtitle">Already know what you're looking for? Type the models below.</p>
+        <section class="ai-search container" id="aiSearch">
+            <h2 data-i18n="aiSearchTitle">AI Camera Search</h2>
+            <p class="description" data-i18n="aiSearchSubtitle">Ask anything about cameras — budget, features, comparisons — and get live results plus an AI summary.</p>
+            <form id="aiSearchForm">
+                <input type="text" id="aiSearchInput" placeholder="e.g., Mirrorless camera under $1500 for travel and video" aria-label="AI camera search bar" data-i18n="aiSearchPlaceholder" required>
+                <button type="submit" class="btn-interactive" data-i18n="search">Search</button>
+            </form>
+            <div class="ai-examples">
+                <button type="button" data-query="Best full-frame camera for weddings under $2500">Wedding cameras under $2500</button>
+                <button type="button" data-query="Budget beginner camera with interchangeable lenses">Budget beginner camera</button>
+                <button type="button" data-query="Compare Sony a7 IV vs Canon R6 for hybrid shooting">Compare Sony a7 IV vs Canon R6</button>
+            </div>
+            <div class="ai-search-status" id="aiSearchStatus"></div>
+            <div class="ai-search-grid fade-in" id="aiSearchResults" hidden>
+                <div class="ai-summary" id="aiSummary"></div>
+                <div class="ai-results" id="aiResultList"></div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="quick-start container" id="quickStart">
+            <h2 data-i18n="quickStartTitle">Quick Start</h2>
+            <p class="section-subtitle" data-i18n="quickStartSubtitle">Get started quickly with our most popular options</p>
+            <div class="quick-start-grid">
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=beginner'">
+                    <h3 data-i18n="quickStartBeginnerTitle">🎯 For Beginners</h3>
+                    <p data-i18n="quickStartBeginnerDesc">Perfect cameras for those just starting their photography journey. Easy to use and budget-friendly.</p>
+                    <a href="/cameras.html?filter=beginner" class="btn" data-i18n="browseBeginnerCameras">Browse Beginner Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=professional'">
+                    <h3 data-i18n="quickStartProfessionalTitle">⚡ For Professionals</h3>
+                    <p data-i18n="quickStartProfessionalDesc">High-performance cameras for professional photographers. Advanced features and superior quality.</p>
+                    <a href="/cameras.html?filter=professional" class="btn" data-i18n="browseProfessionalCameras">Browse Professional Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html?filter=budget'">
+                    <h3 data-i18n="quickStartBudgetTitle">💰 Budget Options</h3>
+                    <p data-i18n="quickStartBudgetDesc">Great cameras that won't break the bank. Quality photography without the high price tag.</p>
+                    <a href="/cameras.html?filter=budget" class="btn" data-i18n="browseBudgetCameras">Browse Budget Cameras</a>
+                </div>
+                <div class="quick-start-card" onclick="window.location.href='/cameras.html'">
+                    <h3 data-i18n="quickStartBrowseAllTitle">🔍 Browse All</h3>
+                    <p data-i18n="quickStartBrowseAllDesc">Explore our complete collection of cameras. Filter, search, and find your perfect match.</p>
+                    <a href="/cameras.html" class="btn" data-i18n="viewAllCameras">View All Cameras</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="manual-compare-section container" id="manualCompare">
+            <h2 data-i18n="compareTitle">Manual Comparison</h2>
+            <p class="section-subtitle" data-i18n="compareSubtitle">Already know what you're looking for? Type the models below.</p>
             <div class="manual-compare-form">
                 <input type="text" id="camera1Input" placeholder="e.g., Sony a7 IV">
                 <span class="vs-text">vs.</span>
                 <input type="text" id="camera2Input" placeholder="e.g., Canon EOS R6">
-                <button id="manualCompareBtn">Compare</button>
+                <button id="manualCompareBtn" data-i18n="compareTitle">Compare</button>
                 <p id="manualError" class="error-message"></p>
             </div>
         </section>
 
         <section class="comparison-section container" id="comparisonSection">
-            <h2>Comparison Result</h2>
-            <div class="comparison-grid">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h2 style="margin: 0;" data-i18n="compareTitle">Comparison Result</h2>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="view-toggle-btn active" id="gridViewBtn" onclick="switchView('grid')" data-i18n="cardView">
+                        📱 Card View
+                    </button>
+                    <button class="view-toggle-btn" id="tableViewBtn" onclick="switchView('table')" data-i18n="tableView">
+                        📊 Table View
+                    </button>
+                    <button class="export-btn" onclick="exportComparison()" data-i18n="exportComparison">
+                        ⬇️ Export
+                    </button>
+                    <button class="share-btn" onclick="shareComparison('all')" title="Share this comparison">
+                        🔗 Share
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Card/Grid View -->
+            <div class="comparison-grid" id="gridView">
                 <div class="camera-card" id="camera1Card">
-                    <img src="" alt="Camera 1" id="camera1Img">
+                    <img src="" alt="Camera 1" id="camera1Img" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
                     <div class="card-content">
                         <h3 id="camera1Name">Camera 1</h3>
                         <p class="ai-insight" id="camera1Insight"></p>
@@ -274,7 +1880,7 @@
                     </div>
                 </div>
                 <div class="camera-card" id="camera2Card">
-                    <img src="" alt="Camera 2" id="camera2Img">
+                    <img src="" alt="Camera 2" id="camera2Img" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
                     <div class="card-content">
                         <h3 id="camera2Name">Camera 2</h3>
                         <p class="ai-insight" id="camera2Insight"></p>
@@ -283,16 +1889,188 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Table/Matrix View -->
+            <div class="comparison-table" id="tableView" style="display: none;">
+                <table id="comparisonMatrix">
+                    <thead>
+                        <tr>
+                            <th data-i18n="feature">Feature</th>
+                            <th id="tableCamera1Name">Camera 1</th>
+                            <th id="tableCamera2Name">Camera 2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="history-section container" id="historySection">
+            <div class="history-header">
+                <h2 data-i18n="recentComparisons">Recent Comparisons</h2>
+                <button class="clear-history-btn" onclick="clearComparisonHistory()" data-i18n="clearHistory">Clear history</button>
+            </div>
+            <div id="historyContent">
+                <div class="history-empty fade-in" data-i18n="noComparisons">
+                    No comparisons yet. Compare cameras to build your history!
+                </div>
+            </div>
         </section>
     </main>
     
+    <div class="quick-dock" id="quickDock" aria-label="Quick navigation dock">
+        <button data-target="workflow" data-i18n="discover">Discover</button>
+        <button data-target="aiSearch" data-i18n="aiSearch">AI Search</button>
+        <button data-target="manualCompare" data-i18n="manualCompare">Manual Compare</button>
+        <button data-target="comparisonSection" data-i18n="compareTitle">Compare</button>
+        <button data-target="historySection" data-i18n="history">History</button>
+    </div>
+    
     <footer class="container">
-        <p>&copy; 2025 LensLink AI. All rights reserved. A concept by a user and their AI assistant.</p>
+        <p data-i18n="copyright">&copy; 2025 LensLink AI. All rights reserved. A concept by a user and their AI assistant.</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+    <script src="/public/js/auth.js"></script>
     <script>
-        // --- Mock Camera Database ---
-        const cameraDatabase = {
+        // --- Mobile Menu Toggle ---
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        if (mobileMenuToggle && mainNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                }
+            });
+        }
+
+        // --- Sticky Header ---
+        const mainHeader = document.getElementById('mainHeader');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                mainHeader?.classList.add('scrolled');
+            } else {
+                mainHeader?.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // --- Back to Top Button ---
+        const backToTop = document.getElementById('backToTop');
+        
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // --- Smooth Scroll for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // --- Scroll to top/hero section when page loads if coming from another page ---
+        if (document.referrer && !document.referrer.includes(window.location.hostname)) {
+            // Coming from external site, scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (document.referrer && !document.referrer.endsWith('/')) {
+            // Coming from another page on same site, scroll to hero
+            setTimeout(() => {
+                const heroSection = document.querySelector('.hero');
+                if (heroSection) {
+                    heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 100);
+        }
+        
+        // --- Handle logo and home link clicks to scroll to hero ---
+        const logoLink = document.querySelector('.logo');
+        const homeLink = document.querySelector('nav a[href="/"]');
+        
+        if (logoLink) {
+            logoLink.addEventListener('click', function(e) {
+                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                    e.preventDefault();
+                    const heroSection = document.querySelector('.hero');
+                    if (heroSection) {
+                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+        
+        if (homeLink) {
+            homeLink.addEventListener('click', function(e) {
+                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                    e.preventDefault();
+                    const heroSection = document.querySelector('.hero');
+                    if (heroSection) {
+                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        // --- Camera Database (will be populated from API) ---
+        let cameraDatabase = {
             "sony_a7_iv": {
                 name: "Sony Alpha a7 IV",
                 img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c29ueSUyMGFsdHwwfHx8fDE2NjU2NzgzOA&ixlib=rb-4.0.3&q=80&w=1080",
@@ -337,26 +2115,10 @@
             }
         };
 
-        // --- Get Element References ---
-        const chatDisplay = document.getElementById('chatDisplay');
-        const userInput = document.getElementById('userInput');
-        const sendBtn = document.getElementById('sendBtn');
-        const camera1Input = document.getElementById('camera1Input');
-        const camera2Input = document.getElementById('camera2Input');
-        const manualCompareBtn = document.getElementById('manualCompareBtn');
-        const manualError = document.getElementById('manualError');
-
-        // Card 1 Elements
-        const camera1Name = document.getElementById('camera1Name');
-        const camera1Img = document.getElementById('camera1Img');
-        const camera1Insight = document.getElementById('camera1Insight');
-        const camera1Specs = document.getElementById('camera1Specs');
-        
-        // Card 2 Elements
-        const camera2Name = document.getElementById('camera2Name');
-        const camera2Img = document.getElementById('camera2Img');
-        const camera2Insight = document.getElementById('camera2Insight');
-        const camera2Specs = document.getElementById('camera2Specs');
+        // --- Element References (will be initialized after DOM loads) ---
+        let camera1Input, camera2Input, manualCompareBtn, manualError;
+        let camera1Name, camera1Img, camera1Insight, camera1Specs;
+        let camera2Name, camera2Img, camera2Insight, camera2Specs;
 
         // --- Core Functions ---
 
@@ -380,24 +2142,75 @@
          * @param {string} cardPrefix - "camera1" or "camera2"
          * @param {object} data - The camera data object from the database
          */
+        /**
+         * Get translated camera insight
+         */
+        function getTranslatedInsight(cameraKey, defaultInsight) {
+            if (!window.LanguageSwitcher || !window.translations) {
+                return defaultInsight;
+            }
+            const lang = window.LanguageSwitcher.getCurrent();
+            const key = `camera_${cameraKey}_insight`;
+            const t = window.LanguageSwitcher.t(key, defaultInsight);
+            return t !== key ? t : defaultInsight;
+        }
+
+        /**
+         * Get translated spec
+         */
+        function getTranslatedSpec(spec, cameraKey) {
+            if (!window.LanguageSwitcher || !window.translations) {
+                return spec;
+            }
+            const lang = window.LanguageSwitcher.getCurrent();
+            // Try to find translation for this specific spec
+            const specKey = spec.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const cameraSpecKey = `camera_${cameraKey}_spec_${specKey}`;
+            const t = window.LanguageSwitcher.t(cameraSpecKey, spec);
+            return t !== cameraSpecKey ? t : spec;
+        }
+
         function updateCard(cardPrefix, data) {
             const nameEl = document.getElementById(`${cardPrefix}Name`);
             const imgEl = document.getElementById(`${cardPrefix}Img`);
             const insightEl = document.getElementById(`${cardPrefix}Insight`);
             const specsEl = document.getElementById(`${cardPrefix}Specs`);
 
-            nameEl.textContent = data.name;
-            imgEl.src = data.img;
-            imgEl.alt = data.name;
-            insightEl.textContent = data.insight;
+            // Add null checks to prevent errors
+            if (!nameEl || !imgEl || !insightEl || !specsEl) {
+                console.error(`Elements not found for ${cardPrefix}. Make sure the comparison section is loaded.`);
+                return;
+            }
 
-            // Clear old specs and add new ones
+            if (!data || !data.name || (!data.img && !data.image) || !data.insight || !data.specs) {
+                console.error(`Invalid camera data for ${cardPrefix}:`, data);
+                return;
+            }
+
+            nameEl.textContent = data.name;
+            // Support both 'img' and 'image' properties
+            imgEl.src = data.img || data.image || '';
+            imgEl.alt = data.name;
+            imgEl.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera';
+                this.onerror = null;
+            };
+            
+            // Get camera key for translation
+            const cameraKey = findCameraKey(data.name) || data.name.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            
+            // Translate insight
+            insightEl.textContent = getTranslatedInsight(cameraKey, data.insight);
+
+            // Clear old specs and add new ones with translations
             specsEl.innerHTML = "";
-            data.specs.forEach(spec => {
-                const li = document.createElement('li');
-                li.textContent = spec;
-                specsEl.appendChild(li);
-            });
+            if (Array.isArray(data.specs)) {
+                data.specs.forEach(spec => {
+                    const li = document.createElement('li');
+                    li.textContent = getTranslatedSpec(spec, cameraKey);
+                    specsEl.appendChild(li);
+                });
+            }
         }
 
         /**
@@ -405,87 +2218,388 @@
          * @param {string} cam1Key - The database key for camera 1
          * @param {string} cam2Key - The database key for camera 2
          */
-        function updateComparisonCards(cam1Key, cam2Key) {
+        let currentComparison = { cam1: null, cam2: null };
+
+        async function updateComparisonCards(cam1Key, cam2Key) {
+            // If cameras not found, try loading from API
+            if (!cameraDatabase[cam1Key] || !cameraDatabase[cam2Key]) {
+                await loadCamerasFromAPI();
+            }
+            
             const cam1Data = cameraDatabase[cam1Key];
             const cam2Data = cameraDatabase[cam2Key];
 
-            if (cam1Data && cam2Data) {
+            if (!cam1Data) {
+                console.error(`Camera not found in database: ${cam1Key}`);
+                if (manualError) {
+                    manualError.textContent = `Camera "${cam1Key}" not found. Please check the camera name.`;
+                    manualError.style.display = 'block';
+                }
+                return;
+            }
+            if (!cam2Data) {
+                console.error(`Camera not found in database: ${cam2Key}`);
+                if (manualError) {
+                    manualError.textContent = `Camera "${cam2Key}" not found. Please check the camera name.`;
+                    manualError.style.display = 'block';
+                }
+                return;
+            }
+
+            currentComparison = { cam1: cam1Data, cam2: cam2Data };
+            
                 updateCard('camera1', cam1Data);
                 updateCard('camera2', cam2Data);
                 
-                // Scroll to the comparison section
-                document.getElementById('comparisonSection').scrollIntoView({ behavior: 'smooth' });
+            addComparisonHistory(cam1Data, cam2Data);
+            // Update table view with comparison data
+            updateComparisonTable(cam1Data, cam2Data);
+            
+            // Scroll to the comparison section (with null check)
+            const comparisonSection = document.getElementById('comparisonSection');
+            if (comparisonSection) {
+                comparisonSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        const HISTORY_STORAGE_KEY = 'lenslinkComparisonHistory';
+        const MAX_HISTORY_ITEMS = 10;
+
+        function getComparisonHistory() {
+            try {
+                const data = localStorage.getItem(HISTORY_STORAGE_KEY);
+                if (!data) return [];
+                return JSON.parse(data);
+            } catch (error) {
+                console.error('Failed to parse comparison history', error);
+                return [];
+            }
+        }
+
+        function saveComparisonHistory(history) {
+            localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(history));
+        }
+
+        function addComparisonHistory(cam1, cam2) {
+            const history = getComparisonHistory();
+            const timestamp = Date.now();
+            const entry = {
+                camera1: {
+                    name: cam1.name,
+                    key: findCameraKey(cam1.name) || ''
+                },
+                camera2: {
+                    name: cam2.name,
+                    key: findCameraKey(cam2.name) || ''
+                },
+                createdAt: timestamp
+            };
+
+            // Remove duplicates (same pair regardless of order)
+            const filtered = history.filter(item => {
+                const samePair = (item.camera1.name === entry.camera1.name && item.camera2.name === entry.camera2.name) ||
+                                 (item.camera1.name === entry.camera2.name && item.camera2.name === entry.camera1.name);
+                return !samePair;
+            });
+
+            filtered.unshift(entry);
+            if (filtered.length > MAX_HISTORY_ITEMS) {
+                filtered.length = MAX_HISTORY_ITEMS;
+            }
+            saveComparisonHistory(filtered);
+            renderComparisonHistory();
+        }
+
+        function clearComparisonHistory() {
+            localStorage.removeItem(HISTORY_STORAGE_KEY);
+            renderComparisonHistory();
+        }
+
+        function loadHistoryComparison(index) {
+            const history = getComparisonHistory();
+            const entry = history[index];
+            if (!entry) return;
+
+            if (!camera1Input || !camera2Input) {
+                console.error('Camera input elements not found');
+                return;
+            }
+
+            camera1Input.value = entry.camera1.name;
+            camera2Input.value = entry.camera2.name;
+            handleManualCompare();
+        }
+
+        function renderComparisonHistory() {
+            const historyContainer = document.getElementById('historyContent');
+            const history = getComparisonHistory();
+
+            if (!history.length) {
+                historyContainer.innerHTML = `
+                    <div class="history-empty fade-in">
+                        No comparisons yet. Compare cameras to build your history!
+                    </div>
+                `;
+                return;
+            }
+
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            });
+
+            historyContainer.innerHTML = `
+                <ul class="history-list fade-in">
+                    ${history.map((item, idx) => `
+                        <li class="history-item stagger-item">
+                            <h4>${item.camera1.name} <span style="color:#8b949e;">vs</span> ${item.camera2.name}</h4>
+                            <p>Compared on ${formatter.format(item.createdAt)}</p>
+                            <button onclick="loadHistoryComparison(${idx})">Compare again</button>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+        }
+
+        /**
+         * Update comparison table/matrix view
+         */
+        function updateComparisonTable(cam1, cam2) {
+            const tableCamera1Name = document.getElementById('tableCamera1Name');
+            const tableCamera2Name = document.getElementById('tableCamera2Name');
+            const tbody = document.getElementById('comparisonTableBody');
+            
+            if (!tableCamera1Name || !tableCamera2Name || !tbody) {
+                console.warn('Comparison table elements not found');
+                return;
+            }
+
+            if (!cam1 || !cam2) {
+                console.error('Invalid camera data for comparison table');
+                return;
+            }
+            
+            tableCamera1Name.textContent = cam1.name || 'Camera 1';
+            tableCamera2Name.textContent = cam2.name || 'Camera 2';
+            
+            tbody.innerHTML = '';
+            
+            // Define comparison rows - adapt to available data structure
+            const comparisons = [
+                { label: 'Name', key: 'name' },
+                { label: 'Price', key: 'price', format: (v) => v ? `$${v.toLocaleString()}` : 'N/A', compare: 'lower' },
+                { label: 'Rating', key: 'rating', format: (v) => v ? `${v}/5` : 'N/A', compare: 'higher' }
+            ];
+            
+            // Only add rows for data that exists (specs might not be in the old cameraDatabase format)
+            // Check if specs exist or if data is in a different format
+            if (cam1.specs || cam2.specs || Array.isArray(cam1.specs)) {
+                // If specs is an array, skip detailed specs
+                if (!Array.isArray(cam1.specs) && !Array.isArray(cam2.specs)) {
+                    const t = window.LanguageSwitcher?.t || ((key) => key);
+                    comparisons.push(
+                        { label: t('specSensorType', 'Sensor Type'), key: 'sensor_type' },
+                        { label: t('specMegapixels', 'Megapixels'), key: 'megapixels', compare: 'higher' },
+                        { label: t('specVideoMax', 'Video Max'), key: 'video_max' },
+                        { label: t('specAutofocus', 'Autofocus'), key: 'autofocus' },
+                        { label: t('specScreenType', 'Screen Type'), key: 'screen' },
+                        { label: t('specBatteryLife', 'Battery Life'), key: 'battery_life' },
+                        { label: t('specWeight', 'Weight'), key: 'weight' }
+                    );
+                }
+            }
+            
+            comparisons.forEach(comp => {
+                const row = document.createElement('tr');
+                
+                let val1 = cam1[comp.key] !== undefined ? cam1[comp.key] : (cam1.specs?.[comp.key] || 'N/A');
+                let val2 = cam2[comp.key] !== undefined ? cam2[comp.key] : (cam2.specs?.[comp.key] || 'N/A');
+                
+                // Handle array specs (old format)
+                if (val1 === 'N/A' && Array.isArray(cam1.specs)) {
+                    val1 = comp.key === 'name' ? cam1.name : 'See specs list';
+                }
+                if (val2 === 'N/A' && Array.isArray(cam2.specs)) {
+                    val2 = comp.key === 'name' ? cam2.name : 'See specs list';
+                }
+                
+                const displayVal1 = comp.format ? comp.format(val1) : (val1 || 'N/A');
+                const displayVal2 = comp.format ? comp.format(val2) : (val2 || 'N/A');
+                
+                // Determine which is better
+                let val1Class = '';
+                let val2Class = '';
+                
+                if (comp.compare && typeof val1 === 'number' && typeof val2 === 'number') {
+                    if (comp.compare === 'higher') {
+                        val1Class = val1 > val2 ? 'better-value' : (val1 < val2 ? 'worse-value' : '');
+                        val2Class = val2 > val1 ? 'better-value' : (val2 < val1 ? 'worse-value' : '');
+                    } else if (comp.compare === 'lower') {
+                        val1Class = val1 < val2 ? 'better-value' : (val1 > val2 ? 'worse-value' : '');
+                        val2Class = val2 < val1 ? 'better-value' : (val2 > val1 ? 'worse-value' : '');
+                    }
+                }
+                
+                row.innerHTML = `
+                    <td>${comp.label}</td>
+                    <td class="${val1Class}">${displayVal1}</td>
+                    <td class="${val2Class}">${displayVal2}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        /**
+         * Switch between grid and table views
+         */
+        function switchView(view) {
+            const gridView = document.getElementById('gridView');
+            const tableView = document.getElementById('tableView');
+            const gridBtn = document.getElementById('gridViewBtn');
+            const tableBtn = document.getElementById('tableViewBtn');
+            
+            if (!gridView || !tableView || !gridBtn || !tableBtn) {
+                console.error('View toggle elements not found');
+                return;
+            }
+            
+            if (view === 'grid') {
+                gridView.style.display = 'grid';
+                tableView.style.display = 'none';
+                gridBtn.classList.add('active');
+                tableBtn.classList.remove('active');
+            } else {
+                gridView.style.display = 'none';
+                tableView.style.display = 'block';
+                gridBtn.classList.remove('active');
+                tableBtn.classList.add('active');
             }
         }
 
         /**
-         * Adds a message to the chat display
-         * @param {string} text - The message content
-         * @param {string} sender - "user" or "ai"
+         * Export comparison as JSON or CSV
          */
-        function addMessage(text, sender) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', `${sender}-message`);
-            messageElement.textContent = text;
-            chatDisplay.appendChild(messageElement);
-            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        function exportComparison() {
+            if (!currentComparison.cam1 || !currentComparison.cam2) {
+                alert('No comparison data to export');
+                return;
+            }
+            
+            // Show export options
+            const format = confirm('Click OK for JSON export, Cancel for CSV export');
+            
+            if (format) {
+                // Export as JSON
+                const data = {
+                    comparison_date: new Date().toISOString(),
+                    cameras: [currentComparison.cam1, currentComparison.cam2]
+                };
+                
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                downloadFile(blob, `camera-comparison-${Date.now()}.json`);
+                } else {
+                // Export as CSV
+                const csv = generateCSV(currentComparison.cam1, currentComparison.cam2);
+                const blob = new Blob([csv], { type: 'text/csv' });
+                downloadFile(blob, `camera-comparison-${Date.now()}.csv`);
+            }
         }
 
         /**
-         * Handles the main chatbot logic
+         * Generate CSV from comparison data
          */
-        function handleChat() {
-            const userText = userInput.value.trim();
-            if (userText === "") return;
+        function generateCSV(cam1, cam2) {
+            if (!cam1 || !cam2) {
+                console.error('Invalid camera data for CSV export');
+                return 'Feature,Camera 1,Camera 2\nError: Invalid data';
+            }
 
-            addMessage(userText, 'user');
-            userInput.value = "";
-
-            // Show typing indicator
-            const typingIndicator = document.createElement('div');
-            typingIndicator.classList.add('message', 'typing-indicator');
-            typingIndicator.textContent = "Ahri is typing...";
-            chatDisplay.appendChild(typingIndicator);
-            chatDisplay.scrollTop = chatDisplay.scrollHeight;
-
-            // Simulate AI thinking
-            setTimeout(() => {
-                chatDisplay.removeChild(typingIndicator);
-                
-                let responseText = "";
-                let comparisonKeys = ["sony_a7_iv", "canon_eos_r6"]; // Default
-                const lowerUserText = userText.toLowerCase();
-
-                if (lowerUserText.includes('travel') || lowerUserText.includes('vlog')) {
-                    responseText = "For travel and vlogging, lightweight cameras are key. I've updated the comparison below to show the Fujifilm X-S10 vs. the Sony ZV-E10. Check it out!";
-                    comparisonKeys = ["fujifilm_x_s10", "sony_zv_e10"];
-                } else if (lowerUserText.includes('sport') || lowerUserText.includes('action')) {
-                    responseText = "For sports, you need speed! I've set up a comparison between the Canon EOS R6 and the Nikon Z6 II below. Both have incredible autofocus and burst shooting capabilities.";
-                    comparisonKeys = ["canon_eos_r6", "nikon_z6_ii"];
-                } else if (lowerUserText.includes('beginner') || lowerUserText.includes('new')) {
-                    responseText = "For beginners, user-friendly cameras are a great start. I've updated the cards below to compare the Canon EOS R10 and the Nikon Z50 for you.";
-                    comparisonKeys = ["canon_eos_r10", "nikon_z50"];
-                } else {
-                    responseText = "That's an interesting request! Based on that, I would recommend comparing the Sony a7 IV and the Canon EOS R6. You can see my analysis of them below, or enter your own models in the manual comparison section.";
-                    // comparisonKeys remains default
-                }
-                
-                addMessage(responseText, 'ai');
-                
-                // Update the comparison cards
-                updateComparisonCards(comparisonKeys[0], comparisonKeys[1]);
-                
-                // Also update the manual input fields to match
-                camera1Input.value = cameraDatabase[comparisonKeys[0]].name;
-                camera2Input.value = cameraDatabase[comparisonKeys[1]].name;
-
-            }, 1500);
+            let csv = 'Feature,Camera 1,Camera 2\n';
+            csv += `Name,${cam1.name || 'N/A'},${cam2.name || 'N/A'}\n`;
+            if (cam1.brand || cam2.brand) {
+                csv += `Brand,${cam1.brand || 'N/A'},${cam2.brand || 'N/A'}\n`;
+            }
+            if (cam1.price || cam2.price) {
+                csv += `Price,$${cam1.price || 'N/A'},$${cam2.price || 'N/A'}\n`;
+            }
+            if (cam1.rating || cam2.rating) {
+                csv += `Rating,${cam1.rating || 'N/A'},${cam2.rating || 'N/A'}\n`;
+            }
+            
+            // Add specs if they exist
+            if (cam1.specs || cam2.specs) {
+                const specKeys = ['sensor_type', 'megapixels', 'video_max', 'autofocus', 'screen', 'battery_life', 'weight'];
+                specKeys.forEach(key => {
+                    const val1 = cam1.specs?.[key] || 'N/A';
+                    const val2 = cam2.specs?.[key] || 'N/A';
+                    if (val1 !== 'N/A' || val2 !== 'N/A') {
+                        const label = key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                        csv += `${label},${val1},${val2}\n`;
+                    }
+                });
+            }
+            
+            return csv;
         }
+
+        /**
+         * Download file helper
+         */
+        function downloadFile(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        const formatAiText = (text = '') => {
+            const escaped = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+            const paragraphs = escaped.split(/\n{2,}/).map(block => {
+                if (/^\s*[-*]/.test(block)) {
+                    return '<ul>' + block.split(/\n/).map(item => `<li>${item.replace(/^\s*[-*]\s*/, '')}</li>`).join('') + '</ul>';
+                }
+                if (/^\d+\./.test(block.trim())) {
+                    return '<ol>' + block.split(/\n/).map(item => `<li>${item.replace(/^\d+\.\s*/, '')}</li>`).join('') + '</ol>';
+                }
+                return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+            });
+            return paragraphs.join('');
+        };
+
+        const renderSearxResults = (items = []) => {
+            if (!items.length) {
+                return '<p>No web results were found for this query.</p>';
+            }
+            return `
+                <h3>Latest Web Results</h3>
+                <ul>
+                    ${items.map(result => `
+                        <li>
+                            <a href="${result.url}" target="_blank" rel="noopener">${result.title}</a>
+                            <p>${result.snippet || ''}</p>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+        };
 
         /**
          * Handles the manual compare button click
          */
-        function handleManualCompare() {
+        async function handleManualCompare() {
+            if (!manualError || !camera1Input || !camera2Input) {
+                console.error('Manual compare elements not found');
+                return;
+            }
+
             manualError.style.display = 'none'; // Hide error on new attempt
             const cam1Value = camera1Input.value.trim();
             const cam2Value = camera2Input.value.trim();
@@ -505,27 +2619,638 @@
                 return;
             }
 
-            updateComparisonCards(cam1Key, cam2Key);
+            await updateComparisonCards(cam1Key, cam2Key);
+            // Save to comparison history
+            addComparisonHistoryFromNames(camera1Input.value.trim(), camera2Input.value.trim());
         }
 
-        // --- Event Listeners ---
-        sendBtn.addEventListener('click', handleChat);
-        userInput.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                handleChat();
+        // --- Social Sharing Functions ---
+        function shareComparison(platform) {
+            const camera1Input = document.getElementById('camera1Input');
+            const camera2Input = document.getElementById('camera2Input');
+            
+            if (!camera1Input || !camera2Input) return;
+            
+            const camera1 = camera1Input.value.trim();
+            const camera2 = camera2Input.value.trim();
+            
+            if (!camera1 || !camera2) {
+                alert('Please enter both cameras to share!');
+                return;
             }
+            
+            const url = `${window.location.origin}${window.location.pathname}?compare=${encodeURIComponent(camera1)}&vs=${encodeURIComponent(camera2)}`;
+            const text = `Check out this camera comparison on LensLink AI: ${camera1} vs ${camera2}`;
+            
+            // Show share menu if "all" is selected
+            if (platform === 'all') {
+                showShareMenu(url, text, camera1, camera2);
+                return;
+            }
+            
+            let shareUrl = '';
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                    break;
+                case 'reddit':
+                    shareUrl = `https://reddit.com/submit?title=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${encodeURIComponent('Camera Comparison: ' + camera1 + ' vs ' + camera2)}&body=${encodeURIComponent(text + '\n\n' + url)}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                if (platform === 'email') {
+                    window.location.href = shareUrl;
+                } else {
+                    window.open(shareUrl, '_blank', 'width=600,height=400');
+                }
+            }
+        }
+        
+        function showShareMenu(url, text, camera1, camera2) {
+            // Remove existing share dropdown if any
+            const existing = document.querySelector('.share-dropdown');
+            if (existing) {
+                existing.remove();
+            }
+            
+            const shareBtn = event.target.closest('.share-btn');
+            if (!shareBtn) return;
+            
+            const shareMenu = document.createElement('div');
+            shareMenu.className = 'share-dropdown show';
+            shareMenu.innerHTML = `
+                <div class="share-option" onclick="shareComparison('facebook'); event.stopPropagation();">
+                    <span>📘</span>
+                    <span>Facebook</span>
+                </div>
+                <div class="share-option" onclick="shareComparison('twitter'); event.stopPropagation();">
+                    <span>🐦</span>
+                    <span>Twitter</span>
+                </div>
+                <div class="share-option" onclick="shareComparison('linkedin'); event.stopPropagation();">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </div>
+                <div class="share-option" onclick="shareComparison('reddit'); event.stopPropagation();">
+                    <span>🤖</span>
+                    <span>Reddit</span>
+                </div>
+                <div class="share-option" onclick="shareComparison('email'); event.stopPropagation();">
+                    <span>📧</span>
+                    <span>Email</span>
+                </div>
+                <div class="share-option" onclick="copyComparisonLink('${url}'); event.stopPropagation();">
+                    <span>📋</span>
+                    <span>Copy Link</span>
+                </div>
+            `;
+            
+            // Position relative to share button
+            shareBtn.style.position = 'relative';
+            shareBtn.appendChild(shareMenu);
+            
+            // Close on outside click
+            setTimeout(() => {
+                const closeMenu = (e) => {
+                    if (!shareMenu.contains(e.target) && e.target !== shareBtn && !shareBtn.contains(e.target)) {
+                        shareMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                };
+                document.addEventListener('click', closeMenu);
+            }, 100);
+        }
+        
+        function copyComparisonLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                // Show feedback
+                const notification = document.createElement('div');
+                notification.textContent = 'Link copied to clipboard!';
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--success);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    z-index: 10000;
+                    box-shadow: 0 4px 12px var(--shadow);
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 2000);
+                
+                // Close share menu
+                const shareMenu = document.querySelector('.share-dropdown');
+                if (shareMenu) shareMenu.remove();
+            }).catch(() => {
+                alert('Failed to copy link. Please copy manually: ' + url);
+            });
+        }
+        
+        // --- Comparison History Functions ---
+        // Note: saveComparisonHistory(history) is defined earlier at line 1988
+        // This function is a helper to add a comparison from camera names
+        function addComparisonHistoryFromNames(camera1Name, camera2Name) {
+            try {
+                const history = getComparisonHistory();
+                const cam1Key = findCameraKey(camera1Name);
+                const cam2Key = findCameraKey(camera2Name);
+                
+                if (!cam1Key || !cam2Key) {
+                    console.warn('Cannot save history: cameras not found');
+                    return;
+                }
+                
+                const cam1Data = cameraDatabase[cam1Key];
+                const cam2Data = cameraDatabase[cam2Key];
+                
+                if (!cam1Data || !cam2Data) {
+                    console.warn('Cannot save history: camera data not found');
+                    return;
+                }
+                
+                // Use the existing addComparisonHistory function
+                addComparisonHistory(cam1Data, cam2Data);
+            } catch (error) {
+                console.error('Failed to add comparison history from names:', error);
+            }
+        }
+        
+        function loadComparisonHistory() {
+            try {
+                return JSON.parse(localStorage.getItem(HISTORY_STORAGE_KEY) || '[]');
+            } catch (error) {
+                return [];
+            }
+        }
+        
+        function displayComparisonHistory() {
+            const historyContainer = document.getElementById('historyContent');
+            if (!historyContainer) return;
+            
+            const history = loadComparisonHistory();
+            
+            if (history.length === 0) {
+                historyContainer.innerHTML = `
+                    <div class="history-empty fade-in" data-i18n="noComparisons">
+                        No comparisons yet. Compare cameras to build your history!
+                    </div>
+                `;
+                return;
+            }
+            
+            historyContainer.innerHTML = `
+                <div class="history-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                    ${history.map(h => {
+                        // Handle both old format (strings) and new format (objects)
+                        const cam1Name = typeof h.camera1 === 'string' ? h.camera1 : (h.camera1?.name || 'Unknown');
+                        const cam2Name = typeof h.camera2 === 'string' ? h.camera2 : (h.camera2?.name || 'Unknown');
+                        const date = h.date || h.createdAt;
+                        const dateStr = date ? new Date(date).toLocaleDateString() : 'Unknown date';
+                        
+                        // Escape for HTML
+                        const safeCam1 = cam1Name.replace(/'/g, "\\'");
+                        const safeCam2 = cam2Name.replace(/'/g, "\\'");
+                        
+                        return `
+                        <div class="history-item" style="
+                            background: var(--bg-secondary);
+                            border: 1px solid var(--border-color);
+                            border-radius: 10px;
+                            padding: 20px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onclick="loadComparisonFromHistory('${safeCam1}', '${safeCam2}')">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <h4 style="color: var(--accent-primary); margin: 0;">${cam1Name} vs ${cam2Name}</h4>
+                                <span style="color: var(--text-secondary); font-size: 0.85em;">${dateStr}</span>
+                            </div>
+                            <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="event.stopPropagation(); loadComparisonFromHistory('${safeCam1}', '${safeCam2}')">Compare Again</button>
+                        </div>
+                    `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
+        function loadComparisonFromHistory(camera1, camera2) {
+            const camera1Input = document.getElementById('camera1Input');
+            const camera2Input = document.getElementById('camera2Input');
+            
+            if (camera1Input && camera2Input) {
+                camera1Input.value = camera1;
+                camera2Input.value = camera2;
+                handleManualCompare();
+                // Scroll to comparison section
+                setTimeout(() => {
+                    const section = document.getElementById('comparisonSection');
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        }
+        
+        function clearComparisonHistory() {
+            if (confirm('Are you sure you want to clear all comparison history?')) {
+                localStorage.removeItem(HISTORY_STORAGE_KEY);
+                displayComparisonHistory();
+            }
+        }
+        
+        // --- Chat row/menu routing safeguards (private vs group) ---
+        // Prevent three-dots menu clicks inside chat rows from triggering parent navigation
+        document.addEventListener('click', (e) => {
+            const menuBtn = e.target.closest('[data-action="chat-menu"]');
+            if (!menuBtn) return;
+            e.preventDefault();
+            e.stopPropagation();
+            const threadId = menuBtn.dataset.threadId;
+            const threadType = (menuBtn.dataset.threadType || 'private').toLowerCase();
+            try {
+                window.dispatchEvent(new CustomEvent('openChatMenu', { detail: { id: threadId, type: threadType } }));
+            } catch (_) {}
+        }, { capture: true });
+        
+        // Route chat row clicks to the correct destination based on thread type
+        document.addEventListener('click', (e) => {
+            const row = e.target.closest('.chat-item');
+            if (!row) return;
+            // Ignore menu button clicks
+            if (e.target.closest('[data-action="chat-menu"]')) return;
+            const id = row.dataset.threadId;
+            const type = (row.dataset.threadType || '').toLowerCase();
+            if (!id) return;
+            const dest = type === 'private' ? `/dm/${encodeURIComponent(id)}` : `/group/${encodeURIComponent(id)}`;
+            e.preventDefault();
+            window.location.href = dest;
         });
+        
+        // (handlers removed by request)
+        
+        // --- Recently Viewed Cameras ---
+        function trackViewedCamera(cameraId) {
+            try {
+                let viewed = JSON.parse(localStorage.getItem('recentlyViewed') || '[]');
+                
+                // Remove if already exists
+                viewed = viewed.filter(id => id !== cameraId);
+                
+                // Add to beginning
+                viewed.unshift(cameraId);
+                
+                // Keep only last 10
+                viewed = viewed.slice(0, 10);
+                
+                localStorage.setItem('recentlyViewed', JSON.stringify(viewed));
+            } catch (error) {
+                console.error('Failed to track viewed camera:', error);
+            }
+        }
+        
+        async function displayRecentlyViewed() {
+            try {
+                const viewedIds = JSON.parse(localStorage.getItem('recentlyViewed') || '[]');
+                if (viewedIds.length === 0) return;
+                
+                // Add cache-busting to fetch request
+                const response = await fetch(`/api/cameras?t=${Date.now()}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                if (!response.ok) return;
+                
+                const cameras = await response.json();
+                const viewedCameras = viewedIds
+                    .map(id => cameras.find(c => c.id === id))
+                    .filter(c => c !== undefined)
+                    .slice(0, 6); // Show max 6
+                
+                if (viewedCameras.length === 0) return;
+                
+                // Create section if it doesn't exist
+                let section = document.querySelector('.recently-viewed-section');
+                if (!section) {
+                    const main = document.querySelector('main');
+                    if (main) {
+                        section = document.createElement('section');
+                        section.className = 'recently-viewed-section container';
+                        section.innerHTML = `
+                            <h2>Recently Viewed Cameras</h2>
+                            <div class="recently-viewed-grid" id="recentlyViewedCameras"></div>
+                        `;
+                        main.appendChild(section);
+                    }
+                }
+                
+                const container = document.getElementById('recentlyViewedCameras');
+                if (container) {
+                    container.innerHTML = viewedCameras.map(camera => `
+                        <div class="camera-card-mini" onclick="window.location.href='/camera-detail.html?id=${camera.id}'">
+                            <img src="${camera.image}" alt="${camera.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Camera'">
+                            <a href="/camera-detail.html?id=${camera.id}">${camera.name}</a>
+                            <p style="color: var(--text-secondary); font-size: 0.85em; margin-top: 5px;">${camera.price ? `$${camera.price.toLocaleString()}` : 'Price N/A'}</p>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Failed to display recently viewed:', error);
+            }
+        }
 
-        manualCompareBtn.addEventListener('click', handleManualCompare);
+        /**
+         * Load cameras from API and populate cameraDatabase
+         */
+        async function loadCamerasFromAPI() {
+            try {
+                const response = await fetch('/api/cameras');
+                if (!response.ok) {
+                    console.warn('Failed to load cameras from API, using hardcoded database only');
+                    return;
+                }
+                
+                const cameras = await response.json();
+                
+                // Convert API camera format to cameraDatabase format
+                cameras.forEach(camera => {
+                    if (camera.id && camera.name) {
+                        // Convert id format (e.g., "sony-a7-iv" to "sony_a7_iv")
+                        const dbKey = camera.id.replace(/-/g, '_');
+                        
+                        // Convert specs object to array if needed
+                        let specsArray = [];
+                        if (Array.isArray(camera.specs)) {
+                            specsArray = camera.specs;
+                        } else if (camera.specs && typeof camera.specs === 'object') {
+                            // Convert specs object to array of strings
+                            specsArray = Object.entries(camera.specs).map(([key, value]) => {
+                                if (typeof value === 'boolean') {
+                                    return value ? key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
+                                }
+                                return `${key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: ${value}`;
+                            }).filter(s => s);
+                        }
+                        
+                        // Add to cameraDatabase, preserving existing hardcoded data or using API data
+                        cameraDatabase[dbKey] = {
+                            name: camera.name,
+                            img: camera.image || camera.img || '', // Support both 'image' and 'img'
+                            insight: camera.insight || '',
+                            specs: specsArray.length > 0 ? specsArray : (cameraDatabase[dbKey]?.specs || [])
+                        };
+                    }
+                });
+                
+                console.log(`Loaded ${cameras.length} cameras from API into database`);
+            } catch (error) {
+                console.error('Error loading cameras from API:', error);
+            }
+        }
 
         // --- Initial Page Load ---
         // Load the default comparison when the page is ready
-        window.addEventListener('DOMContentLoaded', () => {
-            updateComparisonCards('sony_a7_iv', 'canon_eos_r6');
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Load cameras from API first
+            await loadCamerasFromAPI();
+            // Initialize element references after DOM is ready
+            camera1Input = document.getElementById('camera1Input');
+            camera2Input = document.getElementById('camera2Input');
+            manualCompareBtn = document.getElementById('manualCompareBtn');
+            manualError = document.getElementById('manualError');
+
+            // Card 1 Elements
+            camera1Name = document.getElementById('camera1Name');
+            camera1Img = document.getElementById('camera1Img');
+            camera1Insight = document.getElementById('camera1Insight');
+            camera1Specs = document.getElementById('camera1Specs');
+            
+            // Card 2 Elements
+            camera2Name = document.getElementById('camera2Name');
+            camera2Img = document.getElementById('camera2Img');
+            camera2Insight = document.getElementById('camera2Insight');
+            camera2Specs = document.getElementById('camera2Specs');
+
+            if (manualCompareBtn) {
+        manualCompareBtn.addEventListener('click', handleManualCompare);
+            }
+
+        // Load the default comparison when the page is ready
+            if (cameraDatabase && cameraDatabase['sony_a7_iv'] && cameraDatabase['canon_eos_r6']) {
+            await updateComparisonCards('sony_a7_iv', 'canon_eos_r6');
             // Set the inputs to match the default, fully populating the UI
-            camera1Input.value = cameraDatabase['sony_a7_iv'].name;
-            camera2Input.value = cameraDatabase['canon_eos_r6'].name;
+                if (camera1Input) camera1Input.value = cameraDatabase['sony_a7_iv'].name;
+                if (camera2Input) camera2Input.value = cameraDatabase['canon_eos_r6'].name;
+            }
+            
+            // Update navigation with auth status
+            if (typeof updateNavigation === 'function') {
+                updateNavigation();
+            }
+            
+            // Initialize theme
+            initTheme();
+            
+            // Load comparison history on page load
+            displayComparisonHistory();
+            
+            // Load recently viewed cameras
+            displayRecentlyViewed();
+            
+            // Listen for language changes and re-render comparison
+            window.addEventListener('languageChanged', () => {
+                // Re-render comparison cards with translated content
+                if (currentComparison.cam1 && currentComparison.cam2) {
+                    updateCard('camera1', currentComparison.cam1);
+                    updateCard('camera2', currentComparison.cam2);
+                    
+                    // Re-render comparison table if it exists and is visible
+                    const tableView = document.getElementById('tableView');
+                    if (tableView && tableView.style.display !== 'none') {
+                        renderComparisonTable(currentComparison.cam1, currentComparison.cam2);
+                    }
+                }
+                // Update quick dock buttons
+                const quickDock = document.getElementById('quickDock');
+                if (quickDock) {
+                    quickDock.querySelectorAll('[data-i18n]').forEach(btn => {
+                        const key = btn.getAttribute('data-i18n');
+                        if (window.LanguageSwitcher && window.translations) {
+                            const t = window.LanguageSwitcher.t(key, btn.textContent);
+                            btn.textContent = t;
+                        }
+                    });
+                }
+            });
+            
+            // Check URL parameters for shared comparison
+            const urlParams = new URLSearchParams(window.location.search);
+            const compare1 = urlParams.get('compare');
+            const compare2 = urlParams.get('vs');
+            if (compare1 && compare2 && camera1Input && camera2Input) {
+                camera1Input.value = compare1;
+                camera2Input.value = compare2;
+                // Wait a bit for elements to be ready
+                setTimeout(() => {
+                    handleManualCompare();
+                }, 500);
+            }
+
+            // Quick Dock navigation
+            const quickDock = document.getElementById('quickDock');
+            const dockButtons = quickDock ? quickDock.querySelectorAll('button[data-target]') : [];
+            const dockTargets = [];
+
+            if (dockButtons.length) {
+                dockButtons.forEach(btn => {
+                    const targetId = btn.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        dockTargets.push({ button: btn, target: targetEl });
+                        btn.addEventListener('click', () => {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        });
+                    } else {
+                        btn.disabled = true;
+                        btn.style.opacity = 0.5;
+                    }
+                });
+
+                const setActiveDock = () => {
+                    const scrollPosition = window.scrollY + window.innerHeight / 3;
+                    let activeButton = null;
+
+                    dockTargets.forEach(({ button, target }) => {
+                        if (scrollPosition >= target.offsetTop) {
+                            activeButton = button;
+                        }
+                    });
+
+                    dockButtons.forEach(btn => btn.classList.toggle('active', btn === activeButton));
+                };
+
+                window.addEventListener('scroll', setActiveDock, { passive: true });
+                setActiveDock();
+            }
+
+            // AI search wiring
+            const aiSearchForm = document.getElementById('aiSearchForm');
+            const aiSearchInput = document.getElementById('aiSearchInput');
+            const aiSearchStatus = document.getElementById('aiSearchStatus');
+            const aiSearchResults = document.getElementById('aiSearchResults');
+            const aiSummary = document.getElementById('aiSummary');
+            const aiResultList = document.getElementById('aiResultList');
+            const exampleButtons = document.querySelectorAll('.ai-examples button');
+            let activeSearchController = null;
+
+            const setStatus = (message, options = {}) => {
+                if (!aiSearchStatus) return;
+                const { loading = false } = options;
+                if (!message) {
+                    aiSearchStatus.innerHTML = '';
+                    return;
+                }
+                aiSearchStatus.innerHTML = loading
+                    ? `<div class="loading-spinner loading-spinner-small"></div><span>${message}</span>`
+                    : `<span>${message}</span>`;
+            };
+
+            const submitSearch = async (query) => {
+                if (!query || !aiSearchInput || !aiSummary || !aiResultList || !aiSearchResults) return;
+                aiSearchInput.value = query;
+                if (activeSearchController) {
+                    activeSearchController.abort();
+                }
+                activeSearchController = new AbortController();
+                aiSummary.innerHTML = '';
+                aiResultList.innerHTML = '';
+                aiSearchResults.hidden = true;
+                setStatus('Searching for the latest information...', { loading: true });
+
+                try {
+                    const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+                        signal: activeSearchController.signal
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: 'Search failed' }));
+                        throw new Error(errorData.error || 'Search failed');
+                    }
+                    
+                    const data = await response.json();
+
+                    if (aiSummary) aiSummary.innerHTML = `<h3>AI Summary</h3>${formatAiText(data.summary || 'No summary available.')}`;
+                    if (aiResultList) aiResultList.innerHTML = renderSearxResults(data.results || []);
+                    if (aiSearchResults) aiSearchResults.hidden = false;
+                    setStatus('');
+                } catch (error) {
+                    if (error.name === 'AbortError') {
+                        return;
+                    }
+                    console.error('AI search error:', error);
+                    setStatus('Unable to complete the search right now. Please try again shortly.');
+                }
+            };
+
+            if (aiSearchForm && aiSearchInput) {
+                aiSearchForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    submitSearch(aiSearchInput.value.trim());
+                });
+            }
+
+            exampleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    submitSearch(button.dataset.query || '');
+                });
+            });
         });
+
+        // --- Theme Toggle --- (Global scope for onclick)
+        window.initTheme = function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        };
+
+        window.toggleTheme = function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        };
+
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (icon) icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+            if (text) text.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        }
+
+        // Apply theme immediately on page load
+        (function() {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', window.initTheme);
+            } else {
+                window.initTheme();
+            }
+        })();
     </script>
 
 </body>

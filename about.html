@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LensLink AI</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(35, 134, 54, 0.1));
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #58a6ff;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #8b949e;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+        }
+
+        .content-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #58a6ff;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #c9d1d9;
+            margin-bottom: 15px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: #21262d;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        .feature-card p {
+            color: #8b949e;
+            font-size: 1em;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background-color: #21262d;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #58a6ff, #238636);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+
+        .team-member h3 {
+            color: #58a6ff;
+            margin-bottom: 5px;
+        }
+
+        .team-member .role {
+            color: #8b949e;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            color: #c9d1d9;
+            font-size: 0.95em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 60px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), rgba(35, 134, 54, 0.15));
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #58a6ff;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .features-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a href="/" class="logo" style="text-decoration: none;">LensLink AI</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+            <a href="/about.html">About</a>
+            <a href="/guides.html">Guides</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>About LensLink AI</h1>
+            <p>Empowering photographers to find their perfect camera through intelligent recommendations and comprehensive comparisons.</p>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="content-section">
+            <h2>Our Mission</h2>
+            <p>
+                At LensLink AI, we believe that choosing the right camera should be simple, informed, and personalized. 
+                Our mission is to revolutionize the camera shopping experience by combining cutting-edge AI technology 
+                with comprehensive camera data and expert insights.
+            </p>
+            <p>
+                Whether you're a beginner exploring your first camera or a professional upgrading your gear, we provide 
+                the tools and information you need to make confident decisions. Our AI-powered chatbot, Ahri, learns 
+                your preferences and recommends cameras tailored to your specific needs, budget, and shooting style.
+            </p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="content-section">
+            <h2>What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Recommendations</h3>
+                    <p>Our intelligent chatbot understands your needs and suggests cameras based on budget, use case, and experience level.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Side-by-Side Comparisons</h3>
+                    <p>Compare cameras in detailed table or card views with highlighted strengths and export capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Comprehensive Database</h3>
+                    <p>Access detailed specs, pros & cons, and expert insights for 30+ cameras across all major brands.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search & Filters</h3>
+                    <p>Find exactly what you're looking for with advanced filters by brand, price, sensor type, and use case.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Personal Favorites</h3>
+                    <p>Save your favorite cameras for quick access and build your shortlist while researching.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>User Profiles</h3>
+                    <p>Create an account to save your preferences, favorites, and comparison history across devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="content-section">
+            <h2>Our Story</h2>
+            <p>
+                LensLink AI was born from a simple frustration: choosing a camera is overwhelming. With hundreds of 
+                models, conflicting reviews, and technical jargon, it's hard to know where to start.
+            </p>
+            <p>
+                We set out to create a platform that cuts through the noise and delivers personalized, actionable 
+                recommendations. By combining machine learning, comprehensive data, and an intuitive interface, 
+                we've built a tool that makes camera shopping feel less like research and more like a conversation 
+                with a knowledgeable friend.
+            </p>
+            <p>
+                Today, LensLink AI serves photographers of all levels, from hobbyists to professionals, helping 
+                them discover cameras that match their vision and budget.
+            </p>
+        </section>
+
+        <!-- Team Section -->
+        <section class="content-section">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">👨‍💻</div>
+                    <h3>Development Team</h3>
+                    <p class="role">Engineering & AI</p>
+                    <p>Building intelligent systems that understand photographers' needs and deliver personalized recommendations.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">📸</div>
+                    <h3>Photography Experts</h3>
+                    <p class="role">Content & Insights</p>
+                    <p>Curating camera data, testing equipment, and providing expert insights to help you choose wisely.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">🎨</div>
+                    <h3>Design Team</h3>
+                    <p class="role">UX & Interface</p>
+                    <p>Crafting beautiful, intuitive experiences that make camera research enjoyable and efficient.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Find Your Perfect Camera?</h2>
+            <p>Start exploring our database and let Ahri guide you to the right choice.</p>
+            <a href="/cameras.html" class="btn">Browse Cameras</a>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <script src="/public/js/auth.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+        });
+    </script>
+    
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+</body>
+</html>
+
+
+
+
+
+

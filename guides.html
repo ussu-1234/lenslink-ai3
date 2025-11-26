@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Buying Guides - LensLink AI</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(35, 134, 54, 0.1));
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: #58a6ff;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #8b949e;
+        }
+
+        /* Guide Cards */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .guide-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.15);
+        }
+
+        .guide-icon {
+            font-size: 4em;
+            padding: 30px;
+            text-align: center;
+            background-color: #21262d;
+        }
+
+        .guide-content {
+            padding: 25px;
+        }
+
+        .guide-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        .guide-card p {
+            color: #8b949e;
+            margin-bottom: 15px;
+        }
+
+        .guide-card .read-time {
+            color: #58a6ff;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Guide Detail (expanded) */
+        .guide-detail {
+            display: none;
+            margin-top: 40px;
+            padding: 40px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+        }
+
+        .guide-detail.active {
+            display: block;
+        }
+
+        .guide-detail h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #58a6ff;
+        }
+
+        .guide-detail h3 {
+            font-size: 1.8em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #3fb950;
+        }
+
+        .guide-detail h4 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #58a6ff;
+        }
+
+        .guide-detail p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #c9d1d9;
+            margin-bottom: 15px;
+        }
+
+        .guide-detail ul, .guide-detail ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .guide-detail li {
+            margin-bottom: 10px;
+            color: #c9d1d9;
+        }
+
+        .guide-detail strong {
+            color: #58a6ff;
+        }
+
+        .tip-box {
+            background-color: #21262d;
+            border-left: 4px solid #58a6ff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box h4 {
+            color: #58a6ff;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background-color: rgba(248, 81, 73, 0.1);
+            border-left: 4px solid #f85149;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box h4 {
+            color: #f85149;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            padding: 12px 25px;
+            background-color: #30363d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #58a6ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-detail {
+                padding: 25px;
+            }
+
+            .guide-detail h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a href="/" class="logo" style="text-decoration: none;">LensLink AI</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+            <a href="/about.html">About</a>
+            <a href="/guides.html">Guides</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>📚 Camera Buying Guides</h1>
+            <p>Expert advice to help you choose the perfect camera for your needs</p>
+        </section>
+
+        <!-- Guides Grid -->
+        <section class="guides-grid" id="guidesGrid">
+            <div class="guide-card" onclick="showGuide('beginner')">
+                <div class="guide-icon">📸</div>
+                <div class="guide-content">
+                    <h3>Beginner's Guide to Buying Your First Camera</h3>
+                    <p>New to photography? Learn the basics and discover what to look for in your first camera.</p>
+                    <span class="read-time">8 min read</span>
+                </div>
+            </div>
+
+            <div class="guide-card" onclick="showGuide('sensor')">
+                <div class="guide-icon">🔍</div>
+                <div class="guide-content">
+                    <h3>Understanding Camera Sensors</h3>
+                    <p>Full-frame vs crop sensor? Learn the differences and which is right for you.</p>
+                    <span class="read-time">6 min read</span>
+                </div>
+            </div>
+
+            <div class="guide-card" onclick="showGuide('video')">
+                <div class="guide-icon">🎥</div>
+                <div class="guide-content">
+                    <h3>Best Cameras for Video Production</h3>
+                    <p>What specs matter for video? Find cameras that excel at filmmaking and content creation.</p>
+                    <span class="read-time">7 min read</span>
+                </div>
+            </div>
+
+            <div class="guide-card" onclick="showGuide('budget')">
+                <div class="guide-icon">💰</div>
+                <div class="guide-content">
+                    <h3>Budget Camera Guide</h3>
+                    <p>Get the most bang for your buck with our guide to affordable cameras that don't compromise quality.</p>
+                    <span class="read-time">5 min read</span>
+                </div>
+            </div>
+
+            <div class="guide-card" onclick="showGuide('professional')">
+                <div class="guide-icon">⭐</div>
+                <div class="guide-content">
+                    <h3>Professional Camera Buyers Guide</h3>
+                    <p>Ready to invest in pro gear? Learn what separates professional cameras from consumer models.</p>
+                    <span class="read-time">10 min read</span>
+                </div>
+            </div>
+
+            <div class="guide-card" onclick="showGuide('specs')">
+                <div class="guide-icon">📊</div>
+                <div class="guide-content">
+                    <h3>Camera Specs Explained</h3>
+                    <p>Decode the technical jargon. Understanding megapixels, ISO, autofocus, and more.</p>
+                    <span class="read-time">12 min read</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Details (hidden by default) -->
+        <div id="guideDetail" class="guide-detail">
+            <button class="back-btn" onclick="closeGuide()">← Back to Guides</button>
+            <div id="guideContent"></div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <script src="/public/js/auth.js"></script>
+    <script>
+        const guides = {
+            beginner: {
+                title: "Beginner's Guide to Buying Your First Camera",
+                content: `
+                    <h2>Beginner's Guide to Buying Your First Camera</h2>
+                    
+                    <p>Choosing your first camera can feel overwhelming with so many options available. This guide will help you understand what matters most and find a camera that grows with you.</p>
+                    
+                    <h3>1. Start with Your Budget</h3>
+                    <p>Before diving into specs, determine your budget. Remember to account for:</p>
+                    <ul>
+                        <li><strong>Camera body:</strong> $400-$1,200 for beginners</li>
+                        <li><strong>Lenses:</strong> Budget at least $200-$500 for additional lenses</li>
+                        <li><strong>Accessories:</strong> Memory cards, bags, tripod ($100-$300)</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>It's better to buy a mid-range camera with a great lens than an expensive camera with a cheap lens. Lenses have the biggest impact on image quality.</p>
+                    </div>
+                    
+                    <h3>2. Choose Your Camera Type</h3>
+                    <h4>Mirrorless Cameras (Recommended for Beginners)</h4>
+                    <p><strong>Pros:</strong> Compact, modern features, great autofocus, electronic viewfinder</p>
+                    <p><strong>Examples:</strong> Sony a6400, Fujifilm X-T30, Canon EOS M50</p>
+                    
+                    <h4>DSLR Cameras</h4>
+                    <p><strong>Pros:</strong> Optical viewfinder, longer battery life, extensive lens selection</p>
+                    <p><strong>Examples:</strong> Canon EOS Rebel T8i, Nikon D3500</p>
+                    
+                    <h3>3. Key Features for Beginners</h3>
+                    <ul>
+                        <li><strong>Easy-to-use interface:</strong> Look for guided modes and touchscreens</li>
+                        <li><strong>Articulating screen:</strong> Makes vlogging and selfies easier</li>
+                        <li><strong>Good autofocus:</strong> At least 9-11 focus points</li>
+                        <li><strong>Wi-Fi connectivity:</strong> Transfer photos to your phone instantly</li>
+                        <li><strong>1080p video minimum:</strong> 4K is a bonus but not essential</li>
+                    </ul>
+                    
+                    <h3>4. Don't Obsess Over Megapixels</h3>
+                    <p>Anything above 20 megapixels is more than enough for printing large photos and cropping. Focus instead on:</p>
+                    <ul>
+                        <li>Autofocus performance</li>
+                        <li>Low-light capabilities (ISO range)</li>
+                        <li>Lens selection and quality</li>
+                        <li>Ergonomics and handling</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Common Mistake</h4>
+                        <p>Don't buy the cheapest camera with the most megapixels. A 16MP camera with a good lens will outperform a 30MP camera with a bad lens every time.</p>
+                    </div>
+                    
+                    <h3>5. Top Beginner Cameras (2024-2025)</h3>
+                    <ul>
+                        <li><strong>Canon EOS R10:</strong> $980 - Best all-rounder for beginners</li>
+                        <li><strong>Sony a6100:</strong> $750 - Excellent autofocus, compact</li>
+                        <li><strong>Fujifilm X-S10:</strong> $999 - Great image quality, retro style</li>
+                        <li><strong>Nikon Z50:</strong> $860 - Lightweight, intuitive controls</li>
+                    </ul>
+                    
+                    <h3>6. Final Tips</h3>
+                    <ul>
+                        <li>Try before you buy - Visit a camera store and hold different models</li>
+                        <li>Read reviews but trust your hands - Ergonomics matter</li>
+                        <li>Consider the lens ecosystem - More lenses = more future options</li>
+                        <li>Buy used to save money - Camera bodies depreciate quickly</li>
+                        <li>Invest in learning - The best camera is the one you know how to use</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html" style="color: #58a6ff; font-weight: 600;">Browse our camera database →</a></p>
+                `
+            },
+            
+            sensor: {
+                title: "Understanding Camera Sensors",
+                content: `
+                    <h2>Understanding Camera Sensors: Full-Frame vs Crop Sensor</h2>
+                    
+                    <p>The sensor is the heart of your camera. Understanding sensor sizes will help you make an informed decision about which camera is right for you.</p>
+                    
+                    <h3>What is a Camera Sensor?</h3>
+                    <p>The sensor is the electronic component that captures light and converts it into a digital image. It replaces film in traditional cameras. Larger sensors generally produce better image quality, especially in low light.</p>
+                    
+                    <h3>Sensor Sizes Explained</h3>
+                    
+                    <h4>Full-Frame Sensors (35mm)</h4>
+                    <p><strong>Size:</strong> 36mm x 24mm (same as traditional 35mm film)</p>
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>Superior low-light performance</li>
+                        <li>Better dynamic range (more detail in shadows and highlights)</li>
+                        <li>Shallower depth of field (beautiful background blur)</li>
+                        <li>No crop factor - lenses perform as labeled</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>More expensive ($1,500+)</li>
+                        <li>Larger and heavier bodies</li>
+                        <li>Lenses are bigger and pricier</li>
+                    </ul>
+                    <p><strong>Best for:</strong> Professionals, portrait photographers, low-light shooting, wedding photographers</p>
+                    
+                    <h4>APS-C Sensors (Crop Sensor)</h4>
+                    <p><strong>Size:</strong> ~23mm x 15mm (1.5x-1.6x crop factor)</p>
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>More affordable ($400-$1,200)</li>
+                        <li>Compact and lightweight</li>
+                        <li>Extra "reach" for wildlife/sports (crop factor)</li>
+                        <li>Smaller, cheaper lenses</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>Lower low-light performance</li>
+                        <li>Less dynamic range</li>
+                        <li>Harder to achieve ultra-shallow depth of field</li>
+                    </ul>
+                    <p><strong>Best for:</strong> Beginners, hobbyists, travel, wildlife photography, tight budgets</p>
+                    
+                    <h4>Micro Four Thirds (MFT)</h4>
+                    <p><strong>Size:</strong> 17mm x 13mm (2x crop factor)</p>
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>Very compact system</li>
+                        <li>Excellent for video</li>
+                        <li>Affordable</li>
+                    </ul>
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>Smallest sensor of the main formats</li>
+                        <li>Lower light sensitivity</li>
+                    </ul>
+                    <p><strong>Best for:</strong> Travel, video creators, street photography</p>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Understanding Crop Factor</h4>
+                        <p>A 50mm lens on an APS-C camera acts like a 75mm lens (50 x 1.5 = 75mm) due to the crop factor. This is great for telephoto but reduces wide-angle capability.</p>
+                    </div>
+                    
+                    <h3>Which Sensor Should You Choose?</h3>
+                    
+                    <h4>Choose Full-Frame if:</h4>
+                    <ul>
+                        <li>You're a professional or serious enthusiast</li>
+                        <li>You shoot weddings, portraits, or events</li>
+                        <li>Low-light performance is critical</li>
+                        <li>You can afford $2,000+ for body + lenses</li>
+                    </ul>
+                    
+                    <h4>Choose APS-C if:</h4>
+                    <ul>
+                        <li>You're a beginner to intermediate photographer</li>
+                        <li>Portability and weight matter</li>
+                        <li>Your budget is under $1,500</li>
+                        <li>You shoot sports or wildlife (benefit from crop factor)</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Don't Fall for the Myth</h4>
+                        <p>"You need full-frame to be a real photographer" is FALSE. Many professionals use APS-C for wedding photography, journalism, and commercial work. Sensor size matters less than skill.</p>
+                    </div>
+                    
+                    <h3>Other Sensor Considerations</h3>
+                    <ul>
+                        <li><strong>Megapixels:</strong> 20-30MP is the sweet spot for most uses</li>
+                        <li><strong>ISO Range:</strong> Look for native ISO up to 25,600 minimum</li>
+                        <li><strong>Dynamic Range:</strong> More important than megapixels for most photographers</li>
+                        <li><strong>Sensor Technology:</strong> BSI (Back-illuminated) sensors perform better in low light</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html" style="color: #58a6ff; font-weight: 600;">Compare cameras by sensor type →</a></p>
+                `
+            },
+            
+            video: {
+                title: "Best Cameras for Video Production",
+                content: `
+                    <h2>Best Cameras for Video Production & Content Creation</h2>
+                    
+                    <p>Choosing a camera for video is different from choosing one for photography. Here's what matters most for video creators.</p>
+                    
+                    <h3>Essential Video Specs</h3>
+                    
+                    <h4>1. Video Resolution</h4>
+                    <ul>
+                        <li><strong>4K (3840x2160):</strong> Industry standard, essential for professional work</li>
+                        <li><strong>1080p (1920x1080):</strong> Acceptable for beginners and social media</li>
+                        <li><strong>6K/8K:</strong> Overkill for most, great for cropping and future-proofing</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Frame Rate Matters</h4>
+                        <p>Look for 4K at 60fps minimum for smooth slow-motion. 24fps is cinematic, 30fps is standard, 60fps+ is for sports/action.</p>
+                    </div>
+                    
+                    <h4>2. Autofocus for Video</h4>
+                    <p>Sony and Canon lead with eye-tracking and face detection that work brilliantly for video. Look for:</p>
+                    <ul>
+                        <li>Real-time eye AF</li>
+                        <li>Face detection</li>
+                        <li>Touch-to-focus capability</li>
+                    </ul>
+                    
+                    <h4>3. Image Stabilization</h4>
+                    <p><strong>In-Body Stabilization (IBIS)</strong> is crucial for handheld video. Cameras without IBIS require expensive stabilized lenses or gimbals.</p>
+                    
+                    <h4>4. Audio Inputs</h4>
+                    <p>A 3.5mm mic input is essential. Better cameras have:</p>
+                    <ul>
+                        <li>XLR inputs with preamps</li>
+                        <li>Headphone jack for monitoring</li>
+                        <li>Manual audio level control</li>
+                    </ul>
+                    
+                    <h4>5. Recording Limits</h4>
+                    <p>Some cameras have recording time limits (often 29 minutes due to EU tax laws). Check if unlimited recording is important for your work.</p>
+                    
+                    <h3>Top Video Cameras by Budget</h3>
+                    
+                    <h4>Under $1,000 - Best for Beginners</h4>
+                    <ul>
+                        <li><strong>Sony ZV-E10:</strong> $700 - Made for vloggers, flip screen, excellent AF</li>
+                        <li><strong>Canon EOS M50 Mark II:</strong> $600 - Great for YouTube, 4K (with crop)</li>
+                        <li><strong>Panasonic G100:</strong> $750 - Compact, good for travel vlogs</li>
+                    </ul>
+                    
+                    <h4>$1,000-$2,500 - Serious Content Creators</h4>
+                    <ul>
+                        <li><strong>Sony a6600:</strong> $1,400 - IBIS, unlimited recording, excellent AF</li>
+                        <li><strong>Canon EOS R10:</strong> $980 - 4K 60fps, oversampled video</li>
+                        <li><strong>Fujifilm X-S10:</strong> $999 - Film simulations, IBIS, great color</li>
+                    </ul>
+                    
+                    <h4>$2,500+ - Professional Video</h4>
+                    <ul>
+                        <li><strong>Sony a7 IV:</strong> $2,500 - Best hybrid camera, 4K 60fps, 10-bit</li>
+                        <li><strong>Panasonic GH6:</strong> $2,200 - Video powerhouse, no recording limits</li>
+                        <li><strong>Canon EOS R6 Mark II:</strong> $2,500 - 6K video, incredible AF</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Overheating Warning</h4>
+                        <p>Some cameras (especially Sony models) overheat during long 4K recordings. Check reviews for your specific use case if you plan long shoots.</p>
+                    </div>
+                    
+                    <h3>Must-Have Video Features</h3>
+                    <ul>
+                        <li><strong>Fully articulating screen:</strong> Essential for vlogging and monitoring yourself</li>
+                        <li><strong>Zebra patterns:</strong> Shows overexposed areas</li>
+                        <li><strong>Focus peaking:</strong> Manual focus aid</li>
+                        <li><strong>Clean HDMI output:</strong> For external recorders</li>
+                        <li><strong>Log profiles:</strong> Flat picture profiles for color grading</li>
+                    </ul>
+                    
+                    <h3>YouTube vs Filmmaking</h3>
+                    
+                    <h4>For YouTube/Vlogging:</h4>
+                    <ul>
+                        <li>Prioritize: Autofocus, flip screen, compact size</li>
+                        <li>1080p is often sufficient</li>
+                        <li>Built-in mic can work for casual content</li>
+                    </ul>
+                    
+                    <h4>For Filmmaking/Commercials:</h4>
+                    <ul>
+                        <li>Prioritize: 4K, log profiles, manual controls</li>
+                        <li>Larger sensor for shallow depth of field</li>
+                        <li>Professional audio inputs essential</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html?usecase=video" style="color: #58a6ff; font-weight: 600;">Browse cameras for video →</a></p>
+                `
+            },
+            
+            budget: {
+                title: "Budget Camera Guide",
+                content: `
+                    <h2>Budget Camera Guide: Maximum Quality, Minimum Cost</h2>
+                    
+                    <p>You don't need to spend thousands to get a great camera. Here's how to maximize your budget and avoid common pitfalls.</p>
+                    
+                    <h3>Budget Tiers</h3>
+                    
+                    <h4>Under $500 - Entry Level</h4>
+                    <p>At this price, consider:</p>
+                    <ul>
+                        <li>Used/refurbished cameras from previous generations</li>
+                        <li>Older DSLR models (Canon T6, Nikon D3400)</li>
+                        <li>Compact mirrorless (Canon EOS M50)</li>
+                    </ul>
+                    
+                    <h4>$500-$1,000 - Sweet Spot</h4>
+                    <p>This range offers the best value:</p>
+                    <ul>
+                        <li>Current-gen APS-C mirrorless</li>
+                        <li>Kit lens included</li>
+                        <li>Modern features (Wi-Fi, 4K, good AF)</li>
+                    </ul>
+                    
+                    <h4>$1,000-$1,500 - Enthusiast</h4>
+                    <p>Professional features without pro prices:</p>
+                    <ul>
+                        <li>IBIS (in-body stabilization)</li>
+                        <li>Weather sealing</li>
+                        <li>Advanced autofocus</li>
+                    </ul>
+                    
+                    <h3>Best Budget Cameras (2024-2025)</h3>
+                    
+                    <h4>Under $600</h4>
+                    <ul>
+                        <li><strong>Canon EOS M50 Mark II:</strong> $600 - Best beginner camera</li>
+                        <li><strong>Sony a6100:</strong> $750 - Superior autofocus</li>
+                        <li><strong>Nikon D3500:</strong> $450 - DSLR with excellent battery life</li>
+                    </ul>
+                    
+                    <h4>$600-$1,000</h4>
+                    <ul>
+                        <li><strong>Canon EOS R10:</strong> $980 - Best value mirrorless</li>
+                        <li><strong>Fujifilm X-T30:</strong> $900 - Beautiful colors, retro style</li>
+                        <li><strong>Sony a6400:</strong> $900 - Vlogger favorite</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Buy Used to Save Big</h4>
+                        <p>Camera bodies depreciate fast but lenses hold value. A 2-year-old camera body can be 40% cheaper with minimal quality difference. Buy from reputable sellers with return policies.</p>
+                    </div>
+                    
+                    <h3>Where to Save Money</h3>
+                    
+                    <h4>1. Buy Older Generation Models</h4>
+                    <p>When a new camera is released, the previous model drops 30-50% in price. Often the differences are minimal (Sony a6400 vs a6100 is a $150 difference for minor upgrades).</p>
+                    
+                    <h4>2. Skip Unnecessary Features</h4>
+                    <ul>
+                        <li><strong>You probably don't need:</strong> 8K video, 50+ megapixels, dual card slots (unless professional)</li>
+                        <li><strong>You DO need:</strong> Good autofocus, decent ISO performance, solid build quality</li>
+                    </ul>
+                    
+                    <h4>3. Bundle Deals</h4>
+                    <p>Camera + kit lens bundles often save $100-200 compared to buying separately. Look for:</p>
+                    <ul>
+                        <li>Body + 18-55mm kit lens</li>
+                        <li>Two-lens kits (18-55mm + 55-200mm)</li>
+                        <li>Retailer bundles with memory cards and bags</li>
+                    </ul>
+                    
+                    <h4>4. Third-Party Accessories</h4>
+                    <p>Save on non-essential branded accessories:</p>
+                    <ul>
+                        <li><strong>Memory cards:</strong> SanDisk, Lexar work great (don't need Sony branded)</li>
+                        <li><strong>Batteries:</strong> Third-party often 1/3 the price</li>
+                        <li><strong>Straps, bags:</strong> Amazon Basics quality is fine</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Don't Cheap Out On...</h4>
+                        <p>Lenses and memory cards. A fake/slow SD card can corrupt your photos. Cheap lenses produce poor image quality. Invest in these; save elsewhere.</p>
+                    </div>
+                    
+                    <h3>Best Budget Lenses</h3>
+                    <ul>
+                        <li><strong>50mm f/1.8:</strong> $120-200 - "Nifty fifty", excellent for portraits</li>
+                        <li><strong>35mm f/1.8:</strong> $150-250 - Great all-purpose lens</li>
+                        <li><strong>18-55mm kit lens:</strong> Often free with body - underrated for beginners</li>
+                    </ul>
+                    
+                    <h3>Buying Used: Checklist</h3>
+                    <ul>
+                        <li>Check shutter count (under 20,000 is great, under 50,000 is good)</li>
+                        <li>Inspect for physical damage, especially lens mount</li>
+                        <li>Test all buttons, dials, and ports</li>
+                        <li>Check sensor for dust/scratches (take test photos)</li>
+                        <li>Buy from reputable sellers: MPB, KEH, or local camera stores</li>
+                        <li>Avoid Craigslist/Facebook unless you can test thoroughly</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html?maxprice=1000" style="color: #58a6ff; font-weight: 600;">Browse budget cameras →</a></p>
+                `
+            },
+            
+            professional: {
+                title: "Professional Camera Buyers Guide",
+                content: `
+                    <h2>Professional Camera Buyers Guide</h2>
+                    
+                    <p>When your camera is your livelihood, reliability, performance, and build quality matter more than price. Here's what separates pro cameras from consumer models.</p>
+                    
+                    <h3>What Makes a Camera "Professional"?</h3>
+                    
+                    <h4>1. Build Quality & Durability</h4>
+                    <ul>
+                        <li><strong>Weather sealing:</strong> Full magnesium alloy body, sealed against dust and moisture</li>
+                        <li><strong>Shutter rating:</strong> 200,000+ actuations (vs 100,000 for consumer)</li>
+                        <li><strong>Build weight:</strong> Heavier but more durable</li>
+                    </ul>
+                    
+                    <h4>2. Redundancy Features</h4>
+                    <ul>
+                        <li><strong>Dual card slots:</strong> Backup your photos in real-time (essential for weddings)</li>
+                        <li><strong>Dual battery grips:</strong> Extended shooting time</li>
+                        <li><strong>Multiple custom modes:</strong> Quick switching between setups</li>
+                    </ul>
+                    
+                    <h4>3. Performance</h4>
+                    <ul>
+                        <li><strong>Fast burst rates:</strong> 10-20fps continuous shooting</li>
+                        <li><strong>Deep buffer:</strong> 100+ RAW images before slowdown</li>
+                        <li><strong>Advanced AF:</strong> 400+ focus points, AI tracking</li>
+                        <li><strong>High ISO:</strong> Clean images at 12,800+ ISO</li>
+                    </ul>
+                    
+                    <h3>Top Professional Cameras (2024-2025)</h3>
+                    
+                    <h4>Full-Frame Mirrorless</h4>
+                    <ul>
+                        <li><strong>Sony a7R V:</strong> $3,900 - 61MP, best resolution</li>
+                        <li><strong>Canon EOS R5:</strong> $3,900 - 45MP, 8K video, excellent AF</li>
+                        <li><strong>Nikon Z9:</strong> $5,500 - Professional workhorse, no mechanical shutter</li>
+                        <li><strong>Sony a1:</strong> $6,500 - 50MP, 30fps, ultimate speed</li>
+                    </ul>
+                    
+                    <h4>Medium Format</h4>
+                    <ul>
+                        <li><strong>Fujifilm GFX 100 II:</strong> $7,500 - 102MP, incredible detail</li>
+                        <li><strong>Hasselblad X2D:</strong> $8,200 - 100MP, studio favorite</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <h4>💡 System Investment</h4>
+                        <p>Professional photography is about the system, not just the body. Factor in $5,000-15,000 for professional lenses, lighting, and accessories.</p>
+                    </div>
+                    
+                    <h3>By Photography Type</h3>
+                    
+                    <h4>Wedding Photography</h4>
+                    <p><strong>Priorities:</strong> Dual card slots, reliable AF, high ISO performance, battery life</p>
+                    <p><strong>Recommended:</strong> Sony a7 IV ($2,500), Canon EOS R6 II ($2,500), Nikon Z6 III ($2,500)</p>
+                    
+                    <h4>Sports & Wildlife</h4>
+                    <p><strong>Priorities:</strong> Fast burst rate, deep buffer, telephoto lens compatibility</p>
+                    <p><strong>Recommended:</strong> Sony a9 III ($6,000), Canon EOS R3 ($6,000), Nikon Z9 ($5,500)</p>
+                    
+                    <h4>Portrait & Studio</h4>
+                    <p><strong>Priorities:</strong> High resolution, color accuracy, tethering capability</p>
+                    <p><strong>Recommended:</strong> Sony a7R V ($3,900), Canon EOS R5 ($3,900), Fujifilm GFX 100S ($6,000)</p>
+                    
+                    <h4>Commercial & Advertising</h4>
+                    <p><strong>Priorities:</strong> Maximum resolution, color depth, studio flash sync</p>
+                    <p><strong>Recommended:</strong> Fujifilm GFX 100 II ($7,500), Sony a7R V ($3,900)</p>
+                    
+                    <h3>Essential Professional Features</h3>
+                    
+                    <h4>Must-Haves</h4>
+                    <ul>
+                        <li>Dual card slots (SD + CF Express preferred)</li>
+                        <li>Weather sealing</li>
+                        <li>Full manual controls with dedicated buttons</li>
+                        <li>RAW + RAW backup capability</li>
+                        <li>Professional autofocus system</li>
+                        <li>At least 24MP (more for studio/landscape work)</li>
+                    </ul>
+                    
+                    <h4>Nice-to-Haves</h4>
+                    <ul>
+                        <li>IBIS (in-body stabilization)</li>
+                        <li>10-bit video recording</li>
+                        <li>Built-in GPS</li>
+                        <li>Illuminated buttons</li>
+                        <li>Custom function buttons</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Avoid Common Mistakes</h4>
+                        <p>Don't buy the most expensive camera if you don't need the features. A $3,000 Sony a7 IV is often better for most pros than a $6,000 Sony a1. Know your actual needs.</p>
+                    </div>
+                    
+                    <h3>Lens Recommendations by Tier</h3>
+                    
+                    <h4>Core Trinity (3 Lenses)</h4>
+                    <ul>
+                        <li><strong>24-70mm f/2.8:</strong> Workhorse lens for events, portraits</li>
+                        <li><strong>70-200mm f/2.8:</strong> Telephoto for sports, wildlife, portraits</li>
+                        <li><strong>16-35mm f/2.8:</strong> Wide angle for landscapes, architecture</li>
+                    </ul>
+                    <p><strong>Total cost:</strong> $5,000-7,000 for all three</p>
+                    
+                    <h4>Prime Lens Set</h4>
+                    <ul>
+                        <li><strong>35mm f/1.4:</strong> $600-1,400 - Photojournalism, street</li>
+                        <li><strong>50mm f/1.2:</strong> $1,000-2,000 - Portraits, low light</li>
+                        <li><strong>85mm f/1.4:</strong> $800-1,600 - Portrait specialist</li>
+                    </ul>
+                    
+                    <h3>Making the Investment</h3>
+                    
+                    <h4>New vs Used</h4>
+                    <p>For professionals, buying new offers:</p>
+                    <ul>
+                        <li>Full warranty (2-3 years)</li>
+                        <li>Latest firmware and features</li>
+                        <li>Peace of mind for paid work</li>
+                    </ul>
+                    
+                    <p>Buying used can save 30-40% but ensure:</p>
+                    <ul>
+                        <li>Purchase from authorized dealers (MPB, KEH)</li>
+                        <li>Shutter count under 50,000</li>
+                        <li>Some warranty remaining</li>
+                    </ul>
+                    
+                    <h4>Finance Options</h4>
+                    <ul>
+                        <li>B&H, Adorama offer 0% financing (12-24 months)</li>
+                        <li>Lease equipment through Borrow Lenses</li>
+                        <li>Rent before buying expensive bodies</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html?professional=true" style="color: #58a6ff; font-weight: 600;">Browse professional cameras →</a></p>
+                `
+            },
+            
+            specs: {
+                title: "Camera Specs Explained",
+                content: `
+                    <h2>Camera Specs Explained: Decode the Technical Jargon</h2>
+                    
+                    <p>Understanding camera specifications helps you make informed decisions and avoid marketing hype. Let's break down what each spec really means.</p>
+                    
+                    <h3>Image Sensor Specs</h3>
+                    
+                    <h4>Megapixels (MP)</h4>
+                    <p><strong>What it is:</strong> Number of pixels on the sensor (e.g., 24MP = 24 million pixels)</p>
+                    <p><strong>What it matters for:</strong> Print size, cropping flexibility</p>
+                    <p><strong>Sweet spot:</strong> 20-30MP for most photographers</p>
+                    <p><strong>Myth:</strong> More megapixels = better photos (FALSE - diminishing returns after 24MP)</p>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Megapixel Guide</h4>
+                        <ul>
+                            <li><strong>16-20MP:</strong> Perfect for web, social media, small prints</li>
+                            <li><strong>20-30MP:</strong> Ideal for most users, large prints (24"x36")</li>
+                            <li><strong>40-60MP:</strong> Commercial work, billboard prints, extreme cropping</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>ISO Range</h4>
+                    <p><strong>What it is:</strong> Sensor sensitivity to light (e.g., ISO 100-51,200)</p>
+                    <p><strong>Lower ISO (100-400):</strong> Clean images, bright conditions</p>
+                    <p><strong>Mid ISO (800-3200):</strong> Slightly more noise, indoor/cloudy</p>
+                    <p><strong>High ISO (6400+):</strong> More noise, low light/night</p>
+                    <p><strong>What to look for:</strong> Usable ISO up to 6400 minimum</p>
+                    
+                    <h4>Dynamic Range</h4>
+                    <p><strong>What it is:</strong> Amount of detail captured in shadows and highlights (measured in stops, e.g., 14 stops)</p>
+                    <p><strong>Good range:</strong> 12-14 stops</p>
+                    <p><strong>Excellent range:</strong> 14-15 stops</p>
+                    <p><strong>Matters for:</strong> Landscape, high-contrast scenes, post-processing</p>
+                    
+                    <h3>Autofocus Specs</h3>
+                    
+                    <h4>AF Points</h4>
+                    <p><strong>What it is:</strong> Number of focus points across the frame</p>
+                    <ul>
+                        <li><strong>Basic:</strong> 9-11 points (older DSLRs)</li>
+                        <li><strong>Good:</strong> 50-100 points</li>
+                        <li><strong>Excellent:</strong> 400+ points (modern mirrorless)</li>
+                    </ul>
+                    
+                    <h4>AF Coverage</h4>
+                    <p><strong>What it is:</strong> Percentage of frame covered by AF points</p>
+                    <p><strong>Minimum:</strong> 80% coverage</p>
+                    <p><strong>Best:</strong> 90-100% coverage (Sony, Canon mirrorless)</p>
+                    
+                    <h4>AF Technology</h4>
+                    <ul>
+                        <li><strong>Phase Detection:</strong> Fast, accurate (best for action)</li>
+                        <li><strong>Contrast Detection:</strong> Slower but precise (good for static subjects)</li>
+                        <li><strong>Hybrid AF:</strong> Combines both (modern standard)</li>
+                        <li><strong>Eye AF:</strong> Tracks subject's eyes (essential for portraits/video)</li>
+                    </ul>
+                    
+                    <h3>Performance Specs</h3>
+                    
+                    <h4>Burst Rate (FPS)</h4>
+                    <p><strong>What it is:</strong> Continuous shots per second</p>
+                    <ul>
+                        <li><strong>3-5 fps:</strong> Adequate for most uses</li>
+                        <li><strong>8-10 fps:</strong> Good for sports, kids, pets</li>
+                        <li><strong>15-20 fps:</strong> Professional sports/wildlife</li>
+                        <li><strong>30 fps:</strong> Extreme action (Sony a1, Canon R3)</li>
+                    </ul>
+                    
+                    <h4>Buffer Depth</h4>
+                    <p><strong>What it is:</strong> Number of images camera can capture before slowing down</p>
+                    <p><strong>Look for:</strong> At least 20 RAW images (50+ is professional)</p>
+                    
+                    <h4>Shutter Speed Range</h4>
+                    <p><strong>What it is:</strong> Fastest and slowest shutter speeds available</p>
+                    <p><strong>Standard:</strong> 30 seconds to 1/4000s</p>
+                    <p><strong>Advanced:</strong> 30 seconds to 1/8000s</p>
+                    <p><strong>Professional:</strong> Bulb mode + 1/16000s (electronic shutter)</p>
+                    
+                    <h3>Video Specs</h3>
+                    
+                    <h4>Resolution & Frame Rate</h4>
+                    <ul>
+                        <li><strong>1080p/60fps:</strong> Minimum acceptable</li>
+                        <li><strong>4K/30fps:</strong> Standard for content creators</li>
+                        <li><strong>4K/60fps:</strong> Smooth motion, slow-mo capability</li>
+                        <li><strong>4K/120fps:</strong> High-end slow motion</li>
+                        <li><strong>8K:</strong> Mostly overkill, huge file sizes</li>
+                    </ul>
+                    
+                    <h4>Bit Depth & Color</h4>
+                    <ul>
+                        <li><strong>8-bit:</strong> Standard, 16.7 million colors</li>
+                        <li><strong>10-bit:</strong> Professional, 1 billion colors, better grading</li>
+                        <li><strong>4:2:0 vs 4:2:2:</strong> Color sampling (4:2:2 is better for editing)</li>
+                    </ul>
+                    
+                    <h3>Build & Features</h3>
+                    
+                    <h4>Weather Sealing</h4>
+                    <p><strong>What it is:</strong> Protection against dust and moisture</p>
+                    <p><strong>Ratings:</strong></p>
+                    <ul>
+                        <li><strong>None:</strong> Indoor/fair weather only</li>
+                        <li><strong>Basic:</strong> Light rain, dusty conditions</li>
+                        <li><strong>Professional:</strong> Heavy rain, extreme conditions</li>
+                    </ul>
+                    
+                    <h4>Battery Life</h4>
+                    <p><strong>Measured in shots:</strong></p>
+                    <ul>
+                        <li><strong>200-300 shots:</strong> Poor (mirrorless with EVF)</li>
+                        <li><strong>500-700 shots:</strong> Good (mirrorless)</li>
+                        <li><strong>1000+ shots:</strong> Excellent (DSLR)</li>
+                    </ul>
+                    
+                    <h4>Viewfinder</h4>
+                    <ul>
+                        <li><strong>Optical (OVF):</strong> DSLRs only, no lag, longer battery</li>
+                        <li><strong>Electronic (EVF):</strong> Mirrorless, shows exposure preview</li>
+                        <li><strong>EVF resolution:</strong> 2.36M dots minimum, 5.76M dots is excellent</li>
+                    </ul>
+                    
+                    <h3>Connectivity</h3>
+                    
+                    <h4>Wi-Fi & Bluetooth</h4>
+                    <ul>
+                        <li><strong>Wi-Fi:</strong> Transfer full-res images to phone/computer</li>
+                        <li><strong>Bluetooth:</strong> Low-power connection for GPS tagging, remote control</li>
+                        <li><strong>NFC:</strong> Tap-to-connect (mostly obsolete)</li>
+                    </ul>
+                    
+                    <h4>Ports</h4>
+                    <ul>
+                        <li><strong>USB-C:</strong> Fast file transfer, in-camera charging</li>
+                        <li><strong>Micro HDMI:</strong> External monitor output</li>
+                        <li><strong>3.5mm mic:</strong> External audio input</li>
+                        <li><strong>Headphone jack:</strong> Audio monitoring</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Marketing Traps</h4>
+                        <p>Don't fall for:</p>
+                        <ul>
+                            <li>"50MP for incredible detail!" - Overkill for most users</li>
+                            <li>"8K video!" - Huge files, few can edit smoothly</li>
+                            <li>"ISO 204,800 max!" - Unusable at extreme ISOs</li>
+                        </ul>
+                        <p>Focus on practical, real-world specs instead.</p>
+                    </div>
+                    
+                    <h3>What Specs Actually Matter?</h3>
+                    
+                    <h4>For Most Photographers:</h4>
+                    <ol>
+                        <li>Autofocus performance</li>
+                        <li>Ergonomics and handling</li>
+                        <li>Lens ecosystem</li>
+                        <li>Battery life</li>
+                        <li>ISO performance (up to 6400)</li>
+                    </ol>
+                    
+                    <h4>Specs That Don't Matter Much:</h4>
+                    <ul>
+                        <li>Megapixels above 24MP (for most uses)</li>
+                        <li>Ultra-high ISO (above 51,200)</li>
+                        <li>8K video</li>
+                        <li>Extreme burst rates (unless sports pro)</li>
+                    </ul>
+                    
+                    <p style="margin-top: 40px;"><a href="/cameras.html" style="color: #58a6ff; font-weight: 600;">Compare camera specs side-by-side →</a></p>
+                `
+            }
+        };
+
+        function showGuide(guideId) {
+            const guide = guides[guideId];
+            if (!guide) return;
+            
+            // Hide guides grid
+            document.getElementById('guidesGrid').style.display = 'none';
+            
+            // Show guide detail
+            const detailSection = document.getElementById('guideDetail');
+            const content = document.getElementById('guideContent');
+            
+            content.innerHTML = guide.content;
+            detailSection.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeGuide() {
+            // Hide guide detail
+            document.getElementById('guideDetail').classList.remove('active');
+            
+            // Show guides grid
+            document.getElementById('guidesGrid').style.display = 'grid';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+        });
+    </script>
+    
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+</body>
+</html>
+
+
+
+
+
+

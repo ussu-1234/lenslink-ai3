@@ -1,93 +1,2433 @@
 [
-    {
-        "name": "Sony Alpha a7 IV",
-        "insight": "Best for hybrid shooters who need excellent video and photo quality. Its new sensor and processor provide amazing autofocus.",
-        "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3ODgyNQ&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Hybrid", "Video", "Professional"],
-        "specs": {
-            "sensor_type": "Full-Frame",
-            "megapixels": 33,
-            "video_max": "4K 60p",
-            "autofocus": "Best-in-class Real-time AF",
-            "screen": "Fully Articulating"
-        }
+  {
+    "id": "sony-a7-iv",
+    "name": "Sony Alpha a7 IV",
+    "brand": "Sony",
+    "price": 2498,
+    "rating": 4.8,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1606462267104-1173f64f66c3?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301421&cb=iz2gfh",
+    "insight": "Best for hybrid shooters who need excellent video and photo quality. Its new sensor and processor provide amazing autofocus.",
+    "use_case": [
+      "Hybrid",
+      "Video",
+      "Professional"
+    ],
+    "pros": [
+      "Excellent 33MP full-frame sensor",
+      "Superior autofocus system",
+      "Great 4K 60p video",
+      "Fully articulating screen"
+    ],
+    "cons": [
+      "Complex menu system",
+      "Expensive lens ecosystem",
+      "Average battery life"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 33,
+      "iso_range": "100-51200",
+      "video_max": "4K 60p",
+      "autofocus": "Best-in-class Real-time AF",
+      "screen": "Fully Articulating",
+      "battery_life": "520 shots",
+      "weight": "658g",
+      "weather_sealed": true
     },
-    {
-        "name": "Canon EOS R6",
-        "insight": "A low-light powerhouse with incredible autofocus. Perfect for event and sports photographers who need speed and reliability.",
-        "image": "https://images.unsplash.com/photo-1510127034890-ba27e83497b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3ODg0Mw&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Low-Light", "Events", "Sports"],
-        "specs": {
-            "sensor_type": "Full-Frame",
-            "megapixels": 20,
-            "burst_speed_fps": 20,
-            "low_light": "Exceptional",
-            "stabilization": "In-Body"
-        }
+    "alternatives": [
+      "canon-r6-ii",
+      "nikon-z6-iii"
+    ]
+  },
+  {
+    "id": "canon-r6",
+    "name": "Canon EOS R6",
+    "brand": "Canon",
+    "price": 2499,
+    "rating": 4.7,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301422&cb=izqphb",
+    "insight": "A low-light powerhouse with incredible autofocus. Perfect for event and sports photographers who need speed and reliability.",
+    "use_case": [
+      "Low-Light",
+      "Events",
+      "Sports"
+    ],
+    "pros": [
+      "Exceptional low-light performance",
+      "20fps burst shooting",
+      "Excellent IBIS",
+      "Reliable autofocus"
+    ],
+    "cons": [
+      "Only 20MP resolution",
+      "No 4K 60p",
+      "Expensive"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 20,
+      "iso_range": "100-102400",
+      "burst_speed_fps": 20,
+      "video_max": "4K 30p",
+      "stabilization": "In-Body (8 stops)",
+      "battery_life": "510 shots",
+      "weight": "680g",
+      "weather_sealed": true
     },
-    {
-        "name": "Fujifilm X-S10",
-        "insight": "Amazing value for travel and vlogging, offering fantastic image quality and stabilization in a compact body.",
-        "image": "https://images.unsplash.com/photo-1599598143894-65a7dba413d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3OTAwMA&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Travel", "Vlogging", "General Purpose"],
-        "specs": {
-            "sensor_type": "APS-C",
-            "megapixels": 26.1,
-            "stabilization": "In-Body",
-            "build": "Compact and Lightweight",
-            "features": "Excellent Film Simulations"
-        }
+    "alternatives": [
+      "sony-a7-iv",
+      "nikon-z6-ii"
+    ]
+  },
+  {
+    "id": "fujifilm-xs10",
+    "name": "Fujifilm X-S10",
+    "brand": "Fujifilm",
+    "price": 999,
+    "rating": 4.6,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301423&cb=eqq79n",
+    "insight": "Amazing value for travel and vlogging, offering fantastic image quality and stabilization in a compact body.",
+    "use_case": [
+      "Travel",
+      "Vlogging",
+      "General Purpose"
+    ],
+    "pros": [
+      "Excellent value",
+      "IBIS in compact body",
+      "Beautiful film simulations",
+      "Great ergonomics"
+    ],
+    "cons": [
+      "Smaller sensor (APS-C)",
+      "Limited battery life",
+      "Fewer native lenses"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 26.1,
+      "iso_range": "160-12800",
+      "stabilization": "In-Body (6 stops)",
+      "video_max": "4K 30p",
+      "screen": "Vari-angle LCD",
+      "battery_life": "325 shots",
+      "weight": "465g",
+      "weather_sealed": false
     },
-    {
-        "name": "Sony ZV-E10",
-        "insight": "Designed specifically for vloggers, with a focus on great audio, a flip screen, and product showcase features.",
-        "image": "https://images.unsplash.com/photo-1605518215579-058a9d189913?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3OTAxMg&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Vlogging", "Content Creation"],
-        "specs": {
-            "sensor_type": "APS-C",
-            "megapixels": 24.2,
-            "screen": "Side Flip-out",
-            "features": "Product Showcase Mode",
-            "audio": "High-Quality Internal Mic"
-        }
+    "alternatives": [
+      "sony-a6400",
+      "canon-r10"
+    ]
+  },
+  {
+    "id": "sony-zv-e10",
+    "name": "Sony ZV-E10",
+    "brand": "Sony",
+    "price": 698,
+    "rating": 4.5,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1605518215579-058a9d189913?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301424&cb=2ck09m",
+    "insight": "Designed specifically for vloggers, with a focus on great audio, a flip screen, and product showcase features.",
+    "use_case": [
+      "Vlogging",
+      "Content Creation"
+    ],
+    "pros": [
+      "Vlog-specific features",
+      "Excellent autofocus",
+      "Good video quality",
+      "Affordable"
+    ],
+    "cons": [
+      "No IBIS",
+      "No viewfinder",
+      "Average battery life"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.2,
+      "video_max": "4K 30p",
+      "screen": "Side Flip-out",
+      "autofocus": "Real-time Eye AF",
+      "audio": "3-capsule directional mic",
+      "battery_life": "440 shots",
+      "weight": "343g",
+      "weather_sealed": false
     },
-    {
-        "name": "Nikon Z6 II",
-        "insight": "A versatile and robust all-rounder. Great for sports and action with its dual processors and fast burst shooting.",
-        "image": "https://images.unsplash.com/photo-1554037593-6a9c7804245b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3OTAzNQ&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["All-Rounder", "Sports", "Action"],
-        "specs": {
-            "sensor_type": "Full-Frame",
-            "megapixels": 24.5,
-            "processor": "Dual EXPEED 6",
-            "burst_speed_fps": 14,
-            "storage": "Dual Card Slots (CFx/XQD & SD)"
-        }
+    "alternatives": [
+      "canon-m50-ii",
+      "panasonic-g100"
+    ]
+  },
+  {
+    "id": "nikon-z6-ii",
+    "name": "Nikon Z6 II",
+    "brand": "Nikon",
+    "price": 1997,
+    "rating": 4.7,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1606462267108-80d74e43ea8b?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301425&cb=k0rgsn",
+    "insight": "A versatile and robust all-rounder. Great for sports and action with its dual processors and fast burst shooting.",
+    "use_case": [
+      "All-Rounder",
+      "Sports",
+      "Action"
+    ],
+    "pros": [
+      "Dual processors",
+      "Excellent ergonomics",
+      "Dual card slots",
+      "Great battery life"
+    ],
+    "cons": [
+      "Older autofocus system",
+      "Limited lens selection",
+      "No 4K 60p"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.5,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 14,
+      "video_max": "4K 60p (cropped)",
+      "stabilization": "In-Body (5 stops)",
+      "battery_life": "410 shots",
+      "weight": "705g",
+      "weather_sealed": true
     },
-    {
-        "name": "Canon EOS R10",
-        "insight": "An incredible entry point into the EOS R system for beginners. It's fast, compact, and packed with features.",
-        "image": "https://images.unsplash.com/photo-1520390138845-ff2061596551?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3OTA0OA&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Beginner", "Hobbyist", "Action"],
-        "specs": {
-            "sensor_type": "APS-C",
-            "megapixels": 24.2,
-            "burst_speed_fps": 23,
-            "autofocus": "Advanced Subject Tracking",
-            "video_max": "4K 30p (6K oversampled)"
-        }
+    "alternatives": [
+      "sony-a7-iii",
+      "canon-r6"
+    ]
+  },
+  {
+    "id": "canon-r10",
+    "name": "Canon EOS R10",
+    "brand": "Canon",
+    "price": 979,
+    "rating": 4.6,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301426&cb=7qyj0r",
+    "insight": "An incredible entry point into the EOS R system for beginners. It's fast, compact, and packed with features.",
+    "use_case": [
+      "Beginner",
+      "Hobbyist",
+      "Action"
+    ],
+    "pros": [
+      "Fast 23fps shooting",
+      "Advanced AF from R6",
+      "Compact size",
+      "Affordable RF mount"
+    ],
+    "cons": [
+      "APS-C sensor",
+      "No IBIS",
+      "Cropped 4K 60p"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.2,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 23,
+      "video_max": "4K 60p (cropped)",
+      "autofocus": "Dual Pixel CMOS AF II",
+      "battery_life": "450 shots",
+      "weight": "429g",
+      "weather_sealed": false
     },
-    {
-        "name": "Nikon Z50",
-        "insight": "A fantastic choice for beginners moving to mirrorless. It has great ergonomics and produces beautiful images.",
-        "image": "https://images.unsplash.com/photo-1619881149420-56d19a69134a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtZXJhfHx8fHx8MTY2NTY3OTA2MA&ixlib=rb-4.0.3&q=80&w=1080",
-        "use_case": ["Beginner", "Vlogging", "Travel"],
-        "specs": {
-            "sensor_type": "DX-Format (APS-C)",
-            "megapixels": 20.9,
-            "screen": "Flip-Down Selfie Screen",
-            "autofocus": "209-Point Hybrid AF",
-            "build": "Compact and Weather-Sealed"
-        }
-    }
+    "alternatives": [
+      "sony-a6400",
+      "fujifilm-xs10"
+    ]
+  },
+  {
+    "id": "nikon-z50",
+    "name": "Nikon Z50",
+    "brand": "Nikon",
+    "price": 857,
+    "rating": 4.5,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301427&cb=uo7kwr",
+    "insight": "A fantastic choice for beginners moving to mirrorless. It has great ergonomics and produces beautiful images.",
+    "use_case": [
+      "Beginner",
+      "Vlogging",
+      "Travel"
+    ],
+    "pros": [
+      "Great ergonomics",
+      "Compact design",
+      "Good image quality",
+      "Affordable"
+    ],
+    "cons": [
+      "Limited lens selection",
+      "No IBIS",
+      "Single card slot"
+    ],
+    "specs": {
+      "sensor_type": "APS-C (DX)",
+      "megapixels": 20.9,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 11,
+      "video_max": "4K 30p",
+      "screen": "Flip-Down Selfie Screen",
+      "battery_life": "320 shots",
+      "weight": "450g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-m50-ii",
+      "sony-a6100"
+    ]
+  },
+  {
+    "id": "sony-a6400",
+    "name": "Sony Alpha a6400",
+    "brand": "Sony",
+    "price": 898,
+    "rating": 4.7,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301428&cb=j3g54i",
+    "insight": "The best APS-C camera for autofocus and speed. Perfect for enthusiasts who want pro features in a compact body.",
+    "use_case": [
+      "Enthusiast",
+      "Travel",
+      "Action"
+    ],
+    "pros": [
+      "Best-in-class AF",
+      "Fast 11fps shooting",
+      "180° flip screen",
+      "Great value"
+    ],
+    "cons": [
+      "No IBIS",
+      "Dated design",
+      "Menu complexity"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.2,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 11,
+      "video_max": "4K 30p",
+      "autofocus": "425-point AF",
+      "battery_life": "410 shots",
+      "weight": "403g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "fujifilm-xt30",
+      "canon-r10"
+    ]
+  },
+  {
+    "id": "canon-r5",
+    "name": "Canon EOS R5",
+    "brand": "Canon",
+    "price": 3899,
+    "rating": 4.9,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1606462267151-82ccaee7e1b7?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301429&cb=141tj9",
+    "insight": "Professional hybrid camera with groundbreaking 8K video and 45MP stills. The ultimate tool for demanding photographers.",
+    "use_case": [
+      "Professional",
+      "Video",
+      "Wildlife"
+    ],
+    "pros": [
+      "8K RAW video",
+      "45MP sensor",
+      "Incredible AF",
+      "Dual card slots"
+    ],
+    "cons": [
+      "Very expensive",
+      "8K overheating issues",
+      "Heavy"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 45,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 20,
+      "video_max": "8K 30p",
+      "stabilization": "In-Body (8 stops)",
+      "battery_life": "490 shots",
+      "weight": "738g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a1",
+      "nikon-z9"
+    ]
+  },
+  {
+    "id": "sony-a1",
+    "name": "Sony Alpha 1",
+    "brand": "Sony",
+    "price": 6498,
+    "rating": 4.9,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301430&cb=s4c1yb",
+    "insight": "Sony's flagship mirrorless camera with incredible 50MP sensor and 30fps burst. No compromises for professionals.",
+    "use_case": [
+      "Professional",
+      "Sports",
+      "Wildlife"
+    ],
+    "pros": [
+      "50MP + 30fps",
+      "8K video",
+      "Zero blackout EVF",
+      "Best AF available"
+    ],
+    "cons": [
+      "Extremely expensive",
+      "Overkill for most",
+      "Complex operation"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 50.1,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 30,
+      "video_max": "8K 30p",
+      "stabilization": "In-Body (5.5 stops)",
+      "battery_life": "530 shots",
+      "weight": "737g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-r3",
+      "nikon-z9"
+    ]
+  },
+  {
+    "id": "nikon-z9",
+    "name": "Nikon Z9",
+    "brand": "Nikon",
+    "price": 5497,
+    "rating": 4.9,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301431&cb=syuogc",
+    "insight": "Nikon's professional flagship with no mechanical shutter. Built for sports and wildlife photographers who need reliability.",
+    "use_case": [
+      "Professional",
+      "Sports",
+      "Wildlife"
+    ],
+    "pros": [
+      "Electronic shutter only",
+      "8K video",
+      "Incredible battery",
+      "Pro build quality"
+    ],
+    "cons": [
+      "Very expensive",
+      "Heavy",
+      "Large size"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 45.7,
+      "iso_range": "64-25600",
+      "burst_speed_fps": 20,
+      "video_max": "8K 60p",
+      "stabilization": "In-Body (6 stops)",
+      "battery_life": "740 shots",
+      "weight": "1340g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a1",
+      "canon-r3"
+    ]
+  },
+  {
+    "id": "fujifilm-xt5",
+    "name": "Fujifilm X-T5",
+    "brand": "Fujifilm",
+    "price": 1699,
+    "rating": 4.8,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301432&cb=zblhgt",
+    "insight": "The perfect blend of retro aesthetics and modern technology. Incredible image quality with beautiful film simulations.",
+    "use_case": [
+      "Enthusiast",
+      "Landscape",
+      "Portrait"
+    ],
+    "pros": [
+      "40MP APS-C sensor",
+      "Film simulations",
+      "Classic design",
+      "IBIS"
+    ],
+    "cons": [
+      "Smaller APS-C sensor",
+      "Autofocus not best",
+      "Pricey for APS-C"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 40.2,
+      "iso_range": "125-12800",
+      "burst_speed_fps": 15,
+      "video_max": "6K 30p",
+      "stabilization": "In-Body (7 stops)",
+      "battery_life": "580 shots",
+      "weight": "557g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "fujifilm-xh2",
+      "sony-a6700"
+    ]
+  },
+  {
+    "id": "canon-r8",
+    "name": "Canon EOS R8",
+    "brand": "Canon",
+    "price": 1499,
+    "rating": 4.6,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1519183071298-a2962be90b8e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301433&cb=gg496",
+    "insight": "Affordable full-frame entry with features from the R6 II. Perfect for upgrading from APS-C without breaking the bank.",
+    "use_case": [
+      "Enthusiast",
+      "Beginner",
+      "General Purpose"
+    ],
+    "pros": [
+      "Affordable full-frame",
+      "R6 II features",
+      "Lightweight",
+      "Good AF"
+    ],
+    "cons": [
+      "No IBIS",
+      "Single card slot",
+      "Limited battery"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.2,
+      "iso_range": "100-102400",
+      "burst_speed_fps": 40,
+      "video_max": "4K 60p",
+      "battery_life": "370 shots",
+      "weight": "461g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "sony-a7c",
+      "nikon-z5"
+    ]
+  },
+  {
+    "id": "nikon-z5",
+    "name": "Nikon Z5",
+    "brand": "Nikon",
+    "price": 1397,
+    "rating": 4.5,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301434&cb=dtqbtj",
+    "insight": "Entry-level full-frame with dual card slots. Great value for beginners wanting professional features.",
+    "use_case": [
+      "Beginner",
+      "General Purpose",
+      "Portrait"
+    ],
+    "pros": [
+      "Affordable FF",
+      "Dual card slots",
+      "IBIS",
+      "Weather sealed"
+    ],
+    "cons": [
+      "Older sensor",
+      "4K 30p crop",
+      "Basic AF"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.3,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 4.5,
+      "video_max": "4K 30p (cropped)",
+      "stabilization": "In-Body (5 stops)",
+      "battery_life": "470 shots",
+      "weight": "675g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-rp",
+      "sony-a7-iii"
+    ]
+  },
+  {
+    "id": "sony-a7c",
+    "name": "Sony Alpha 7C",
+    "brand": "Sony",
+    "price": 1798,
+    "rating": 4.6,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301435&cb=uu2jfa",
+    "insight": "Compact full-frame with excellent image quality. Perfect for travelers who want small size without sacrificing performance.",
+    "use_case": [
+      "Travel",
+      "Vlogging",
+      "General Purpose"
+    ],
+    "pros": [
+      "Ultra compact",
+      "Great AF",
+      "IBIS",
+      "Flip screen"
+    ],
+    "cons": [
+      "Small grip",
+      "Single card slot",
+      "No mechanical shutter dial"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.2,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 10,
+      "video_max": "4K 30p",
+      "stabilization": "In-Body (5.5 stops)",
+      "battery_life": "740 shots",
+      "weight": "509g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-rp",
+      "nikon-z5"
+    ]
+  },
+  {
+    "id": "olympus-em1-iii",
+    "name": "OM System OM-1",
+    "brand": "OM System",
+    "price": 2199,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1606462267151-82ccaee7e1b7?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301436&cb=wjscdj",
+    "insight": "Micro Four Thirds powerhouse with incredible IBIS and weather sealing. Perfect for wildlife and outdoor photography.",
+    "use_case": [
+      "Wildlife",
+      "Outdoor",
+      "Action"
+    ],
+    "pros": [
+      "Best-in-class IBIS",
+      "Excellent weather sealing",
+      "Lightweight system",
+      "Fast AF"
+    ],
+    "cons": [
+      "Smaller M43 sensor",
+      "Lower light performance",
+      "Limited lens selection"
+    ],
+    "specs": {
+      "sensor_type": "Micro Four Thirds",
+      "megapixels": 20.4,
+      "iso_range": "200-25600",
+      "burst_speed_fps": 50,
+      "video_max": "4K 60p",
+      "stabilization": "In-Body (8.5 stops)",
+      "battery_life": "520 shots",
+      "weight": "599g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "panasonic-gh6",
+      "fujifilm-xh2s"
+    ]
+  },
+  {
+    "id": "panasonic-lumix-s5",
+    "name": "Panasonic Lumix S5",
+    "brand": "Panasonic",
+    "price": 1798,
+    "rating": 4.6,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1474221550179-02062b339d45?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301437&cb=k0r1bn",
+    "insight": "Video-centric full-frame with excellent stabilization. Great for hybrid shooters who prioritize video quality.",
+    "use_case": [
+      "Video",
+      "Hybrid",
+      "Professional"
+    ],
+    "pros": [
+      "4K 60p no crop",
+      "Dual IS2",
+      "10-bit internal",
+      "Affordable"
+    ],
+    "cons": [
+      "Contrast AF",
+      "Limited native lenses",
+      "Average stills AF"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.2,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 7,
+      "video_max": "4K 60p",
+      "stabilization": "In-Body (6.5 stops)",
+      "battery_life": "470 shots",
+      "weight": "714g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a7-iv",
+      "nikon-z6-ii"
+    ]
+  },
+  {
+    "id": "canon-m50-ii",
+    "name": "Canon EOS M50 Mark II",
+    "brand": "Canon",
+    "price": 599,
+    "rating": 4.4,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301438&cb=dzq2vk",
+    "insight": "Budget-friendly vlogging camera with great autofocus. Perfect for beginners starting their content creation journey.",
+    "use_case": [
+      "Vlogging",
+      "Beginner",
+      "Content Creation"
+    ],
+    "pros": [
+      "Very affordable",
+      "Flip screen",
+      "Good AF",
+      "User-friendly"
+    ],
+    "cons": [
+      "4K has huge crop",
+      "No IBIS",
+      "Limited EF-M lenses"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.1,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 10,
+      "video_max": "4K 24p (cropped)",
+      "autofocus": "Dual Pixel AF",
+      "battery_life": "305 shots",
+      "weight": "387g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "sony-zv-e10",
+      "panasonic-g100"
+    ]
+  },
+  {
+    "id": "nikon-d3500",
+    "name": "Nikon D3500",
+    "brand": "Nikon",
+    "price": 449,
+    "rating": 4.7,
+    "year": 2018,
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301439&cb=sgawqc",
+    "insight": "Classic DSLR perfect for beginners. Excellent battery life and user-friendly interface make learning photography easy.",
+    "use_case": [
+      "Beginner",
+      "Learning",
+      "General Purpose"
+    ],
+    "pros": [
+      "Very affordable",
+      "Excellent battery life",
+      "User-friendly",
+      "Great image quality"
+    ],
+    "cons": [
+      "No 4K video",
+      "No touchscreen",
+      "Basic AF system"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.2,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 5,
+      "video_max": "1080p",
+      "battery_life": "1550 shots",
+      "weight": "415g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-rebel-t7",
+      "sony-a6000"
+    ]
+  },
+  {
+    "id": "sony-a6000",
+    "name": "Sony Alpha a6000",
+    "brand": "Sony",
+    "price": 548,
+    "rating": 4.6,
+    "year": 2014,
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301440&cb=g7bzc",
+    "insight": "Budget mirrorless classic that's still competitive. Great value for beginners wanting mirrorless advantages.",
+    "use_case": [
+      "Beginner",
+      "Travel",
+      "General Purpose"
+    ],
+    "pros": [
+      "Very affordable",
+      "Fast AF",
+      "Compact",
+      "Good image quality"
+    ],
+    "cons": [
+      "Older design",
+      "No 4K",
+      "Limited battery"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.3,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 11,
+      "video_max": "1080p",
+      "autofocus": "179-point AF",
+      "battery_life": "360 shots",
+      "weight": "344g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-m50-ii",
+      "nikon-z50"
+    ]
+  },
+  {
+    "id": "fujifilm-xt30-ii",
+    "name": "Fujifilm X-T30 II",
+    "brand": "Fujifilm",
+    "price": 899,
+    "rating": 4.7,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1519183071298-a2962be90b8e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301441&cb=839rum",
+    "insight": "Compact powerhouse with retro styling. Delivers X-T4 image quality in a smaller, more affordable package.",
+    "use_case": [
+      "Enthusiast",
+      "Travel",
+      "Street"
+    ],
+    "pros": [
+      "26MP sensor",
+      "Film simulations",
+      "Compact design",
+      "Good value"
+    ],
+    "cons": [
+      "No IBIS",
+      "Small grip",
+      "Limited battery"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 26.1,
+      "iso_range": "160-12800",
+      "burst_speed_fps": 8,
+      "video_max": "4K 30p",
+      "autofocus": "425-point AF",
+      "battery_life": "380 shots",
+      "weight": "383g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "sony-a6400",
+      "canon-r10"
+    ]
+  },
+  {
+    "id": "canon-r7",
+    "name": "Canon EOS R7",
+    "brand": "Canon",
+    "price": 1499,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1605518215579-058a9d189913?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301442&cb=36bvx2",
+    "insight": "APS-C flagship with incredible speed and AF. Perfect for wildlife and sports photographers on a budget.",
+    "use_case": [
+      "Wildlife",
+      "Sports",
+      "Action"
+    ],
+    "pros": [
+      "32.5MP APS-C",
+      "30fps electronic",
+      "IBIS",
+      "Weather sealed"
+    ],
+    "cons": [
+      "APS-C sensor",
+      "Expensive for crop",
+      "Battery life"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 32.5,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 30,
+      "video_max": "4K 60p",
+      "stabilization": "In-Body (7 stops)",
+      "battery_life": "660 shots",
+      "weight": "612g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a6700",
+      "fujifilm-xh2"
+    ]
+  },
+  {
+    "id": "nikon-z8",
+    "name": "Nikon Z8",
+    "brand": "Nikon",
+    "price": 3997,
+    "rating": 4.9,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301443&cb=lkcn1",
+    "insight": "Z9 performance in a smaller body. The perfect professional camera for those who want it all without the bulk.",
+    "use_case": [
+      "Professional",
+      "Wildlife",
+      "Sports"
+    ],
+    "pros": [
+      "Z9 sensor",
+      "Smaller body",
+      "8K video",
+      "Excellent AF"
+    ],
+    "cons": [
+      "Expensive",
+      "Smaller battery",
+      "Still heavy"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 45.7,
+      "iso_range": "64-25600",
+      "burst_speed_fps": 20,
+      "video_max": "8K 60p",
+      "stabilization": "In-Body (6 stops)",
+      "battery_life": "340 shots",
+      "weight": "910g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-r5",
+      "sony-a1"
+    ]
+  },
+  {
+    "id": "sony-a7r-v",
+    "name": "Sony Alpha 7R V",
+    "brand": "Sony",
+    "price": 3898,
+    "rating": 4.8,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1605518215579-058a9d189913?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301444&cb=xjljbn",
+    "insight": "High-resolution monster with AI-powered autofocus. Perfect for landscape and commercial photographers.",
+    "use_case": [
+      "Landscape",
+      "Commercial",
+      "Studio"
+    ],
+    "pros": [
+      "61MP sensor",
+      "AI autofocus",
+      "8K video",
+      "Excellent detail"
+    ],
+    "cons": [
+      "Very expensive",
+      "Large files",
+      "Overkill for most"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 61,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 10,
+      "video_max": "8K 24p",
+      "stabilization": "In-Body (8 stops)",
+      "battery_life": "530 shots",
+      "weight": "723g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-r5",
+      "nikon-z8"
+    ]
+  },
+  {
+    "id": "leica-q3",
+    "name": "Leica Q3",
+    "brand": "Leica",
+    "price": 5995,
+    "rating": 4.8,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1554037593-6a9c7804245b?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301445&cb=70zl5",
+    "insight": "Premium fixed-lens full-frame with legendary Leica quality. For photographers who value craftsmanship and simplicity.",
+    "use_case": [
+      "Street",
+      "Travel",
+      "Professional"
+    ],
+    "pros": [
+      "Incredible build quality",
+      "28mm f/1.7 lens",
+      "60MP sensor",
+      "Tilting screen"
+    ],
+    "cons": [
+      "Extremely expensive",
+      "Fixed lens",
+      "No lens ecosystem"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 60.3,
+      "iso_range": "50-100000",
+      "fixed_lens": "28mm f/1.7",
+      "video_max": "8K 30p",
+      "stabilization": "In-Body",
+      "battery_life": "350 shots",
+      "weight": "743g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-rx1r-ii",
+      "fujifilm-x100v"
+    ]
+  },
+  {
+    "id": "fujifilm-x100v",
+    "name": "Fujifilm X100V",
+    "brand": "Fujifilm",
+    "price": 1399,
+    "rating": 4.8,
+    "year": 2020,
+    "image": "https://images.unsplash.com/photo-1519183071298-a2962be90b8e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301446&cb=b3xwt",
+    "insight": "Cult-favorite fixed-lens camera with hybrid viewfinder. Perfect for street photography and travel.",
+    "use_case": [
+      "Street",
+      "Travel",
+      "Casual"
+    ],
+    "pros": [
+      "Unique hybrid viewfinder",
+      "Film simulations",
+      "Compact",
+      "Great lens"
+    ],
+    "cons": [
+      "Fixed 23mm lens",
+      "No IBIS",
+      "Hard to find"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 26.1,
+      "iso_range": "160-12800",
+      "fixed_lens": "23mm f/2 (35mm equiv.)",
+      "video_max": "4K 30p",
+      "battery_life": "420 shots",
+      "weight": "478g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "ricoh-gr-iii",
+      "leica-q3"
+    ]
+  },
+  {
+    "id": "ricoh-gr-iii",
+    "name": "Ricoh GR III",
+    "brand": "Ricoh",
+    "price": 897,
+    "rating": 4.6,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301447&cb=z6jmw",
+    "insight": "Ultra-compact street photography legend. Pocketable APS-C with incredible image quality.",
+    "use_case": [
+      "Street",
+      "Travel",
+      "Casual"
+    ],
+    "pros": [
+      "Truly pocketable",
+      "Excellent lens",
+      "IBIS",
+      "Great IQ"
+    ],
+    "cons": [
+      "Fixed 28mm lens",
+      "No viewfinder",
+      "Limited video"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 24.2,
+      "iso_range": "100-102400",
+      "fixed_lens": "28mm f/2.8",
+      "video_max": "1080p",
+      "stabilization": "In-Body (4 stops)",
+      "battery_life": "200 shots",
+      "weight": "257g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "fujifilm-x100v",
+      "sony-rx100-vii"
+    ]
+  },
+  {
+    "id": "dji-osmo-action-4",
+    "name": "DJI Osmo Action 4",
+    "brand": "DJI",
+    "price": 399,
+    "rating": 4.7,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301448&cb=yszcg",
+    "insight": "GoPro alternative with larger sensor and better low-light. Perfect for action sports and vlogging on the move.",
+    "use_case": [
+      "Action",
+      "Vlogging",
+      "Sports"
+    ],
+    "pros": [
+      "1/1.3-inch sensor",
+      "10-bit color",
+      "Magnetic mounting",
+      "Long battery"
+    ],
+    "cons": [
+      "Limited photo capability",
+      "Proprietary ecosystem",
+      "Small screen"
+    ],
+    "specs": {
+      "sensor_type": "1/1.3-inch",
+      "megapixels": 10,
+      "video_max": "4K 120fps",
+      "stabilization": "RockSteady 3.0",
+      "battery_life": "160 min",
+      "weight": "145g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "gopro-hero-12",
+      "insta360-x3"
+    ]
+  },
+  {
+    "id": "gopro-hero-12",
+    "name": "GoPro HERO12 Black",
+    "brand": "GoPro",
+    "price": 399,
+    "rating": 4.6,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1606462267104-1173f64f66c3?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301449&cb=tul3o6",
+    "insight": "Industry standard action camera with proven reliability. Best ecosystem for mounting options and accessories.",
+    "use_case": [
+      "Action",
+      "Extreme Sports",
+      "Adventure"
+    ],
+    "pros": [
+      "HDR video",
+      "HyperSmooth 6.0",
+      "Best accessories",
+      "Waterproof"
+    ],
+    "cons": [
+      "Small sensor",
+      "Battery life",
+      "Subscription required"
+    ],
+    "specs": {
+      "sensor_type": "1/1.9-inch",
+      "megapixels": 27,
+      "video_max": "5.3K 60fps",
+      "stabilization": "HyperSmooth 6.0",
+      "battery_life": "70 min",
+      "weight": "153g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "dji-osmo-action-4",
+      "insta360-x3"
+    ]
+  },
+  {
+    "id": "sony-a7-iii",
+    "name": "Sony Alpha 7 III",
+    "brand": "Sony",
+    "price": 1698,
+    "rating": 4.8,
+    "year": 2018,
+    "image": "https://images.unsplash.com/photo-1554037593-6a9c7804245b?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301450&cb=weaieg",
+    "insight": "Still a great all-rounder despite its age. Excellent value for full-frame entry with proven reliability.",
+    "use_case": [
+      "All-Rounder",
+      "General Purpose",
+      "Professional"
+    ],
+    "pros": [
+      "Proven reliability",
+      "Great AF",
+      "IBIS",
+      "Good value"
+    ],
+    "cons": [
+      "Older tech",
+      "No 4K 60p",
+      "720p rear screen"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.2,
+      "iso_range": "100-51200",
+      "burst_speed_fps": 10,
+      "video_max": "4K 30p",
+      "stabilization": "In-Body (5 stops)",
+      "battery_life": "710 shots",
+      "weight": "650g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "nikon-z5",
+      "canon-rp"
+    ]
+  },
+  {
+    "id": "panasonic-gh6",
+    "name": "Panasonic Lumix GH6",
+    "brand": "Panasonic",
+    "price": 2197,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1519183071298-a2962be90b8e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301451&cb=hskukg",
+    "insight": "Video powerhouse with M43 sensor. Perfect for professional video work where sensor size matters less.",
+    "use_case": [
+      "Video",
+      "Professional",
+      "Filmmaking"
+    ],
+    "pros": [
+      "ProRes internal",
+      "5.7K 60p",
+      "Amazing video specs",
+      "No recording limits"
+    ],
+    "cons": [
+      "M43 sensor",
+      "Heavy",
+      "Contrast AF"
+    ],
+    "specs": {
+      "sensor_type": "Micro Four Thirds",
+      "megapixels": 25.2,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 14,
+      "video_max": "5.7K 60p",
+      "stabilization": "In-Body (7.5 stops)",
+      "battery_life": "360 shots",
+      "weight": "823g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-fx30",
+      "canon-r5c"
+    ]
+  },
+  {
+    "id": "canon-r6-ii",
+    "name": "Canon EOS R6 Mark II",
+    "brand": "Canon",
+    "price": 2499,
+    "rating": 4.8,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301452&cb=jpegp",
+    "insight": "Refined version of the R6 with better AF and video. The ultimate hybrid camera for most professionals.",
+    "use_case": [
+      "Professional",
+      "Hybrid",
+      "All-Rounder"
+    ],
+    "pros": [
+      "Best AF available",
+      "40fps electronic",
+      "4K 60p no crop",
+      "Great battery"
+    ],
+    "cons": [
+      "Still 24MP",
+      "Expensive",
+      "Menu complexity"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.2,
+      "iso_range": "100-102400",
+      "burst_speed_fps": 40,
+      "video_max": "4K 60p",
+      "stabilization": "In-Body (8 stops)",
+      "battery_life": "760 shots",
+      "weight": "670g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a7-iv",
+      "nikon-z6-iii"
+    ]
+  },
+  {
+    "id": "nikon-z6-iii",
+    "name": "Nikon Z6 III",
+    "brand": "Nikon",
+    "price": 2497,
+    "rating": 4.8,
+    "year": 2024,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301453&cb=u0frib",
+    "insight": "Partially stacked sensor brings incredible speed. The Z6 finally catches up to Sony and Canon in performance.",
+    "use_case": [
+      "Professional",
+      "Hybrid",
+      "Sports"
+    ],
+    "pros": [
+      "Partially stacked sensor",
+      "6K 60p RAW",
+      "120fps burst",
+      "Great AF"
+    ],
+    "cons": [
+      "Expensive",
+      "24MP only",
+      "New release"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 24.5,
+      "iso_range": "100-64000",
+      "burst_speed_fps": 120,
+      "video_max": "6K 60p",
+      "stabilization": "In-Body (8 stops)",
+      "battery_life": "410 shots",
+      "weight": "760g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-a7-iv",
+      "canon-r6-ii"
+    ]
+  },
+  {
+    "id": "sony-a6700",
+    "name": "Sony Alpha a6700",
+    "brand": "Sony",
+    "price": 1399,
+    "rating": 4.7,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1520390138845-ff2061596551?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301454&cb=07kja",
+    "insight": "Sony's latest APS-C flagship with AI autofocus and 4K 120p. Perfect for creators who want speed in a compact body.",
+    "use_case": [
+      "Hybrid",
+      "Travel",
+      "Content Creation"
+    ],
+    "pros": [
+      "AI autofocus",
+      "4K 120p video",
+      "Great ergonomics",
+      "Improved menus"
+    ],
+    "cons": [
+      "Single card slot",
+      "Rolling shutter in 4K",
+      "Pricey for APS-C"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 26,
+      "iso_range": "100-32000",
+      "burst_speed_fps": 11,
+      "video_max": "4K 120p",
+      "stabilization": "In-Body (5 stops)",
+      "battery_life": "570 shots",
+      "weight": "493g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-r7",
+      "fujifilm-xh2s"
+    ]
+  },
+  {
+    "id": "canon-rp",
+    "name": "Canon EOS RP",
+    "brand": "Canon",
+    "price": 999,
+    "rating": 4.5,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301455&cb=uodnoe",
+    "insight": "Most affordable full-frame mirrorless from Canon. Ideal gateway for beginners stepping up from APS-C.",
+    "use_case": [
+      "Beginner",
+      "Travel",
+      "General Purpose"
+    ],
+    "pros": [
+      "Lightweight",
+      "Affordable full-frame",
+      "Excellent colors",
+      "Flip screen"
+    ],
+    "cons": [
+      "No IBIS",
+      "4K heavily cropped",
+      "Older sensor"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 26.2,
+      "iso_range": "100-40000",
+      "burst_speed_fps": 5,
+      "video_max": "4K 24p (cropped)",
+      "battery_life": "250 shots",
+      "weight": "485g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "sony-a7-iii",
+      "nikon-z5"
+    ]
+  },
+  {
+    "id": "panasonic-g9-ii",
+    "name": "Panasonic Lumix G9 II",
+    "brand": "Panasonic",
+    "price": 1899,
+    "rating": 4.7,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301456&cb=m1agl",
+    "insight": "First Micro Four Thirds camera with phase-detect AF from Panasonic. A wildlife and sports beast in a compact form.",
+    "use_case": [
+      "Wildlife",
+      "Action",
+      "Outdoor"
+    ],
+    "pros": [
+      "Phase-detect AF",
+      "75fps burst",
+      "7.5-stop Dual IS",
+      "Great weather sealing"
+    ],
+    "cons": [
+      "M43 depth of field",
+      "Average low light",
+      "Large body for M43"
+    ],
+    "specs": {
+      "sensor_type": "Micro Four Thirds",
+      "megapixels": 25.2,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 75,
+      "video_max": "5.8K 60p",
+      "stabilization": "Dual IS 2 (7.5 stops)",
+      "battery_life": "390 shots",
+      "weight": "658g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "om-system-om-1",
+      "fujifilm-xh2s"
+    ]
+  },
+  {
+    "id": "insta360-x3",
+    "name": "Insta360 X3",
+    "brand": "Insta360",
+    "price": 449,
+    "rating": 4.6,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301457&cb=uu84y9",
+    "insight": "Pocket 360 camera with dual 1/2-inch sensors and invisible selfie stick tech. Perfect for immersive travel storytelling.",
+    "use_case": [
+      "Action",
+      "Travel",
+      "Social Media"
+    ],
+    "pros": [
+      "360 capture",
+      "FlowState stabilization",
+      "Invisible selfie stick",
+      "Waterproof"
+    ],
+    "cons": [
+      "Editing workflow",
+      "Low-light noise",
+      "Fixed aperture"
+    ],
+    "specs": {
+      "sensor_type": "Dual 1/2-inch",
+      "megapixels": 48,
+      "video_max": "5.7K 360°",
+      "stabilization": "FlowState",
+      "battery_life": "81 min",
+      "weight": "180g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "gopro-hero-12",
+      "dji-osmo-action-4"
+    ]
+  },
+  {
+    "id": "blackmagic-pocket-6k-g2",
+    "name": "Blackmagic Pocket Cinema Camera 6K G2",
+    "brand": "Blackmagic",
+    "price": 1995,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301458&cb=0jzpd",
+    "insight": "Cinema-grade RAW video in a compact body with EF mount. Filmmakers love its color science and flexible codecs.",
+    "use_case": [
+      "Filmmaking",
+      "Professional",
+      "Studio"
+    ],
+    "pros": [
+      "Internal BRAW & ProRes",
+      "Dual native ISO",
+      "Tilting screen",
+      "Affordable cinema tool"
+    ],
+    "cons": [
+      "Poor battery life",
+      "No AF tracking",
+      "Still photo limitations"
+    ],
+    "specs": {
+      "sensor_type": "Super 35",
+      "megapixels": 21.2,
+      "iso_range": "ISO 400 / 3200 dual native",
+      "video_max": "6K 50p",
+      "stabilization": "Electronic",
+      "battery_life": "60 min",
+      "weight": "1260g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "panasonic-s5",
+      "canon-r5c"
+    ]
+  },
+  {
+    "id": "hasselblad-x2d-100c",
+    "name": "Hasselblad X2D 100C",
+    "brand": "Hasselblad",
+    "price": 8199,
+    "rating": 4.9,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301459&cb=s3jrxa",
+    "insight": "Medium format icon with 100MP sensor and in-body stabilization. Unmatched color science for high-end commercial work.",
+    "use_case": [
+      "Commercial",
+      "Studio",
+      "Fine Art"
+    ],
+    "pros": [
+      "100MP medium format",
+      "IBIS",
+      "Built-in 1TB SSD",
+      "Legendary colors"
+    ],
+    "cons": [
+      "Extremely expensive",
+      "Slow burst rates",
+      "Limited lens ecosystem"
+    ],
+    "specs": {
+      "sensor_type": "Medium Format (43.8x32.9mm)",
+      "megapixels": 100,
+      "iso_range": "64-25600",
+      "burst_speed_fps": 3.3,
+      "video_max": "1080p",
+      "stabilization": "In-Body (7 stops)",
+      "battery_life": "420 shots",
+      "weight": "900g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "phase-one-xf-iq4",
+      "fujifilm-gfx100s"
+    ]
+  },
+  {
+    "id": "pentax-k3-iii",
+    "name": "Pentax K-3 Mark III",
+    "brand": "Pentax",
+    "price": 1999,
+    "rating": 4.6,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301460&cb=2bvq9x",
+    "insight": "Flagship DSLR for those who still love optical viewfinders. Built like a tank with weather sealing everywhere.",
+    "use_case": [
+      "Outdoor",
+      "Wildlife",
+      "Enthusiast"
+    ],
+    "pros": [
+      "Bright optical finder",
+      "IBIS",
+      "Weather sealing",
+      "Backward lens compatibility"
+    ],
+    "cons": [
+      "Limited video features",
+      "No flip screen",
+      "DSLR bulk"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 25.7,
+      "iso_range": "100-160000",
+      "burst_speed_fps": 12,
+      "video_max": "4K 30p",
+      "stabilization": "In-Body (5.5 stops)",
+      "battery_life": "800 shots",
+      "weight": "820g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "nikon-d500",
+      "canon-90d"
+    ]
+  },
+  {
+    "id": "phase-one-xf-iq4",
+    "name": "Phase One XF IQ4 150MP",
+    "brand": "Phase One",
+    "price": 51990,
+    "rating": 5,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301461&cb=p6gdnf",
+    "insight": "Ultimate medium format system for commercial studios. 150MP BSI sensor with unmatched dynamic range.",
+    "use_case": [
+      "Commercial",
+      "Studio",
+      "Fine Art"
+    ],
+    "pros": [
+      "150MP detail",
+      "16-bit color",
+      "Modular system",
+      "Capture One integration"
+    ],
+    "cons": [
+      "Astronomical price",
+      "Large and heavy",
+      "Not for video"
+    ],
+    "specs": {
+      "sensor_type": "Medium Format (53.4x40mm)",
+      "megapixels": 151,
+      "iso_range": "50-25600",
+      "burst_speed_fps": 2,
+      "video_max": "N/A",
+      "stabilization": "Lens-based",
+      "battery_life": "800 shots",
+      "weight": "2170g (with body)",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "hasselblad-x2d-100c",
+      "fujifilm-gfx100"
+    ]
+  },
+  {
+    "id": "sony-fx3",
+    "name": "Sony FX3 Cinema Line",
+    "brand": "Sony",
+    "price": 3899,
+    "rating": 4.8,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301462&cb=84pmxi",
+    "insight": "Cinema-focused version of the a7S III with pro video controls and cooling. Ideal for solo filmmakers who need full-frame quality.",
+    "use_case": [
+      "Filmmaking",
+      "Professional",
+      "Documentary"
+    ],
+    "pros": [
+      "Full-frame 4K 120p",
+      "Internal 10-bit 4:2:2",
+      "Dual XLR handle",
+      "Active cooling"
+    ],
+    "cons": [
+      "Still photo limitations",
+      "Mini HDMI port",
+      "No viewfinder"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 12.1,
+      "iso_range": "80-409600",
+      "video_max": "4K 120p",
+      "stabilization": "In-Body (5-axis)",
+      "battery_life": "580 shots / 95 min video",
+      "weight": "715g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-r5c",
+      "panasonic-s5-ii-x"
+    ]
+  },
+  {
+    "id": "sony-fx30",
+    "name": "Sony FX30",
+    "brand": "Sony",
+    "price": 1799,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301463&cb=z2jqee",
+    "insight": "Super 35/APS-C cinema camera that brings FX look to budget filmmakers. Great for gimbal work and multi-cam rigs.",
+    "use_case": [
+      "Filmmaking",
+      "Content Creation",
+      "Travel"
+    ],
+    "pros": [
+      "Cine EI workflows",
+      "4K 120p oversampled",
+      "Compact body",
+      "Affordable CFexpress Type A media"
+    ],
+    "cons": [
+      "No photo mode",
+      "Rolling shutter",
+      "No mechanical shutter"
+    ],
+    "specs": {
+      "sensor_type": "APS-C/Super 35",
+      "megapixels": 26,
+      "iso_range": "ISO 800 / 2500 dual base",
+      "video_max": "4K 120p",
+      "stabilization": "Electronic + active",
+      "battery_life": "170 min video",
+      "weight": "646g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "blackmagic-pocket-6k-g2",
+      "canon-r5c"
+    ]
+  },
+  {
+    "id": "canon-r5c",
+    "name": "Canon EOS R5 C",
+    "brand": "Canon",
+    "price": 4499,
+    "rating": 4.7,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301464&cb=2fzql",
+    "insight": "Hybrid camera that merges EOS R stills with Cinema EOS video. 8K 60p RAW with active cooling in a compact body.",
+    "use_case": [
+      "Filmmaking",
+      "Hybrid",
+      "Professional"
+    ],
+    "pros": [
+      "8K 60p RAW internal",
+      "Canon Log 3/Log 2",
+      "Timecode port",
+      "Unlimited recording"
+    ],
+    "cons": [
+      "No IBIS",
+      "Two operating systems",
+      "Short battery life in video"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 45,
+      "iso_range": "100-51200",
+      "video_max": "8K 60p RAW",
+      "stabilization": "Electronic",
+      "battery_life": "60-70 min video",
+      "weight": "770g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "sony-fx3",
+      "panasonic-s5-ii-x"
+    ]
+  },
+  {
+    "id": "dji-mini-4-pro",
+    "name": "DJI Mini 4 Pro",
+    "brand": "DJI",
+    "price": 999,
+    "rating": 4.8,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301465&cb=4w7sfk",
+    "insight": "Sub-250g drone with omnidirectional obstacle avoidance and 10-bit 4K. Travel-friendly yet professional output.",
+    "use_case": [
+      "Travel",
+      "Aerial",
+      "Content Creation"
+    ],
+    "pros": [
+      "Under 250g",
+      "4K 60p HDR",
+      "Omni sensors",
+      "Long flight time"
+    ],
+    "cons": [
+      "No variable aperture",
+      "Wind sensitivity",
+      "Smaller sensor"
+    ],
+    "specs": {
+      "sensor_type": "1/1.3-inch CMOS",
+      "megapixels": 48,
+      "iso_range": "100-6400",
+      "video_max": "4K 60p HDR",
+      "stabilization": "3-axis gimbal",
+      "battery_life": "34 min flight",
+      "weight": "249g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "dji-air-3",
+      "autel-evo-lite-plus"
+    ]
+  },
+  {
+    "id": "dji-air-3",
+    "name": "DJI Air 3",
+    "brand": "DJI",
+    "price": 1099,
+    "rating": 4.8,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301466&cb=ca6ieg",
+    "insight": "Dual-camera drone with wide and 3x medium tele lenses plus omnidirectional avoidance. Fantastic for dynamic storytelling.",
+    "use_case": [
+      "Aerial",
+      "Commercial",
+      "Travel"
+    ],
+    "pros": [
+      "Dual 1/1.3-inch sensors",
+      "4K 100p slow motion",
+      "46 min flight",
+      "Omni avoidance"
+    ],
+    "cons": [
+      "No mechanical shutter",
+      "Larger than Mini series",
+      "Extra batteries costly"
+    ],
+    "specs": {
+      "sensor_type": "Dual 1/1.3-inch CMOS",
+      "megapixels": 48,
+      "iso_range": "100-6400",
+      "video_max": "4K 100p",
+      "stabilization": "3-axis gimbal",
+      "battery_life": "46 min flight",
+      "weight": "720g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "dji-mini-4-pro",
+      "mavic-3-pro"
+    ]
+  },
+  {
+    "id": "autel-evo-lite-plus",
+    "name": "Autel EVO Lite+",
+    "brand": "Autel",
+    "price": 1199,
+    "rating": 4.6,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1606462267143-6e3a0f87b8d2?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301467&cb=3ueksy",
+    "insight": "1-inch sensor drone with adjustable aperture and no geo-fencing. Great alternative for pilots wanting flexibility.",
+    "use_case": [
+      "Aerial",
+      "Landscape",
+      "Travel"
+    ],
+    "pros": [
+      "Adjustable f/2.8-11 aperture",
+      "6K video",
+      "No no-fly zones",
+      "Long flight time"
+    ],
+    "cons": [
+      "Software quirks",
+      "Limited accessory ecosystem",
+      "Heavier"
+    ],
+    "specs": {
+      "sensor_type": "1-inch CMOS",
+      "megapixels": 20,
+      "iso_range": "100-6400",
+      "video_max": "6K 30p",
+      "stabilization": "3-axis gimbal",
+      "battery_life": "40 min flight",
+      "weight": "835g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "dji-air-3",
+      "mavic-3-classic"
+    ]
+  },
+  {
+    "id": "polaroid-i-2",
+    "name": "Polaroid I-2",
+    "brand": "Polaroid",
+    "price": 599,
+    "rating": 4.3,
+    "year": 2023,
+    "image": "https://images.unsplash.com/photo-1474221550179-02062b339d45?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301468&cb=tk93e",
+    "insight": "Modern instant camera with autofocus and full manual controls. Combines nostalgia with serious creative flexibility.",
+    "use_case": [
+      "Instant",
+      "Creative",
+      "Events"
+    ],
+    "pros": [
+      "Autofocus lens",
+      "Manual exposure modes",
+      "Built-in flash",
+      "Rechargeable battery"
+    ],
+    "cons": [
+      "Expensive film",
+      "Bulky body",
+      "Limited digital integration"
+    ],
+    "specs": {
+      "sensor_type": "Instant film (Polaroid i-Type)",
+      "megapixels": "Physical media",
+      "iso_range": "Film dependent",
+      "video_max": "N/A",
+      "stabilization": "N/A",
+      "battery_life": "15 packs per charge",
+      "weight": "560g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "instax-mini-evo",
+      "leica-sofort-2"
+    ]
+  },
+  {
+    "id": "instax-mini-evo",
+    "name": "Fujifilm Instax Mini Evo",
+    "brand": "Fujifilm",
+    "price": 199,
+    "rating": 4.5,
+    "year": 2021,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301469&cb=deyhat",
+    "insight": "Hybrid instant camera that lets you preview, edit, and reprint Instax Mini photos using digital filters and lenses.",
+    "use_case": [
+      "Instant",
+      "Social",
+      "Travel"
+    ],
+    "pros": [
+      "Digital preview",
+      "10 lens + 10 film effects",
+      "Bluetooth printing",
+      "USB-C charging"
+    ],
+    "cons": [
+      "Instax Mini size only",
+      "Small sensor",
+      "Limited low light"
+    ],
+    "specs": {
+      "sensor_type": "1/5-inch CMOS",
+      "megapixels": 5,
+      "iso_range": "100-1600",
+      "video_max": "N/A",
+      "stabilization": "Digital",
+      "battery_life": "100 prints per charge",
+      "weight": "285g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "polaroid-i-2",
+      "instax-mini-liplay"
+    ]
+  },
+  {
+    "id": "canon-ae1-program",
+    "name": "Canon AE-1 Program",
+    "brand": "Canon",
+    "price": 299,
+    "rating": 4.7,
+    "year": 1981,
+    "image": "https://images.unsplash.com/photo-1619881149420-56d19a69134a?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301470&cb=awbd0i",
+    "insight": "Iconic 35mm film SLR that introduced many to photography. Still beloved for its tactile shooting experience.",
+    "use_case": [
+      "Film",
+      "Education",
+      "Street"
+    ],
+    "pros": [
+      "Classic handling",
+      "Huge lens ecosystem",
+      "Reliable shutter",
+      "Affordable to maintain"
+    ],
+    "cons": [
+      "Requires film + development",
+      "Manual focus only",
+      "Battery dependent"
+    ],
+    "specs": {
+      "sensor_type": "35mm film",
+      "megapixels": "Film dependent",
+      "iso_range": "ISO 12-3200 (ASA dial)",
+      "video_max": "N/A",
+      "stabilization": "N/A",
+      "battery_life": "Years on 6V",
+      "weight": "575g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "nikon-fm2",
+      "pentax-k1000"
+    ]
+  },
+  {
+    "id": "leica-m6",
+    "name": "Leica M6 (2022 Reissue)",
+    "brand": "Leica",
+    "price": 5695,
+    "rating": 4.9,
+    "year": 2022,
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301471&cb=7axdtq",
+    "insight": "Rangefinder legend reborn with modern manufacturing. Handmade craftsmanship and unmatched tactile shooting.",
+    "use_case": [
+      "Film",
+      "Street",
+      "Fine Art"
+    ],
+    "pros": [
+      "Rangefinder precision",
+      "Iconic design",
+      "Mechanical reliability",
+      "Leica M lenses"
+    ],
+    "cons": [
+      "Extremely expensive",
+      "Manual everything",
+      "No meter readout in finder"
+    ],
+    "specs": {
+      "sensor_type": "35mm film",
+      "megapixels": "Film dependent",
+      "iso_range": "ISO 6-3200 via dial",
+      "video_max": "N/A",
+      "stabilization": "N/A",
+      "battery_life": "Light meter only",
+      "weight": "600g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "leica-m-a",
+      "zeiss-ikon"
+    ]
+  },
+  {
+    "id": "iphone-16-pro-max",
+    "name": "Apple iPhone 16 Pro Max",
+    "brand": "Apple",
+    "price": 1199,
+    "rating": 4.7,
+    "year": 2024,
+    "image": "https://images.unsplash.com/photo-1606462267143-6e3a0f87b8d2?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301472&cb=s8l8om",
+    "insight": "Flagship smartphone camera with 48MP main sensor, 5x tetraprism telephoto, and Log video. Pocket powerhouse.",
+    "use_case": [
+      "Mobile",
+      "Travel",
+      "Social"
+    ],
+    "pros": [
+      "48MP ProRAW",
+      "5x optical zoom",
+      "Log video + ACES",
+      "Spatial video capture"
+    ],
+    "cons": [
+      "Small sensor",
+      "Needs accessories for pro use",
+      "Battery under heavy shooting"
+    ],
+    "specs": {
+      "sensor_type": "Triple camera array",
+      "megapixels": 48,
+      "iso_range": "Automatic",
+      "video_max": "4K 60p ProRes / Log",
+      "stabilization": "Sensor-shift OIS",
+      "battery_life": "29 hrs video playback",
+      "weight": "227g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "galaxy-s24-ultra",
+      "pixel-9-pro"
+    ]
+  },
+  {
+    "id": "pixel-9-pro",
+    "name": "Google Pixel 9 Pro",
+    "brand": "Google",
+    "price": 999,
+    "rating": 4.6,
+    "year": 2024,
+    "image": "https://images.unsplash.com/photo-1606980707466-1b01a3f85c1c?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301473&cb=42c1rn",
+    "insight": "Best computational photography phone with HDR+, astrophotography, and AI edit tools built-in.",
+    "use_case": [
+      "Mobile",
+      "Night",
+      "Travel"
+    ],
+    "pros": [
+      "Astro mode",
+      "Magic Editor",
+      "RAW support",
+      "Great low-light"
+    ],
+    "cons": [
+      "Limited manual control",
+      "Single storage option",
+      "Average video"
+    ],
+    "specs": {
+      "sensor_type": "Triple camera array",
+      "megapixels": 50,
+      "iso_range": "Automatic",
+      "video_max": "4K 60p",
+      "stabilization": "OIS + EIS",
+      "battery_life": "24+ hrs mixed use",
+      "weight": "213g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "iphone-16-pro-max",
+      "galaxy-s24-ultra"
+    ]
+  },
+  {
+    "id": "galaxy-s24-ultra",
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "price": 1299,
+    "rating": 4.7,
+    "year": 2024,
+    "image": "https://images.unsplash.com/photo-1599598143894-65a7dba413d7?w=800&h=600&fit=crop&auto=format&q=80&v=1763890301474&cb=4xmfpf",
+    "insight": "200MP main sensor and 5x periscope zoom make this the most versatile mobile camera for long reach.",
+    "use_case": [
+      "Mobile",
+      "Zoom",
+      "Travel"
+    ],
+    "pros": [
+      "200MP RAW",
+      "5x periscope + 3x tele",
+      "Expert RAW app",
+      "S Pen precision"
+    ],
+    "cons": [
+      "Computational look",
+      "Large body",
+      "Night mode lag"
+    ],
+    "specs": {
+      "sensor_type": "Quad camera array",
+      "megapixels": 200,
+      "iso_range": "Automatic",
+      "video_max": "8K 30p",
+      "stabilization": "OIS + EIS",
+      "battery_life": "26 hrs video playback",
+      "weight": "232g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "iphone-16-pro-max",
+      "pixel-9-pro"
+    ]
+  },
+  {
+    "id": "ricoh-theta-z1",
+    "name": "Ricoh THETA Z1",
+    "brand": "Ricoh",
+    "price": 999,
+    "rating": 4.5,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1606462267108-80d74e43ea8b?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301475&cb=d4k7bd",
+    "insight": "Premium 360° camera with dual 1-inch sensors for VR content and virtual tours.",
+    "use_case": [
+      "360",
+      "Virtual Tours",
+      "Real Estate"
+    ],
+    "pros": [
+      "Dual 1-inch sensors",
+      "RAW DNG support",
+      "Professional plugins",
+      "Compact form"
+    ],
+    "cons": [
+      "Limited battery",
+      "Older USB 3.0",
+      "Requires stitching workflow"
+    ],
+    "specs": {
+      "sensor_type": "Dual 1-inch CMOS",
+      "megapixels": 23,
+      "iso_range": "80-6400",
+      "video_max": "4K 30p 360°",
+      "stabilization": "6-axis digital",
+      "battery_life": "60 min video",
+      "weight": "182g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "insta360-x3",
+      "gopro-max"
+    ]
+  },
+  {
+    "id": "canon-g7x-iii",
+    "name": "Canon PowerShot G7 X Mark III",
+    "brand": "Canon",
+    "price": 749,
+    "rating": 4.4,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1474221550179-02062b339d45?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301476&cb=1n9yvf",
+    "insight": "Beloved vlogging compact with 1-inch sensor and clean HDMI. Fits the pocket while delivering solid image quality.",
+    "use_case": [
+      "Vlogging",
+      "Travel",
+      "Everyday"
+    ],
+    "pros": [
+      "Flip-up screen",
+      "Fast 24-100mm lens",
+      "Mic input",
+      "Live streaming features"
+    ],
+    "cons": [
+      "No viewfinder",
+      "Soft 4K",
+      "Short battery"
+    ],
+    "specs": {
+      "sensor_type": "1-inch CMOS",
+      "megapixels": 20.1,
+      "iso_range": "125-12800",
+      "video_max": "4K 30p",
+      "stabilization": "Optical IS",
+      "battery_life": "235 shots",
+      "weight": "304g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "sony-rx100-vii",
+      "panasonic-lx10"
+    ]
+  },
+  {
+    "id": "sony-rx100-vii",
+    "name": "Sony RX100 VII",
+    "brand": "Sony",
+    "price": 1299,
+    "rating": 4.6,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301477&cb=j4d1yi",
+    "insight": "Ultimate pocket camera with 24-200mm zoom and blazing autofocus. Perfect companion for travel pros.",
+    "use_case": [
+      "Travel",
+      "Street",
+      "Vlogging"
+    ],
+    "pros": [
+      "Real-time Eye AF",
+      "24fps blackout-free",
+      "Pop-up EVF",
+      "24-200mm lens"
+    ],
+    "cons": [
+      "Small sensor",
+      "Pricey",
+      "Limited battery"
+    ],
+    "specs": {
+      "sensor_type": "1-inch CMOS",
+      "megapixels": 20.1,
+      "iso_range": "100-12800",
+      "video_max": "4K 30p",
+      "stabilization": "Optical + electronic",
+      "battery_life": "260 shots",
+      "weight": "302g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-g7x-iii",
+      "panasonic-lx10"
+    ]
+  },
+  {
+    "id": "panasonic-lx10",
+    "name": "Panasonic Lumix LX10",
+    "brand": "Panasonic",
+    "price": 699,
+    "rating": 4.3,
+    "year": 2016,
+    "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301478&cb=mixri",
+    "insight": "Compact 1-inch camera with f/1.4 Leica lens and 4K photo features. Budget-friendly premium compact.",
+    "use_case": [
+      "Travel",
+      "Beginner",
+      "Street"
+    ],
+    "pros": [
+      "Bright lens",
+      "4K photo mode",
+      "USB charging",
+      "Affordable"
+    ],
+    "cons": [
+      "No EVF",
+      "Short zoom range",
+      "Older AF"
+    ],
+    "specs": {
+      "sensor_type": "1-inch CMOS",
+      "megapixels": 20.1,
+      "iso_range": "125-12800",
+      "video_max": "4K 30p",
+      "stabilization": "Optical",
+      "battery_life": "260 shots",
+      "weight": "310g",
+      "weather_sealed": false
+    },
+    "alternatives": [
+      "canon-g7x-iii",
+      "sony-rx100-vii"
+    ]
+  },
+  {
+    "id": "nikon-d850",
+    "name": "Nikon D850",
+    "brand": "Nikon",
+    "price": 2996,
+    "rating": 4.9,
+    "year": 2017,
+    "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301479&cb=xlvofk",
+    "insight": "Legendary DSLR with 45MP sensor, 7fps burst, and class-leading dynamic range. Still the benchmark for many pros.",
+    "use_case": [
+      "Commercial",
+      "Landscape",
+      "Studio"
+    ],
+    "pros": [
+      "45MP BSI sensor",
+      "Excellent build",
+      "Great battery life",
+      "Huge F-mount ecosystem"
+    ],
+    "cons": [
+      "Large and heavy",
+      "No IBIS",
+      "DSLR mirror slap"
+    ],
+    "specs": {
+      "sensor_type": "Full-Frame",
+      "megapixels": 45.7,
+      "iso_range": "64-25600",
+      "burst_speed_fps": 7,
+      "video_max": "4K 30p",
+      "stabilization": "Lens-based",
+      "battery_life": "1840 shots",
+      "weight": "1005g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "canon-5d-mark-iv",
+      "sony-a7r-v"
+    ]
+  },
+  {
+    "id": "canon-90d",
+    "name": "Canon EOS 90D",
+    "brand": "Canon",
+    "price": 1199,
+    "rating": 4.6,
+    "year": 2019,
+    "image": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=800&h=600&fit=crop&auto=format&q=80&dpr=2&v=1763890301480&cb=07yccc",
+    "insight": "High-resolution DSLR with 32.5MP APS-C sensor and uncropped 4K. Great for wildlife shooters who love optical viewfinders.",
+    "use_case": [
+      "Wildlife",
+      "Sports",
+      "Beginner Pro"
+    ],
+    "pros": [
+      "32.5MP detail",
+      "10fps mechanical",
+      "Dual Pixel AF in live view",
+      "Long battery life"
+    ],
+    "cons": [
+      "DSLR bulk",
+      "Single card slot",
+      "No IBIS"
+    ],
+    "specs": {
+      "sensor_type": "APS-C",
+      "megapixels": 32.5,
+      "iso_range": "100-25600",
+      "burst_speed_fps": 10,
+      "video_max": "4K 30p uncropped",
+      "stabilization": "Lens-based",
+      "battery_life": "1300 shots",
+      "weight": "701g",
+      "weather_sealed": true
+    },
+    "alternatives": [
+      "nikon-d7500",
+      "canon-r7"
+    ]
+  }
 ]

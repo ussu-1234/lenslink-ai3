@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - LensLink AI</title>
+    
+    <style>
+        /* --- Basic Setup & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        /* --- Main Content --- */
+        main {
+            flex: 1;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #58a6ff;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        /* --- Loading & Empty States --- */
+        .loading, .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .loading {
+            color: #58a6ff;
+            font-size: 1.2em;
+        }
+
+        .empty-state h2 {
+            color: #f85149;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            color: #8b949e;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+        }
+
+        /* --- Camera Grid --- */
+        .camera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .camera-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .camera-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.15);
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(22, 27, 34, 0.9);
+            border: 1px solid #30363d;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .favorite-btn:hover {
+            transform: scale(1.1);
+            background-color: rgba(88, 166, 255, 0.2);
+            border-color: #58a6ff;
+        }
+
+        .camera-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #21262d;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .card-title h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        .brand {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #ffa657;
+        }
+
+        .stars {
+            font-size: 1.2em;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        .use-cases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .use-case-tag {
+            padding: 5px 12px;
+            background-color: #21262d;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #8b949e;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 10px 20px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 60px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .camera-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a href="/" class="logo" style="text-decoration: none;">LensLink AI</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cameras.html">Browse Cameras</a>
+            <a href="/favorites.html">Favorites</a>
+            <a href="/profile.html">Profile</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>My Favorite Cameras</h1>
+        <p class="subtitle">Your saved cameras for quick access</p>
+
+        <div id="favoritesContent">
+            <div class="loading">Loading your favorites...</div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 LensLink AI. All rights reserved.</p>
+    </footer>
+
+    <script src="/public/js/auth.js"></script>
+    <script src="/public/js/favorites.js"></script>
+    <script>
+        // Load and display favorites
+        async function loadFavoritesPage() {
+            const content = document.getElementById('favoritesContent');
+
+            try {
+                // Check authentication
+                const user = await checkAuth();
+                if (!user) {
+                    content.innerHTML = `
+                        <div class="empty-state">
+                            <h2>Login Required</h2>
+                            <p>Please login to view your favorite cameras</p>
+                            <a href="/login.html" class="btn">Go to Login</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Load favorites
+                await loadFavorites();
+                const favoriteCameras = await getFavoriteCameras();
+
+                if (favoriteCameras.length === 0) {
+                    content.innerHTML = `
+                        <div class="empty-state">
+                            <h2>No Favorites Yet</h2>
+                            <p>Start adding cameras to your favorites to see them here!</p>
+                            <a href="/cameras.html" class="btn">Browse Cameras</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Display favorites
+                content.innerHTML = '<div class="camera-grid"></div>';
+                const grid = content.querySelector('.camera-grid');
+                
+                favoriteCameras.forEach(camera => {
+                    const card = document.createElement('div');
+                    card.className = 'camera-card';
+                    card.onclick = () => viewCamera(camera.id);
+                    
+                    card.innerHTML = `
+                        <img src="${camera.image}" alt="${camera.name}" onerror="this.src='https://via.placeholder.com/800x600/1a1a1a/ffffff?text=Camera'; this.onerror=null;">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h3>${camera.name}</h3>
+                                    <div class="brand">${camera.brand}</div>
+                                </div>
+                                <div class="rating">
+                                    <span class="stars">★</span>
+                                    <span>${camera.rating}</span>
+                                </div>
+                            </div>
+                            <div class="price">${camera.price ? `$${camera.price.toLocaleString()}` : 'Price N/A'}</div>
+                            <div class="use-cases">
+                                ${camera.use_case.slice(0, 3).map(uc => `
+                                    <span class="use-case-tag">${uc}</span>
+                                `).join('')}
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn btn-primary" onclick="event.stopPropagation(); viewCamera('${camera.id}')">
+                                    View Details
+                                </button>
+                                <button class="btn btn-secondary" onclick="event.stopPropagation(); addToCompare('${camera.id}')">
+                                    Compare
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add favorite button (will show as filled heart since it's in favorites)
+                    const favoriteBtn = createFavoriteButton(camera.id);
+                    favoriteBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        favoriteBtn.click();
+                    };
+                    card.appendChild(favoriteBtn);
+                    
+                    grid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Failed to load favorites:', error);
+                content.innerHTML = `
+                    <div class="empty-state">
+                        <h2>Error Loading Favorites</h2>
+                        <p>There was an error loading your favorite cameras. Please try again later.</p>
+                        <button class="btn" onclick="location.reload()">Retry</button>
+                    </div>
+                `;
+            }
+        }
+
+        // View camera details
+        function viewCamera(cameraId) {
+            window.location.href = `/camera-detail.html?id=${cameraId}`;
+        }
+
+        // Add to compare
+        function addToCompare(cameraId) {
+            alert('Compare feature coming soon!');
+        }
+
+        // Listen for favorites changes to refresh the page
+        window.addEventListener('favoritesChanged', () => {
+            loadFavoritesPage();
+        });
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', async () => {
+            await updateNavigation();
+            await loadFavoritesPage();
+        });
+    </script>
+    
+    <!-- Language Support -->
+    <script src="/public/js/translations.js"></script>
+    <script src="/public/js/language.js"></script>
+</body>
+</html>
+
+
+
+
+
+
